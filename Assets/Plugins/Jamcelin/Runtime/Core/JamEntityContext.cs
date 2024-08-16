@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Jamcelin.Runtime.Core
 {
-    public class JamGameObjectContext : GameObjectContext
+    public class JamEntityContext : GameObjectContext
     {
         [SerializeField] private AssetLabelReference _scope;
 

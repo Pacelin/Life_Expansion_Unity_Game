@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using Jamcelin.Runtime.Core;
-using Jamcelin.Runtime.Entities;
 using UnityEditor;
 using UnityEngine;
 
@@ -45,17 +44,7 @@ namespace Jamcelin.Editor
             go.name = "Game Object Context";
             if (Selection.activeTransform != null)
                 go.transform.parent = Selection.activeTransform;
-            go.AddComponent<JamGameObjectContext>();
-        }
-        
-        [MenuItem("GameObject/Jamcelin/Entity Context")]
-        private static void CreateEntityContext()
-        {
-            var go = new GameObject();
-            go.name = "Entity Context";
-            if (Selection.activeTransform != null)
-                go.transform.parent = Selection.activeTransform;
-            go.AddComponent<EntityContext>();
+            go.AddComponent<JamEntityContext>();
         }
     }
 }

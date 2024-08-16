@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 namespace Jamcelin.Editor
 {
-    [CustomEditor(typeof(JamGameObjectContext), true)]
+    [CustomEditor(typeof(JamEntityContext), true)]
     public class JamGameObjectContextEditor : UnityEditor.Editor
     {
         public override VisualElement CreateInspectorGUI()
