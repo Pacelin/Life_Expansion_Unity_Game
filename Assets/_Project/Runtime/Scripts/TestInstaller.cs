@@ -1,27 +1,25 @@
-﻿using Jamcelin.Runtime;
+﻿using Jamcelin.Runtime.Core;
 using UnityEngine;
-using VContainer;
-using VContainer.Unity;
+using Zenject;
 
 namespace Runtime
 {
-    [CreateAssetMenu(menuName = "Installers/Test")]
+    [CreateAssetMenu(menuName = "Installers/Test Installer")]
     public class TestInstaller : JamInstaller
     {
-        public override void Install(IContainerBuilder builder)
+        protected override void Install()
         {
-            Debug.Log("Test Installer");
-            builder.Register<Test>(Lifetime.Scoped)
-                .AsSelf()
-                .AsImplementedInterfaces();
+            Debug.Log("Test Install");
+            Container.BindInterfacesAndSelfTo<Test>()
+                .AsSingle();
         }
     }
 
-    public class Test : IStartable
+    public class Test : IInitializable
     {
-        public void Start()
+        public void Initialize()
         {
-            Debug.Log("Start");
+            Debug.Log("Test Initialize");
         }
     }
 }

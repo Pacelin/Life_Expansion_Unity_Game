@@ -15,25 +15,33 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 82bfd973031bb7243b81210266b23040
   m_SerializeEntries:
-  - m_GUID: 0a6b56a1e5d004c41953e43db7078d84
-    m_Address: Project Scope
+  - m_GUID: 33b843ea6828c5f4fb4e103fe2a33297
+    m_Address: Main Menu Scene
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 703eb5bd91e8c1a469d81771ae41f8e9
+  - m_GUID: a4d21bb95bd4ed94bb73e22b37a8edaf
+    m_Address: Boot Scope
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Boot Scope
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2651972baf679440906787dc6a879c2
+    m_Address: Empty Scene
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e77981a611e9e6b4599a61d3285433fd
     m_Address: Main Menu Scope
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Main Menu Scope
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 723f7cb9c86f2034d953c88bc7402d7a
-    m_Address: Entry Point Settings
+  - m_GUID: f20f214b8ac883a4aa326908f89f352e
+    m_Address: Assets/_Project/Scopes/Project
     m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fa6923118399f7d4084e402b3e9febce
-    m_Address: Boot Scene
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Project Scope
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b00b958454f1f0644aa5df1f3b24f276, type: 2}
