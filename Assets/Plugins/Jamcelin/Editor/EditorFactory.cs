@@ -1,5 +1,7 @@
 ﻿using System.IO;
+using Jamcelin.Runtime.Core;
 using UnityEditor;
+using UnityEngine;
 
 namespace Jamcelin.Editor
 {
@@ -23,6 +25,26 @@ namespace Jamcelin.Editor
                 EditorExtensions.MarkAddressable(AssetDatabase.AssetPathToGUID(choosedPath), folderName + " Scope", true);
             
             AssetDatabase.Refresh();
+        }
+
+        [MenuItem("GameObject/Jamcelin/Scene Context")]
+        private static void CreateSceneContext()
+        {
+            var go = new GameObject();
+            go.name = "Scene Context";
+            if (Selection.activeTransform != null)
+                go.transform.parent = Selection.activeTransform;
+            go.AddComponent<JamSceneContext>();
+        }
+        
+        [MenuItem("GameObject/Jamcelin/Game Object Context")]
+        private static void CreateGameObjectContext()
+        {
+            var go = new GameObject();
+            go.name = "Game Object Context";
+            if (Selection.activeTransform != null)
+                go.transform.parent = Selection.activeTransform;
+            go.AddComponent<JamGameObjectContext>();
         }
     }
 }
