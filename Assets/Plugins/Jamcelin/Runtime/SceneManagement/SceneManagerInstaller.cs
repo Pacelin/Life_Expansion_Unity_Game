@@ -4,7 +4,7 @@ using Jamcelin.Runtime.Core;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Jamcelin.Runtime.Extras.SceneManagement
+namespace Jamcelin.Runtime.SceneManagement
 {
     [CreateAssetMenu(menuName = "Jamcelin/Scene Manager Installer")]
     public class SceneManagerInstaller : JamInstaller

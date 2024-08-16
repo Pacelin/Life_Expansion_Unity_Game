@@ -1,4 +1,4 @@
-﻿namespace Jamcelin.Runtime.Extras.SceneManagement
+﻿namespace Jamcelin.Runtime.SceneManagement
 {
     public enum EScene
     {

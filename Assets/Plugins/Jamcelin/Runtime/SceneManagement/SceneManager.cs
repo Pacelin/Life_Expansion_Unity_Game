@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
-namespace Jamcelin.Runtime.Extras.SceneManagement
+namespace Jamcelin.Runtime.SceneManagement
 {
     public class SceneManager
     {

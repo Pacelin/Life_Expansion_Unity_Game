@@ -11,9 +11,9 @@ namespace Jamcelin.Runtime.Core
         protected override void InstallInstallers()
         {
             base.InstallInstallers();
-            var installer = Container.Instantiate<ScopeInstaller>();
-            installer.InstallScope(_scope);
-            installer.InstallBindings();
+            var installers = 
+                Container.Inject(_scope, out var handle);
+            installers.Install(handle);
         }
     }
 }
