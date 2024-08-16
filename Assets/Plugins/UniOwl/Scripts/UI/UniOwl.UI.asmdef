@@ -1,0 +1,18 @@
+{
+    "name": "UniOwl.UI",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:69c045f3cc39c05418c6089ba717d8fc",
+        "GUID:949f15f3c49dc6246a5c98a58f47ab75"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

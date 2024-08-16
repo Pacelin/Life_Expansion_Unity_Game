@@ -1,0 +1,16 @@
+{
+    "name": "UniOwl.Audio",
+    "rootNamespace": "",
+    "references": [
+        "GUID:5bbb6180e2ab2b346b1522042417e3da"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

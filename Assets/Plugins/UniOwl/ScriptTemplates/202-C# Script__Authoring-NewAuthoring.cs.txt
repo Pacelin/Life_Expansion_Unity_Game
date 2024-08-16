@@ -1,0 +1,12 @@
+using Unity.Entities;
+using UnityEngine;
+
+    #ROOTNAMESPACEBEGIN#
+public class #SCRIPTNAME# : MonoBehaviour, IConvertGameObjectToEntity
+{
+    public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
+    {
+        #NOTRIM#
+    }
+}
+#ROOTNAMESPACEEND#

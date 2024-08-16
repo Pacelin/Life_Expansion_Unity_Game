@@ -1,0 +1,16 @@
+{
+    "name": "UniOwl.2D",
+    "rootNamespace": "",
+    "references": [
+        "GUID:96d38a5cb57b9c94d85d34a09c3ba7ff"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
