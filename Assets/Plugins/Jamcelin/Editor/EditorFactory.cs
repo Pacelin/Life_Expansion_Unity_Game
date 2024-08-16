@@ -37,11 +37,11 @@ namespace Jamcelin.Editor
             go.AddComponent<JamSceneContext>();
         }
         
-        [MenuItem("GameObject/Jamcelin/Game Object Context")]
+        [MenuItem("GameObject/Jamcelin/Entity Context")]
         private static void CreateGameObjectContext()
         {
             var go = new GameObject();
-            go.name = "Game Object Context";
+            go.name = "Entity Context";
             if (Selection.activeTransform != null)
                 go.transform.parent = Selection.activeTransform;
             go.AddComponent<JamEntityContext>();
