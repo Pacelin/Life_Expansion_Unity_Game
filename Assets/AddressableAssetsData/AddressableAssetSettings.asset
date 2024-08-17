@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 82bfd973031bb7243b81210266b23040
   m_currentHash:
     serializedVersion: 2
-    Hash: 5ea4c9644c2b0fbad168bcce71b261a8
+    Hash: 05f6f59146a1c0dfa30b8d92a0d16aaa
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
     - Project Scope
     - Main Menu Scope
     - Boot Scope
+    - Game Scope
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: e43da2cc553c3e44f9b5a10e8e480a20, type: 2}

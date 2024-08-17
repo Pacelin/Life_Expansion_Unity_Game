@@ -2,6 +2,7 @@
 {
     public enum EScene
     {
-        MainMenu
+        MainMenu,
+        Game
     }
 }

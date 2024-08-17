@@ -8,7 +8,7 @@ namespace Jamcelin.Runtime.Core
         public bool Enabled => _enabled;
         [SerializeField] private bool _enabled = true;
 
-        public override void InstallBindings() => Install();
+        public sealed override void InstallBindings() => Install();
         protected abstract void Install();
     }
 }
