@@ -7,6 +7,7 @@ namespace Runtime.Gameplay.Planets
     {
         public PlanetComponent Prefab => _prefab;
         public float Radius => _radius;
+        public float OrbitalSpeed => _orbitalSpeed;
 
         public PlanetIndicatorConfig Temperature => _temperature;
         public PlanetIndicatorConfig Oxygen => _oxygen;
@@ -14,6 +15,7 @@ namespace Runtime.Gameplay.Planets
 
         [SerializeField] private PlanetComponent _prefab;
         [SerializeField] private float _radius;
+        [SerializeField] private float _orbitalSpeed;
 
         [SerializeField] private PlanetIndicatorConfig _temperature;
         [SerializeField] private PlanetIndicatorConfig _oxygen;
