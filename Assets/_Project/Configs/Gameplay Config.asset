@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Gameplay Config
   m_EditorClassIdentifier: 
   _tickRate: 20
+  _timeScale: 604800
+  _initialYear: 2107

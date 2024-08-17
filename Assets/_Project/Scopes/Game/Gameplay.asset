@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Gameplay
   m_EditorClassIdentifier: 
   _enabled: 1
+  _gameplayTimePrefab: {fileID: 17584511784684914, guid: 3887da19660be004f8435e8da61ced6d, type: 3}

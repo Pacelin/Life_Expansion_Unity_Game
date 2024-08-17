@@ -61,7 +61,9 @@ namespace Runtime.Cinematic
         private void Rotate()
         {
             var nextPoint = GetMousePosition();
-            var delta = (nextPoint - _lastPoint) * _config.RotateSensitivity;
+            var sensitivity = Mathf.Lerp(_config.RotateSensitivityRange.x, _config.RotateSensitivityRange.y,
+                (_targetDistance - _config.MinDistance) / (_config.MaxDistance - _config.MinDistance));
+            var delta = (nextPoint - _lastPoint) * sensitivity;
             _lastPoint = nextPoint;
             
             _camera.transform.RotateAround(_planet.Center, _cameraTransform.right, -delta.y);

@@ -1,5 +1,6 @@
 ﻿using System;
 using R3;
+using UnityEngine;
 
 namespace Runtime.Gameplay.Core
 {
@@ -14,17 +15,14 @@ namespace Runtime.Gameplay.Core
         
         public GameplayTime(GameplayConfig config)
         {
-            _value = new(new DateTime(config.InitialYear, 0, 0));
+            _value = new(new DateTime(config.InitialYear, 1, 1));
             _timeScale = config.TimeScale;
         }
 
         public void Start(GameplayCore core)
         {
             _timeDisposable = core.OnTick
-                .Subscribe(delta =>
-                {
-                    _value.Value += TimeSpan.FromSeconds(delta * _timeScale);
-                });
+                .Subscribe(delta => _value.Value += TimeSpan.FromSeconds(delta * _timeScale));
         }
 
         public void Stop()
