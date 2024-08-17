@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace Runtime.Core
 {
-    [CreateAssetMenu(menuName = "Runtime/Scene Core Installer", fileName = "Scene Core")]
-    public class SceneCoreInstaller : JamInstaller
+    [CreateAssetMenu(menuName = "Runtime/Scene Camera Installer", fileName = "Scene Camera")]
+    public class SceneCameraInstaller : JamInstaller
     {
         protected override void Install()
         {

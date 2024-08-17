@@ -1,4 +1,4 @@
-using Runtime.Gameplay;
+using Runtime.Gameplay.Planets;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Zenject;

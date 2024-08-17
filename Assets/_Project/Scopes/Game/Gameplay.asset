@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 716eec56036efb94ca92bc82ee490b72, type: 3}
-  m_Name: Scene Core
+  m_Script: {fileID: 11500000, guid: d4e083dc8b7545d7a634ca7b21558bc2, type: 3}
+  m_Name: Gameplay
   m_EditorClassIdentifier: 
   _enabled: 1
