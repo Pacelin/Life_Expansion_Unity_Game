@@ -31,6 +31,8 @@ namespace Runtime.Gameplay.Buildings.UI
         
         public void Dispose() => _disposables.Dispose();
 
+        public void ResetSelection() => _view.ResetSelection();
+        
         public void Add(BuildingConditionalConfig building)
         {
             var view = _view.CreateItem();

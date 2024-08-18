@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Runtime.Gameplay.Buildings.Conditions;
 using UnityEngine;
 using Zenject;
@@ -22,5 +23,7 @@ namespace Runtime.Gameplay.Buildings
 
         public IDisposable SubscribeUnlock(DiContainer di, Action<bool> unlockCallback) =>
             _unlockCondition.Subscribe(di, unlockCallback);
+
+        public abstract BuildingParameterEntry[] GetAdditionalParameters();
     }
 }

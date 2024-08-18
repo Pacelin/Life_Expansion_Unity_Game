@@ -38,7 +38,7 @@ namespace Runtime.Gameplay.Buildings.UI
 
         public void SetHover(bool hover)
         {
-            _background.sprite = hover ? _defaultSprite : _hoverSprite;
+            _background.sprite = hover ? _hoverSprite : _defaultSprite;
             _isHover.Value = hover;
         }
 

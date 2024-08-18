@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 82bfd973031bb7243b81210266b23040
   m_currentHash:
     serializedVersion: 2
-    Hash: 9d3e8d3d9d609fb8b197505c3d3a0af7
+    Hash: 7eaac24c41ab5ac278a06b9050f13025
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -59,7 +59,11 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
+  - {fileID: 11400000, guid: 3769c6cae7d372d49aab4719965c744e, type: 2}
+  - {fileID: 11400000, guid: 4e3dd5d8a1cdc7d4c8698be57054d602, type: 2}
+  - {fileID: 11400000, guid: 7508722c04b160f4ba800202bd1aa44f, type: 2}
   - {fileID: 11400000, guid: ce5801fa51f2b0349bb567ea3d2d2a48, type: 2}
+  - {fileID: 11400000, guid: 45772086310d1af4e801f4927613eda8, type: 2}
   m_BuildSettings:
     m_LogResourceManagerExceptions: 1
     m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
@@ -103,6 +107,9 @@ MonoBehaviour:
     - Boot Scope
     - Game Scope
     - Planet Scope
+    - Locale
+    - Locale-en
+    - Locale-ru
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: e43da2cc553c3e44f9b5a10e8e480a20, type: 2}
