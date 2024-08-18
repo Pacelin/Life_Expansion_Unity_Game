@@ -1,4 +1,5 @@
 ﻿using Jamcelin.Runtime.Core;
+using Runtime.Gameplay.Misc;
 using UnityEngine;
 
 namespace Runtime.Gameplay.Core
@@ -14,9 +15,7 @@ namespace Runtime.Gameplay.Core
                 .AsSingle();
             Container.Bind<GameplayTimeView>()
                 .FromComponentInNewPrefab(_gameplayTimePrefab)
-                .UnderTransform(ic => ic.Container.Resolve<Canvas>().transform)
-                .AsSingle()
-                .WhenInjectedInto<GameplayTimePresenter>();
+                .AsCanvasView();
             Container.BindInterfacesAndSelfTo<GameplayTimePresenter>()
                 .AsSingle();
         }

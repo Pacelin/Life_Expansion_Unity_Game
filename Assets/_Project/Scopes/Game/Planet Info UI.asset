@@ -9,14 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2808f939265243cf8388cc508e1f743e, type: 3}
-  m_Name: Camera Controller
+  m_Script: {fileID: 11500000, guid: 4dbb55695b7c48f4a24d12eae7bbaddf, type: 3}
+  m_Name: Planet Info UI
   m_EditorClassIdentifier: 
   _enabled: 1
-  _config:
-    _minDistance: 0.5
-    _initialDistance: 1
-    _maxDistance: 1.5
-    _zoomStep: 0.1
-    _zoomSpeed: 0.5
-    _rotateSensitivityRange: {x: 0.05, y: 0.1}
+  _viewPrefab: {fileID: 1266159419129992238, guid: 3033f307c070ea243a6ed211c832c8f3, type: 3}

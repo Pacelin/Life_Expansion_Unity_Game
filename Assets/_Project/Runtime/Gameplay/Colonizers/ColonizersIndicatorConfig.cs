@@ -3,7 +3,7 @@
 namespace Runtime.Gameplay.Colonizers
 {
     [System.Serializable]
-    public class ColonizerIndicatorConfig
+    public class ColonizersIndicatorConfig
     {
         public float Min => _min;
         public float Max => _max;

@@ -9,7 +9,7 @@ namespace Runtime.Gameplay.Planets
     {
         public ReadOnlyReactiveProperty<float> Value => _value;
         public ReadOnlyReactiveProperty<float> NormalizedValue => _value.Select(v =>
-            Mathf.Clamp01((_config.Max - _config.Min) / (v - _config.Min))).ToReadOnlyReactiveProperty();
+            Mathf.Clamp01((v - _config.Min) / (_config.Max - _config.Min))).ToReadOnlyReactiveProperty();
         
         private float _targetValue;
         
@@ -41,9 +41,7 @@ namespace Runtime.Gameplay.Planets
 
         public void Dispose() => _disposables.Dispose();
 
-        private void Tick(float delta)
-        {
-            
-        }
+        private void Tick(float delta) =>
+            _value.Value = Mathf.Lerp(_value.Value, _targetValue, _config.Interpolation * delta);
     }
 }

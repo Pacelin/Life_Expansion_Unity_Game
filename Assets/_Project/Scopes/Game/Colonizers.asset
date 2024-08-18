@@ -9,14 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2808f939265243cf8388cc508e1f743e, type: 3}
-  m_Name: Camera Controller
+  m_Script: {fileID: 11500000, guid: 8d8d4638385e4a9b9a966a4e7bb01bda, type: 3}
+  m_Name: Colonizers
   m_EditorClassIdentifier: 
   _enabled: 1
-  _config:
-    _minDistance: 0.5
-    _initialDistance: 1
-    _maxDistance: 1.5
-    _zoomStep: 0.1
-    _zoomSpeed: 0.5
-    _rotateSensitivityRange: {x: 0.05, y: 0.1}
