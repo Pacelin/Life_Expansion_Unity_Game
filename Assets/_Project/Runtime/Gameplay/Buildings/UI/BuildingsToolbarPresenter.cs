@@ -7,14 +7,14 @@ namespace Runtime.Gameplay.Buildings.UI
 {
     public class BuildingsToolbarPresenter : IDisposable
     {
-        public ReadOnlyReactiveProperty<BuildingConfig> SelectedBuilding => _selectedBuilding;
-        public ReadOnlyReactiveProperty<BuildingConfig> HoveredBuilding => _hoveredBuilding;
+        public ReadOnlyReactiveProperty<BuildingConditionalConfig> SelectedBuilding => _selectedBuilding;
+        public ReadOnlyReactiveProperty<BuildingConditionalConfig> HoveredBuilding => _hoveredBuilding;
 
         private readonly DiContainer _di;
         private readonly BuildingsToolbarView _view;
-        private readonly Dictionary<BuildingsToolbarItemView, BuildingConfig> _map;
-        private readonly ReadOnlyReactiveProperty<BuildingConfig> _selectedBuilding;
-        private readonly ReadOnlyReactiveProperty<BuildingConfig> _hoveredBuilding;
+        private readonly Dictionary<BuildingsToolbarItemView, BuildingConditionalConfig> _map;
+        private readonly ReadOnlyReactiveProperty<BuildingConditionalConfig> _selectedBuilding;
+        private readonly ReadOnlyReactiveProperty<BuildingConditionalConfig> _hoveredBuilding;
         private readonly CompositeDisposable _disposables;
 
         public BuildingsToolbarPresenter(DiContainer di, BuildingsToolbarView view)
@@ -31,7 +31,7 @@ namespace Runtime.Gameplay.Buildings.UI
         
         public void Dispose() => _disposables.Dispose();
 
-        public void Add(BuildingConfig building)
+        public void Add(BuildingConditionalConfig building)
         {
             var view = _view.CreateItem();
             var presenter = _di.Instantiate<BuildingsToolbarItemPresenter>(new object[] { building, view });

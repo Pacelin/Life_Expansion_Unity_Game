@@ -1,4 +1,5 @@
 ﻿using System;
+using Runtime.Gameplay.Buildings.Conditions;
 using UnityEngine;
 using Zenject;
 
@@ -21,15 +22,5 @@ namespace Runtime.Gameplay.Buildings
 
         public IDisposable SubscribeUnlock(DiContainer di, Action<bool> unlockCallback) =>
             _unlockCondition.Subscribe(di, unlockCallback);
-    }
-    
-    [CreateAssetMenu(menuName = "Gameplay/Buildings/Storage Config")]
-    public class StorageBuildingConfig : BuildingConditionalConfig
-    {
-        public override string Description => string.Format(base.Description, _increaseStorageCapacity);
-        public int IncreaseStorageCapacity => _increaseStorageCapacity;
-        
-        [Header("{0}")]
-        [SerializeField] private int _increaseStorageCapacity;
     }
 }

@@ -44,16 +44,11 @@ namespace Runtime.Gameplay.Buildings.UI
 
         public void SetIcon(Sprite icon) => _itemIcon.sprite = icon;
         public void SetCost(int cost) => _costText.text = cost.ToGameString();
-
-        public void SetPurchasable(bool purchasable)
-        {
-            _darkBackground.SetActive(!purchasable);
-        }
+        public void SetPurchasable(bool purchasable) => _darkBackground.SetActive(!purchasable);
 
         public void SetLocked(bool locked)
         {
             _background.sprite = _defaultSprite;
-            _darkBackground.SetActive(locked);
             _lockedState.SetActive(locked);
             _unlockedState.SetActive(!locked);
             _locked = locked;
