@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Planet Config
   m_EditorClassIdentifier: 
   _prefab: {fileID: 3570291423838586031, guid: d7b67afd338e2664ca415975b57e14f5, type: 3}
-  _radius: 20
-  _orbitalSpeed: 0.5
+  _radius: 30
+  _orbitalSpeed: 1
   _temperature:
     _min: -50
     _max: 50

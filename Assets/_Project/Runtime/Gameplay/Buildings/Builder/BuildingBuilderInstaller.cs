@@ -13,6 +13,10 @@ namespace Runtime.Gameplay.Buildings.Builder
             Container.Bind<BuildingBuilderView>()
                 .FromComponentInNewPrefab(_builderPrefab)
                 .AsSingle();
+            Container.BindInterfacesAndSelfTo<BuildingApplier>()
+                .AsSingle();
+            Container.BindInterfacesAndSelfTo<BuildingFactory>()
+                .AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingBuilder>()
                 .AsSingle();
         }
