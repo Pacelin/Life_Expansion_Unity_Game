@@ -15,7 +15,13 @@ namespace Runtime.Gameplay.Colonizers
         public ReadOnlyReactiveProperty<int> MaxPopulation => _maxPopulation;
 
         public ReadOnlyReactiveProperty<bool> IsTargetCompleted => 
-            _currentPopulation.Select(v => v >= _config.TargetPopulation)
+            _currentPopulation.Select(v =>
+                {
+                    var curCompleted = v >= _config.TargetPopulation;
+                    if (curCompleted)
+                        _targetCompleted = true;
+                    return _targetCompleted;
+                })
                 .ToReadOnlyReactiveProperty();
 
         public ReadOnlyReactiveProperty<bool> IsAchievementCompleted => 
@@ -26,12 +32,15 @@ namespace Runtime.Gameplay.Colonizers
         private readonly ReactiveProperty<float> _currentPopulation;
         private readonly ReactiveProperty<int> _maxPopulation;
 
+        private bool _targetCompleted;
+
         public ColonizersPopulationModel(
             ColonizersConfig config)
         {
             _config = config;
             _currentPopulation = new(_config.Capsule.InitialPopulation);
             _maxPopulation = new(_config.Capsule.InitialPopulation);
+            _targetCompleted = false;
         }
 
         public void Set(float value)

@@ -8,7 +8,7 @@ namespace Runtime.Gameplay.Colonizers
     {
         protected override void Install()
         {
-            Container.Bind<ColonizersModel>()
+            Container.BindInterfacesAndSelfTo<ColonizersModel>()
                 .AsSingle();
         }
     }
