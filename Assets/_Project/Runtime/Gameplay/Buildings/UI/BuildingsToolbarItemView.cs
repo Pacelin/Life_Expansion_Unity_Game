@@ -7,15 +7,22 @@ using UnityEngine.UI;
 
 namespace Runtime.Gameplay.Buildings.UI
 {
-    public class BuildingsToolbarItemView : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+    public class BuildingsToolbarItemView : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
+        IPointerExitHandler
     {
         public ReadOnlyReactiveProperty<bool> IsSelected => _isSelected;
         public ReadOnlyReactiveProperty<bool> IsHover => _isHover;
 
+        [Header("UX")] 
+        [SerializeField] private Image _background;
+        [SerializeField] private Sprite _defaultSprite;
+        [SerializeField] private Sprite _hoverSprite;
+        [Space] 
+        [SerializeField] private GameObject _darkBackground;
         [SerializeField] private GameObject _selectionMark;
-        [SerializeField] private GameObject _hoverMark;
-        [SerializeField] private GameObject _nonPurchasableMark;
-        [SerializeField] private GameObject _lockedMark;
+        [SerializeField] private GameObject _lockedState;
+        [SerializeField] private GameObject _unlockedState;
+        [Header("Gameplay")] 
         [SerializeField] private Image _itemIcon;
         [SerializeField] private TextMeshProUGUI _costText;
 
@@ -31,17 +38,24 @@ namespace Runtime.Gameplay.Buildings.UI
 
         public void SetHover(bool hover)
         {
-            _hoverMark.SetActive(hover);
+            _background.sprite = hover ? _defaultSprite : _hoverSprite;
             _isHover.Value = hover;
         }
 
         public void SetIcon(Sprite icon) => _itemIcon.sprite = icon;
         public void SetCost(int cost) => _costText.text = cost.ToGameString();
-        public void SetPurchasable(bool purchasable) => _nonPurchasableMark.SetActive(!purchasable);
+
+        public void SetPurchasable(bool purchasable)
+        {
+            _darkBackground.SetActive(!purchasable);
+        }
 
         public void SetLocked(bool locked)
         {
-            _lockedMark.SetActive(locked);
+            _background.sprite = _defaultSprite;
+            _darkBackground.SetActive(locked);
+            _lockedState.SetActive(locked);
+            _unlockedState.SetActive(!locked);
             _locked = locked;
         }
         
