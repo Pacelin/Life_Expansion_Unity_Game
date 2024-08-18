@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,15 @@ namespace Runtime.Gameplay.Colonizers.UI
         [SerializeField] private TextMeshProUGUI _targetPopulationText;
         [SerializeField] private GameObject _targetReachedMark;
         [SerializeField] private Image _targetSlider;
+
+        [Header("Ping")]
+        [SerializeField] private Color _defaultColor;
+        [SerializeField] private Color _pingColor;
+        [SerializeField] private float _pingScale;
+        [SerializeField] private float _pingDuration;
+        [SerializeField] private int _pingLoops;
+        
+        private Tween _pingTween;
         
         public void SetMinerals(int current, int max) =>
             _mineralsText.text = string.Format(_mineralsFormat, current, max);
@@ -37,5 +47,17 @@ namespace Runtime.Gameplay.Colonizers.UI
 
         public void SetTargetPopulation(int target) =>
             _targetPopulationText.text = target.ToString();
+
+        public void PingMinerals()
+        {
+            _pingTween?.Complete();
+            _pingTween = DOTween.Sequence()
+                .Append(_mineralsText.DOColor(_pingColor, _pingDuration))
+                .Join(_mineralsText.transform.DOScale(_pingScale, _pingDuration))
+                .AppendInterval(0.05f)
+                .Append(_mineralsText.DOColor(_defaultColor, _pingDuration))
+                .Join(_mineralsText.transform.DOScale(1, _pingDuration))
+                .SetLoops(_pingLoops);
+        }
     }
 }

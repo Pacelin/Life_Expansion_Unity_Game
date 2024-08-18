@@ -18,6 +18,11 @@ namespace Runtime.Gameplay.Colonizers.UI
             _disposables = new();
         }
 
+        public void PingMinerals()
+        {
+            _view.PingMinerals();
+        }
+        
         public void Initialize()
         {
             Observable.CombineLatest(_model.Minerals.CurrentMinerals, _model.Minerals.MaxMinerals,

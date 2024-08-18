@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Buildings Toolbar Config
   m_EditorClassIdentifier: 
   _availableBuildings:
+  - {fileID: 11400000, guid: 190ec644ecbfa794a9f59a37303815a2, type: 2}
+  - {fileID: 11400000, guid: a21452f33ae6b584d8703cddb7a9e9e4, type: 2}
   - {fileID: 11400000, guid: 9f50b8481f65aed459d8ab77e80475dd, type: 2}

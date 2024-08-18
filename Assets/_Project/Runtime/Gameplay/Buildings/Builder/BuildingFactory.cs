@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Runtime.Gameplay.Buildings.General;
 using Zenject;
 
 namespace Runtime.Gameplay.Buildings.Builder
 {
-    public class BuildingFactory
+    public class BuildingFactory : IDisposable
     {
         [Inject] private DiContainer _di;
         
@@ -15,6 +16,13 @@ namespace Runtime.Gameplay.Buildings.Builder
             var newModel = config.CreateModel(_di, view);
             _buildings.Add(newModel);
             newModel.Build();
+        }
+
+        public void Dispose()
+        {
+            foreach (var building in _buildings)
+                building.Dispose();
+            _buildings.Clear();
         }
     }
 }

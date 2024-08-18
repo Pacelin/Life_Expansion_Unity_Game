@@ -26,6 +26,22 @@ MonoBehaviour:
     m_Localized: Very good
     m_Metadata:
       m_Items: []
+  - m_Id: 129658399363072
+    m_Localized: Wind Turbine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 129706122153984
+    m_Localized: Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134274558070784
+    m_Localized: Solar Panel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134363045302272
+    m_Localized: Description
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
