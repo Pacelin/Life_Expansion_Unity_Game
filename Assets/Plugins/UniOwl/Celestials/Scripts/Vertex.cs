@@ -7,7 +7,7 @@ namespace UniOwl.Celestials
     public struct Vertex
     {
         public float3 position;
-        public half4 normal;
+        public float3 normal;
         //public half4 tangent;
         public half2 uv0;
     }

@@ -11,5 +11,6 @@ namespace UniOwl.Celestials
         
         public bool generateTextures = true;
         public bool generateNormals = true;
+        public bool generateHeights = true;
     }
 }

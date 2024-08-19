@@ -14,7 +14,7 @@ namespace UniOwl.Celestials
 
         public float3 baseVertex;
 
-        public SurfaceGenerator settings;
+        public TerrainGeneratorSettings settings;
         
         [WriteOnly]
         public NativeArray<float> heights;
