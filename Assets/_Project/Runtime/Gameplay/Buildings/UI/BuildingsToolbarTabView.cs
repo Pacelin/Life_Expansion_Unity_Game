@@ -23,6 +23,6 @@ namespace Runtime.Gameplay.Buildings.UI
         }
         
         public void OnPointerClick(PointerEventData eventData) =>
-            _isSelected.Value = true;
+            SetSelected(true);
     }
 }
