@@ -22,6 +22,7 @@ namespace Runtime.Gameplay.Buildings.UI
                 {
                     foreach (var building in _config.AvailableBuildings)
                         o.Add(building);
+                    o.Activate();
                 });
         }
     }
