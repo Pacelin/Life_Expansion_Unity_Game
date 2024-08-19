@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Living house
   m_EditorClassIdentifier: 
   _prefab: {fileID: 4064135220031198543, guid: 23ca6c64871f53244b3924621963626b, type: 3}
-  _mineralsCost: 75
+  _mineralsCost: 100
   _colonizersCost: 0
   _energyCost: 1
   _buildTerritory: 0
