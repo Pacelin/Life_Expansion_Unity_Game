@@ -8,6 +8,7 @@ namespace Runtime.Gameplay.Planets
 {
     public class Planet : IInitializable, IDisposable
     {
+        public Transform Transform => _component.transform;
         public Vector3 Center => _component.transform.position;
         public float Radius => _config.Radius;
 

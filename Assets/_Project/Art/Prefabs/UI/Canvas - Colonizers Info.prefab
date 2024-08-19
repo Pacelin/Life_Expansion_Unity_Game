@@ -516,6 +516,11 @@ MonoBehaviour:
   _targetPopulationText: {fileID: 5501256977825012965}
   _targetReachedMark: {fileID: 8690923784552730677}
   _targetSlider: {fileID: 6212013926896247146}
+  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _pingColor: {r: 0.90943396, g: 0.27969378, b: 0.27969378, a: 1}
+  _pingScale: 1.2
+  _pingDuration: 0.2
+  _pingLoops: 5
 --- !u!1 &7096757953626236236
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,6 +34,10 @@ MonoBehaviour:
     m_Localized: Cost
     m_Metadata:
       m_Items: []
+  - m_Id: 96523678781440
+    m_Localized: Atmosphere
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

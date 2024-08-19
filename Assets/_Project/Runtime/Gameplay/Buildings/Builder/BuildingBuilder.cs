@@ -11,6 +11,8 @@ namespace Runtime.Gameplay.Buildings.Builder
     public class BuildingBuilder : IInitializable, IDisposable
     {
         private bool _isActive;
+        private BuildingConditionalConfig _currentBuilding;
+        private CompositeDisposable _showingDisposables;
             
         private readonly BuildingBuilderConfig _config;
         private readonly Planet _planet;
@@ -18,18 +20,18 @@ namespace Runtime.Gameplay.Buildings.Builder
         private readonly BuildingsToolbarPresenter _toolbar;
         private readonly BuildingBuilderView _view;
         private readonly CompositeDisposable _disposables;
-
-        private CompositeDisposable _showingDisposables;
+        private readonly BuildingApplier _applier;
         
         public BuildingBuilder(BuildingBuilderConfig config, Planet planet, Camera camera, 
-            BuildingsToolbarPresenter toolbar, BuildingBuilderView view)
+            BuildingsToolbarPresenter toolbar, BuildingBuilderView view, BuildingApplier applier)
         {
             _config = config;
             _planet = planet;
             _camera = camera;
             _toolbar = toolbar;
-            _disposables = new();
             _view = view;
+            _applier = applier;
+            _disposables = new();
         }
 
         public void Initialize()
@@ -54,6 +56,7 @@ namespace Runtime.Gameplay.Buildings.Builder
         private void Show(BuildingConditionalConfig buildingConfig)
         {
             _showingDisposables = new();
+            _currentBuilding = buildingConfig;
             var prefab = buildingConfig.Prefab;
             _view.SetBuildingMesh(prefab.Mesh);
             _view.SetBuildingRadius(prefab.BuildingRadius);
@@ -66,12 +69,21 @@ namespace Runtime.Gameplay.Buildings.Builder
                 .Where(_ => !_isActive && Input.GetMouseButtonDown((int)MouseButton.LeftMouse))
                 .Subscribe(_ => _toolbar.ResetSelection())
                 .AddTo(_showingDisposables);
+            Observable.EveryUpdate(UnityFrameProvider.Update)
+                .Where(_ => _isActive && Input.GetMouseButtonDown((int)MouseButton.LeftMouse))
+                .Subscribe(_ =>
+                {
+                    if (_applier.TryBuild(_currentBuilding, _view))
+                        _toolbar.ResetSelection();
+                })
+                .AddTo(_showingDisposables);
         }
         
         private void Hide()
         {
             _showingDisposables?.Dispose();
             _view.gameObject.SetActive(false);
+            _currentBuilding = null;
         }
 
         private void UpdatePosition()
@@ -84,6 +96,7 @@ namespace Runtime.Gameplay.Buildings.Builder
                 _isActive = true;
                 viewTransform.position = hit.point;
                 viewTransform.up = (hit.point - _planet.Center).normalized;
+                _applier.ValidatePosition(_currentBuilding, _view);
             }
             else
             {

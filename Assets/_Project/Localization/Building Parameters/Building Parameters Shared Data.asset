@@ -31,6 +31,10 @@ MonoBehaviour:
     m_Key: Cost
     m_Metadata:
       m_Items: []
+  - m_Id: 96523678781440
+    m_Key: Oxygen
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

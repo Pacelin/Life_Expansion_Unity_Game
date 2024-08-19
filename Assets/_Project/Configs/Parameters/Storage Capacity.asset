@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a156475bc1345aaa9a3f56868034b26, type: 3}
-  m_Name: Increase Storage
+  m_Name: Storage Capacity
   m_EditorClassIdentifier: 
   _caption:
     m_TableReference:
