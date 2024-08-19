@@ -717,6 +717,9 @@ MonoBehaviour:
   _temperatureSlider: {fileID: 6601682294295401307}
   _oxygenSlider: {fileID: 8140106278421334183}
   _waterSlider: {fileID: 4227117190914944390}
+  _temperatureMarker: {fileID: 8650158773882504829}
+  _oxygenMarker: {fileID: 5520848298457104058}
+  _waterMarker: {fileID: 5556327693698324873}
 --- !u!1 &4678446454407422490
 GameObject:
   m_ObjectHideFlags: 0
