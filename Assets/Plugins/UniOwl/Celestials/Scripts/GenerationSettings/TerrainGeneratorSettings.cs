@@ -3,7 +3,6 @@ using System;
 using System.Runtime.CompilerServices;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace UniOwl.Celestials
 {
@@ -12,9 +11,6 @@ namespace UniOwl.Celestials
     {
         public int seed;
 
-        public float radius;
-        [Range(0f, 20f)]
-        public float amplitude;
         [Range(0f, 10f)]
         public float frequency;
         [Range(0f, 1f)]

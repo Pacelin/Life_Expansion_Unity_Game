@@ -7,11 +7,15 @@ namespace UniOwl.Celestials
 {
     public static class PlanetCreator
     {
+        private static readonly int s_radius = Shader.PropertyToID("_Radius");
+        private static readonly int s_amplitude = Shader.PropertyToID("_Amplitude");
+
         public static void CreatePlanet(PlanetSettings settings)
         {
             GeneratePlanetTerrain(settings);
             
-            settings.Planet.Sea.localScale = 2f * settings.Physical.radius * settings.Physical.seaLevel * Vector3.one;
+            settings.Planet.Sea.localScale = 2f * (settings.Physical.radius + settings.Physical.seaLevel * settings.Physical.amplitude) * Vector3.one;
+            UpdateMaterials(settings);
         }
 
         private static void GeneratePlanetTerrain(PlanetSettings settings)
@@ -75,6 +79,13 @@ namespace UniOwl.Celestials
                 settings = settings,
             }.ScheduleParallel(heights.Length, 0, default);
             buildTerrainJob.Complete();
+        }
+
+        private static void UpdateMaterials(PlanetSettings settings)
+        {
+            Material parentMat = settings.Planet.Faces[0].Renderer.sharedMaterial.parent;
+            parentMat.SetFloat(s_radius, settings.Physical.radius);
+            parentMat.SetFloat(s_amplitude, settings.Physical.amplitude);
         }
     }
 }

@@ -20,6 +20,7 @@ namespace UniOwl.Celestials.Editor
             }
 
             PlanetCreator.CreatePlanet(settings);
+            PrefabUtility.SavePrefabAsset(settings.Planet.gameObject);
         }
     }
 }
