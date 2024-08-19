@@ -11,14 +11,14 @@ namespace UniOwl.Celestials
         {
             GeneratePlanetTerrain(settings);
             
-            settings.Planet.Sea.localScale = settings.Physical.radius * settings.Physical.seaLevel * Vector3.one;
+            settings.Planet.Sea.localScale = 2f * settings.Physical.radius * settings.Physical.seaLevel * Vector3.one;
         }
 
         private static void GeneratePlanetTerrain(PlanetSettings settings)
         {
             var meshHeightData = GenerateTerrain(settings.Model.resolution, settings.Generation);
             var textureHeightData = GenerateTerrain(settings.Textures.resolution - 1, settings.Generation);
-            
+
             PlanetMeshBuilder.BuildMeshes(settings, settings.Planet, meshHeightData);
             PlanetTextureBuilder.BuildTextures(settings, settings.Planet, textureHeightData);
             
@@ -26,7 +26,7 @@ namespace UniOwl.Celestials
             textureHeightData.Dispose();
         }
         
-        private static PlanetHeightData GenerateTerrain(int resolution, in SurfaceGenerator settings)
+        private static PlanetHeightData GenerateTerrain(int resolution, in TerrainGeneratorSettings settings)
         {
             int size = (resolution + 1) * (resolution + 1);
 
@@ -50,7 +50,7 @@ namespace UniOwl.Celestials
             return heightData;
         }
         
-        private static void GenerateQuadTerrain(int face, int resolution, in NativeArray<float> heights, in NativeArray<float3> normals, in SurfaceGenerator settings)
+        private static void GenerateQuadTerrain(int face, int resolution, in NativeArray<float> heights, in NativeArray<float3> normals, in TerrainGeneratorSettings settings)
         {
             int dir = face % 3;
             int ax1 = (face + 1) % 3;

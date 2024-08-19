@@ -10,6 +10,7 @@ namespace UniOwl.Celestials
     {
         private static readonly int s_mainMap = Shader.PropertyToID("_MainMap");
         private static readonly int s_normalMap = Shader.PropertyToID("_NormalMap");
+        private static readonly int s_heightMap = Shader.PropertyToID("_HeightMap");
 
         public static void BuildTextures(PlanetSettings settings, Planet planet, PlanetHeightData heightData)
         {
@@ -24,12 +25,14 @@ namespace UniOwl.Celestials
 
         private static void BuildTexture(PlanetSettings settings, int face, in NativeArray<float> heights, in NativeArray<float3> normals)
         {
-            var material = settings.Planet.Faces[face].Renderer.sharedMaterial;
-              
+            Material material = settings.Planet.Faces[face].Renderer.sharedMaterial;
+            
             if (settings.Textures.generateTextures)
                 BuildMainTexture(settings, material, heights, normals);
             if (settings.Textures.generateNormals)
-                BuildNormalTexture(settings, material, heights, normals);
+                BuildNormalTexture(settings, material, normals);
+            if (settings.Textures.generateHeights)
+                BuildHeightTexture(settings, material, heights);
         }
 
         private static void BuildMainTexture(PlanetSettings settings, Material material, in NativeArray<float> heights, in NativeArray<float3> normals)
@@ -52,12 +55,11 @@ namespace UniOwl.Celestials
             colors.Dispose();
         }
 
-        private static void BuildNormalTexture(PlanetSettings settings, Material material, in NativeArray<float> heights, in NativeArray<float3> normals)
+        private static void BuildNormalTexture(PlanetSettings settings, Material material, in NativeArray<float3> normals)
         {
             var normalColors = new NativeArray<byte3>(normals.Length, Allocator.TempJob,
                 NativeArrayOptions.UninitializedMemory);
-
-
+            
             var normalJob = new MakeNormalsJob()
             {
                 normals = normals,
@@ -69,6 +71,22 @@ namespace UniOwl.Celestials
             normalColors.Dispose();
         }
 
+        private static void BuildHeightTexture(PlanetSettings settings, Material material, in NativeArray<float> heights)
+        {
+            var heightColors = new NativeArray<byte>(heights.Length, Allocator.TempJob,
+                NativeArrayOptions.UninitializedMemory);
+            
+            var heightJob = new MakeHeightJob()
+            {
+                heights = heights,
+                heightColors = heightColors,
+            }.ScheduleParallel(heights.Length, 0, default);
+            heightJob.Complete();
+            
+            ApplyTexture(material, s_heightMap, heightColors);
+            heightColors.Dispose();
+        }
+        
         private static void ApplyTexture(Material material, int textureID, in NativeArray<byte3> colors)
         {
             var texture = (Texture2D)material.GetTexture(textureID);
@@ -77,9 +95,18 @@ namespace UniOwl.Celestials
             texture.Apply(false);
             texture.Compress(true);
         }
+        
+        private static void ApplyTexture(Material material, int textureID, in NativeArray<byte> colors)
+        {
+            var texture = (Texture2D)material.GetTexture(textureID);
+
+            texture.SetPixelData(colors, 0, 0);
+            texture.Apply(false);
+            //texture.Compress(true);
+        }
 
         [BurstCompile]
-        public struct MakeNormalsJob : IJobFor
+        private struct MakeNormalsJob : IJobFor
         {
             [ReadOnly]
             public NativeArray<float3> normals;
@@ -94,7 +121,7 @@ namespace UniOwl.Celestials
         }
 
         [BurstCompile]
-        public struct MakeColorsJob : IJobFor
+        private struct MakeColorsJob : IJobFor
         {
             [ReadOnly]
             public NativeArray<float> heights;
@@ -103,13 +130,27 @@ namespace UniOwl.Celestials
             [WriteOnly]
             public NativeArray<byte3> mainColors;
             
-            
             public float4 rockColor, grassColor;
             
             public void Execute(int index)
             {
                 float4 color = math.lerp(rockColor, grassColor, math.saturate(math.dot(normals[index], new float3(0f, 1f, 0f))));
                 mainColors[index] = MathUtils.Float4ToRGB24(color);
+            }
+        }
+
+        [BurstCompile]
+        private struct MakeHeightJob : IJobFor
+        {
+            [ReadOnly]
+            public NativeArray<float> heights;
+            [WriteOnly]
+            public NativeArray<byte> heightColors;
+
+            public void Execute(int index)
+            {
+                float normalizedHeight = math.saturate(heights[index]) * 255f;
+                heightColors[index] = (byte)normalizedHeight;
             }
         }
     }

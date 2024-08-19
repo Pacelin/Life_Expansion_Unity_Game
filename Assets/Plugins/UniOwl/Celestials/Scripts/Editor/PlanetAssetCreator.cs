@@ -8,6 +8,7 @@ namespace UniOwl.Celestials.Editor
     {
         private static readonly int s_mainMap = Shader.PropertyToID("_MainMap");
         private static readonly int s_normalMap = Shader.PropertyToID("_NormalMap");
+        private static readonly int s_heightMap = Shader.PropertyToID("_HeightMap");
 
         private const string PrefabPath = "Assets/Plugins/UniOwl/Celestials/Planet_Blank.prefab";
         private const string ShaderPath = "Assets/Plugins/UniOwl/Celestials/SG_Terrain.shadergraph";
@@ -18,11 +19,16 @@ namespace UniOwl.Celestials.Editor
             
             if (planetFolder == null)
                 return;
-            
-            var diffuse = CreateTextures(settings, planetFolder, false);
-            var normals = CreateTextures(settings, planetFolder, true);
 
-            var materials = CreateMaterials(planetFolder, diffuse, normals);
+            Texture2D[] diffuse = null, normals = null, heights = null;
+            if (settings.Textures.generateTextures)
+                diffuse = CreateTextures(settings, planetFolder, "D", TextureFormat.RGB24);
+            if (settings.Textures.generateNormals)
+                normals = CreateTextures(settings, planetFolder, "N", TextureFormat.RGB24);
+            if (settings.Textures.generateHeights)
+                heights = CreateTextures(settings, planetFolder, "H", TextureFormat.R8);
+
+            var materials = CreateMaterials(planetFolder, diffuse, normals, heights);
             var meshes = CreateMeshes(planetFolder);
 
             var prefab = CreatePrefabVariant(settings, planetFolder, meshes, materials);
@@ -56,34 +62,28 @@ namespace UniOwl.Celestials.Editor
             return meshes;
         }
 
-        private static Texture2D[] CreateTextures(PlanetSettings settings, string folderPath, bool normal)
+        private static Texture2D[] CreateTextures(PlanetSettings settings, string folderPath, string suffix, TextureFormat format)
         {
-            if (!normal && !settings.Textures.generateTextures)
-                return null;
-            if (normal && !settings.Textures.generateNormals)
-                return null;
-            
             var folderName = Path.GetFileName(folderPath);
 
             var textures = new Texture2D[6];
             
             for (int i = 0; i < 6; i++)
             {
-                var texture = new Texture2D(settings.Textures.resolution, settings.Textures.resolution, TextureFormat.RGB24, false, true, true)
+                var texture = new Texture2D(settings.Textures.resolution, settings.Textures.resolution, format, false, true, true)
                 {
                     filterMode = FilterMode.Point,
                 };
 
                 textures[i] = texture;
                 
-                string suffix = normal ? "N" : "D";
                 SaveUtility.SaveTexture(texture, $"T_{folderName}_{i}_{suffix}.asset", folderPath);
             }
 
             return textures;
         }
 
-        private static Material[] CreateMaterials(string folderPath, Texture2D[] diffuse, Texture2D[] normals)
+        private static Material[] CreateMaterials(string folderPath, Texture2D[] diffuse, Texture2D[] normals, Texture2D[] heights)
         {
             var shader = AssetDatabase.LoadAssetAtPath<Shader>(ShaderPath);
             
@@ -109,6 +109,9 @@ namespace UniOwl.Celestials.Editor
                 
                 if (normals != null)
                     material.SetTexture(s_normalMap, normals[i]);
+                
+                if (heights != null)
+                    material.SetTexture(s_heightMap, heights[i]);
                 
                 SaveUtility.SaveMaterial(material, $"MV_{folderName}_{i}.mat", folderPath);
             }

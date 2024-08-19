@@ -11,7 +11,7 @@ namespace UniOwl.Celestials
         private static readonly VertexAttributeDescriptor[] vertexAttributes =
         {
             new(VertexAttribute.Position, VertexAttributeFormat.Float32, 3),
-            new(VertexAttribute.Normal, VertexAttributeFormat.Float16, 4),
+            new(VertexAttribute.Normal, VertexAttributeFormat.Float32, 3),
             new(VertexAttribute.TexCoord0, VertexAttributeFormat.Float16, 2),
         };
 
@@ -64,7 +64,7 @@ namespace UniOwl.Celestials
             int ax1 = (face + 1) % 3;
             int ax2 = (face + 2) % 3;
             bool backFace = face > 2;
-
+            
             int resolution = settings.Model.resolution;
 
             float3 baseVertex = float3.zero;
@@ -79,6 +79,8 @@ namespace UniOwl.Celestials
                 resolution = resolution,
                 resolutionPlus1 = resolution + 1,
                 baseVertex = baseVertex,
+                radius = settings.Generation.radius,
+                amplitude = settings.Generation.amplitude
             };
 
             var indicesJob = new BuildPlanetQuadIndicesJob()

@@ -12,31 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576299371b232924784fe7bb234bbe5b, type: 3}
   m_Name: SO_Planet
   m_EditorClassIdentifier: 
-  _planet: {fileID: 5896163491691583988, guid: bd98122ba7fc22b479879d4763ef5457, type: 3}
+  _planet: {fileID: 849109179550675979, guid: bd98122ba7fc22b479879d4763ef5457, type: 3}
   _model:
-    resolution: 128
+    resolution: 64
     recalculateNormals: 0
   _textures:
-    resolution: 2048
-    generateTextures: 1
-    generateNormals: 1
+    resolution: 2
+    generateTextures: 0
+    generateNormals: 0
+    generateHeights: 0
   _physical:
     radius: 20
     seaLevel: 0.58
   _generation:
     seed: 1839898636
     radius: 20
-    amplitude: 4.4
-    frequency: 0.61
+    amplitude: 8.41
+    frequency: 0.45
     persistence: 0.5
     lacunarity: 2
-    octaves: 16
+    octaves: 6
     redistributionPower: 3
     erosionPower: 1
     warpingOffset:
       x: -3.81
       y: 1.83
       z: -0.43
-    warpingStrenth: 1
+    warpingStrength: 0
   GrassColor: {r: 0.31520113, g: 0.7169812, b: 0.26041296, a: 1}
   RockColor: {r: 0.3679245, g: 0.25468358, b: 0.21693662, a: 1}
