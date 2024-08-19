@@ -1,6 +1,8 @@
 ﻿using DG.Tweening;
+using Runtime.Gameplay.Misc;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 namespace Runtime.Gameplay.Colonizers.UI
@@ -8,14 +10,21 @@ namespace Runtime.Gameplay.Colonizers.UI
     public class ColonizersInfoView : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _mineralsText;
-        [SerializeField] private string _mineralsFormat;
+        [SerializeField] private TextMeshProUGUI _maxMineralsText;
         [SerializeField] private TextMeshProUGUI _energyText;
-        [SerializeField] private string _energyFormat;
+        [SerializeField] private TextMeshProUGUI _usageEnergyText;
         [SerializeField] private TextMeshProUGUI _populationText;
-        [SerializeField] private string _populationFormat;
+        [SerializeField] private TextMeshProUGUI _populationCapacityText;
+        [SerializeField] private TextMeshProUGUI _populationAliveText;
+        [Space] 
         [SerializeField] private TextMeshProUGUI _targetPopulationText;
-        [SerializeField] private GameObject _targetReachedMark;
-        [SerializeField] private Image _targetSlider;
+        [SerializeField] private Image _targetFill;
+        [SerializeField] private GameObject _targetReachedMark;  
+        [Space]
+        [SerializeField] private LocalizedString _usageLocalized;
+        [SerializeField] private LocalizedString _maxLocalized;
+        [SerializeField] private LocalizedString _capacityLocalized;
+        [SerializeField] private LocalizedString _aliveLocalized;
 
         [Header("Ping")]
         [SerializeField] private Color _defaultColor;
@@ -25,26 +34,35 @@ namespace Runtime.Gameplay.Colonizers.UI
         [SerializeField] private int _pingLoops;
         
         private Tween _pingTween;
-        
-        public void SetMinerals(int current, int max) =>
-            _mineralsText.text = string.Format(_mineralsFormat, current, max);
 
-        public void SetEnergy(int usage, int max) =>
-            _energyText.text = string.Format(_energyFormat, usage, max);
+        public void SetMinerals(int count) =>
+            _mineralsText.text = count.ToGameString();
+        public void SetMaxMinerals(int count) =>
+            _maxMineralsText.text = _maxLocalized.GetLocalizedString() + ":" + count.ToGameString();
+
+        public void SetEnergy(int count) =>
+            _energyText.text = count.ToGameString();
+        public void SetEnergyUsage(int usage) =>
+            _usageEnergyText.text = _usageLocalized.GetLocalizedString() + ":" + usage.ToGameString();
+
+        public void SetPopulation(int free, int overall)
+        {
+            _populationText.text = free.ToGameString();
+            _populationAliveText.text = _aliveLocalized.GetLocalizedString() + ":" + overall.ToGameString();
+        }
+        public void SetPopulationCapacity(int capacity) =>
+            _populationCapacityText.text = _capacityLocalized.GetLocalizedString() + ":" + capacity.ToGameString();
 
         public void SetTargetReached(bool reached)
         {
-            if (reached)
-                _targetSlider.fillAmount = 1;
+            _targetPopulationText.gameObject.SetActive(!reached);
+            _targetFill.gameObject.SetActive(!reached);
             _targetReachedMark.SetActive(reached);
         }
 
         public void SetTargetProgress(float progress) =>
-            _targetSlider.fillAmount = progress;
+            _targetFill.fillAmount = progress;
         
-        public void SetPopulation(int current, int max) =>
-            _populationText.text = string.Format(_populationFormat, current, max);
-
         public void SetTargetPopulation(int target) =>
             _targetPopulationText.text = target.ToString();
 

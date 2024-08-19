@@ -25,18 +25,33 @@ namespace Runtime.Gameplay.Colonizers.UI
         
         public void Initialize()
         {
-            Observable.CombineLatest(_model.Minerals.CurrentMinerals, _model.Minerals.MaxMinerals,
-                    (Current, Max) => (Current, Max))
-                .Subscribe(pair => _view.SetMinerals(pair.Current, pair.Max))
+            _model.Minerals.CurrentMinerals
+                .Subscribe(m => _view.SetMinerals(m))
                 .AddTo(_disposables);
-            Observable.CombineLatest(_model.Population.CurrentPopulation, _model.Population.MaxPopulation,
-                    (Current, Max) => (Current, Max))
+            _model.Minerals.MaxMinerals
+                .Subscribe(m => _view.SetMaxMinerals(m))
+                .AddTo(_disposables);
+
+            Observable.CombineLatest(_model.Energy.Energy, _model.Energy.EnergyUsage,
+                    (Overall, Usage) => (Overall, Usage))
                 .Subscribe(pair =>
                 {
-                    _view.SetPopulation(pair.Current, pair.Max);
+                    _view.SetEnergy(pair.Overall - pair.Usage);
+                    _view.SetEnergyUsage(pair.Usage);
+                })
+                .AddTo(_disposables);
+            
+            Observable.CombineLatest(_model.Population.CurrentPopulation, _model.Population.BusyPopulation,
+                    (Current, Busy) => (Current, Busy))
+                .Subscribe(pair =>
+                {
+                    _view.SetPopulation(pair.Current - pair.Busy, pair.Current);
                     if (!_model.Population.IsTargetCompleted.CurrentValue)
                         _view.SetTargetProgress(1f * _model.Population.CurrentPopulation.CurrentValue / _model.Population.Target);
                 })
+                .AddTo(_disposables);
+            _model.Population.MaxPopulation
+                .Subscribe(m => _view.SetPopulationCapacity(m))
                 .AddTo(_disposables);
             _model.Population.IsTargetCompleted
                 .Subscribe(isCompleted => _view.SetTargetReached(isCompleted))

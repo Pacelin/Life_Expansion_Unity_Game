@@ -13,6 +13,7 @@ namespace Runtime.Gameplay.Colonizers
         public ReadOnlyReactiveProperty<int> CurrentPopulation => _currentPopulation
             .Select(v => (int) v).ToReadOnlyReactiveProperty();
         public ReadOnlyReactiveProperty<int> MaxPopulation => _maxPopulation;
+        public ReadOnlyReactiveProperty<int> BusyPopulation => _busy;
 
         public ReadOnlyReactiveProperty<bool> IsTargetCompleted => 
             _currentPopulation.Select(v =>
