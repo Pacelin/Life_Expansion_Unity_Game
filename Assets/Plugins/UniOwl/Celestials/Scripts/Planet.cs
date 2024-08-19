@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -16,5 +17,11 @@ namespace UniOwl.Celestials
         private Transform _sea;
 
         public Transform Sea => _sea;
+
+        private void Awake()
+        {
+            foreach (var mesh in SharedMeshes)
+                mesh.bounds = new Bounds(Vector3.zero, Vector3.one * 2000);
+        }
     }
 }

@@ -49,12 +49,12 @@ namespace UniOwl.Celestials
             for (int face = 0; face < 6; face++)
             {
                 var mesh = planet.SharedMeshes[face];
-                mesh.RecalculateBounds();
                 
                 if (settings.Model.recalculateNormals)
                     mesh.RecalculateNormals();
                 
                 mesh.Optimize();
+                mesh.RecalculateBounds();
             }
         }
 

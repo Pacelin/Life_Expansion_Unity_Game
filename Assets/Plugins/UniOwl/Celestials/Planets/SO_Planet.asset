@@ -15,19 +15,19 @@ MonoBehaviour:
   _planet: {fileID: 849109179550675979, guid: bd98122ba7fc22b479879d4763ef5457, type: 3}
   _model:
     resolution: 64
-    recalculateNormals: 0
+    recalculateNormals: 1
   _textures:
     resolution: 2
     generateTextures: 0
     generateNormals: 0
     generateHeights: 0
   _physical:
-    radius: 20
-    seaLevel: 0.58
+    radius: 10
+    seaLevel: 0.9
   _generation:
-    seed: 1839898636
+    seed: -147038020
     radius: 20
-    amplitude: 8.41
+    amplitude: 7
     frequency: 0.45
     persistence: 0.5
     lacunarity: 2

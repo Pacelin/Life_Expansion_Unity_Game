@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MV_Planet_3
+  m_Name: MV_Planet_1
   m_Shader: {fileID: -6465566751694194690, guid: 825c043d8d4936143a78bcbb78a7ae28, type: 3}
-  m_Parent: {fileID: 2100000, guid: 13de1129377977d43a8170fef3504948, type: 2}
+  m_Parent: {fileID: 2100000, guid: 253cbbafb5abcbb4cbf176204e75c8a8, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -29,7 +29,7 @@ Material:
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &870742975951313970
+--- !u!114 &1933575396671310803
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
