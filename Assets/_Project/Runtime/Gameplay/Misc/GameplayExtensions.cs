@@ -9,15 +9,11 @@
             if (value < 1000000)
             {
                 var mod = value % 1000;
-                if (mod >= 100)
-                    return value / 1000 + "." + mod / 10 + "K";
-                return value / 1000 + "K";
+                return value / 1000 + "." + (mod / 100) + (mod / 10) + "K";
             }
 
             var modM = value % 1000000;
-            if (modM >= 100000)
-                return value / 1000000 + "." + modM / 10000 + "M";
-            return value / 1000000 + "M";
+            return value / 1000000 + "." + (modM / 100000) + (modM / 10000) + "M";
         }
     }
 }
