@@ -5,12 +5,12 @@ using Zenject;
 
 namespace Runtime.Gameplay.Buildings.Conditions
 {
-    [CreateAssetMenu(menuName = "Gameplay/Buildings Unlocks/No Unlock Condition")]
-    public class NoUnlockCondition : BuildingUnlockCondition
+    [CreateAssetMenu(menuName = "Gameplay/Buildings Unlocks/Locked")]
+    public class LockedCondition : BuildingUnlockCondition
     {
         public override IDisposable Subscribe(DiContainer container, Action<bool> observable)
         {
-            observable(true);
+            observable(false);
             return Disposable.Empty;
         }
     }
