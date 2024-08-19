@@ -43,9 +43,9 @@ namespace Runtime.Gameplay.Buildings
                 return 2;
             }
             
-            if (value <= _negativeSmallArrowMin)
+            if (value >= _negativeSmallArrowMin)
                 return 0;
-            if (value <= _negativeMediumArrowMin)
+            if (value >= _negativeMediumArrowMin)
                 return 1;
             return 2;
         }
