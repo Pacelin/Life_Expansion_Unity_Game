@@ -1,5 +1,6 @@
 ﻿using System;
 using R3;
+using Runtime.Gameplay.Buildings;
 using Runtime.Gameplay.Core;
 using UnityEngine;
 using Zenject;
@@ -10,13 +11,14 @@ namespace Runtime.Gameplay.Planets
     {
         public Transform Transform => _component.transform;
         public Vector3 Center => _component.transform.position;
-        public float Radius => _config.Radius;
+        public float Radius => _config.MaxRadius;
 
         public PlanetIndicator Temperature => _temperature;
         public PlanetIndicator Oxygen => _oxygen;
         public PlanetIndicator Water => _water;
 
         private IDisposable _orbitalDisposable;
+        private IDisposable _waterDisposable;
         
         private readonly GameplayCore _gameplayCore;
         private readonly PlanetConfig _config;
@@ -43,6 +45,8 @@ namespace Runtime.Gameplay.Planets
             _water.Initialize(_gameplayCore);
             _orbitalDisposable = Observable.EveryUpdate(UnityFrameProvider.Update)
                 .Subscribe(_ => _component.transform.Rotate(_component.transform.up, _config.OrbitalSpeed * Time.deltaTime));
+            _waterDisposable = _water.NormalizedValueUnclamped.Subscribe(normalized =>
+                _component.SetWaterRadius(_config.MinRadius + (_config.MaxRadius - _config.MinRadius) * normalized));
         }
 
         public void Dispose()
@@ -51,6 +55,7 @@ namespace Runtime.Gameplay.Planets
             _oxygen.Dispose();
             _water.Dispose();
             _orbitalDisposable.Dispose();
+            _waterDisposable.Dispose();
         }
     }
 }

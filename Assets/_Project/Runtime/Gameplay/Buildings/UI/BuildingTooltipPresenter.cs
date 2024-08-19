@@ -62,6 +62,8 @@ namespace Runtime.Gameplay.Buildings.UI
             _view.SetBuildingName(_showingBuilding.Name);
             _view.SetDescription(_showingBuilding.Description);
             _view.SetCost(_showingBuilding.MineralsCost);
+            if (_showingBuilding.BuildTerritory == EBuildTerritory.Water)
+                AddParameter(_config.GetBuildOnWater());
             if (_showingBuilding.ColonizersCost > 0)
                 AddParameter(_config.GetColonizers(-_showingBuilding.ColonizersCost));
             if (_showingBuilding.EnergyCost > 0)

@@ -5,6 +5,7 @@ using DG.Tweening;
 using Runtime.Gameplay.Colonizers;
 using Runtime.Gameplay.Colonizers.UI;
 using Runtime.Gameplay.Planets;
+using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace Runtime.Gameplay.Buildings.Builder
@@ -16,6 +17,7 @@ namespace Runtime.Gameplay.Buildings.Builder
         private readonly Planet _planet;
         private readonly ColonizersModel _colonizers;
         private readonly ColonizersInfoPresenter _colonizersInfoPresenter;
+        private bool _canBuild;
         private Tween _tween;
         
         public BuildingApplier(BuildingBuilderConfig config, BuildingFactory factory,
@@ -28,13 +30,21 @@ namespace Runtime.Gameplay.Buildings.Builder
             _colonizersInfoPresenter = colonizersInfoPresenter;
         }
         
-        public void ValidatePosition(BuildingConditionalConfig buildingConfig, BuildingBuilderView view)
+        public void ValidatePosition(BuildingConditionalConfig buildingConfig, BuildingBuilderView view, bool isOnWater)
         {
+            bool canBuildOnTerritory = (buildingConfig.BuildTerritory == EBuildTerritory.Water && isOnWater) ||
+                                       (buildingConfig.BuildTerritory == EBuildTerritory.Ground && !isOnWater);
             
+            _canBuild = canBuildOnTerritory && !Physics.CheckSphere(view.transform.position, 
+                buildingConfig.Prefab.BuildingRadius, _config.BuildLayer);
+            
+            view.SetProjector(_canBuild);
         }
         
         public bool TryBuild(BuildingConditionalConfig buildingConfig, BuildingBuilderView view)
         {
+            if (!_canBuild)
+                return false;
             if (!_colonizers.Minerals.HasMinerals(buildingConfig.MineralsCost))
             {
                 _colonizersInfoPresenter.PingMinerals();

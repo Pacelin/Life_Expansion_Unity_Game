@@ -42,6 +42,10 @@ MonoBehaviour:
     m_Localized: Description
     m_Metadata:
       m_Items: []
+  - m_Id: 370450799923200
+    m_Localized: Hydrogenerator
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

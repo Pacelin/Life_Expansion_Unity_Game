@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buildLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   _planetLayer:
     serializedVersion: 2
     m_Bits: 8
+  _waterTag: Water
   _buildAnimationCurve:
     serializedVersion: 2
     m_Curve:

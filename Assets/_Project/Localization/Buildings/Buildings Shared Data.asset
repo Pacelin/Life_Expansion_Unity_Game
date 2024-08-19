@@ -28,7 +28,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 129706122153984
-    m_Key: Wind_Generator_Description
+    m_Key: Hydro_Generator_Description
     m_Metadata:
       m_Items: []
   - m_Id: 134274558070784
@@ -37,6 +37,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 134363045302272
     m_Key: Solar_Panel_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 370450799923200
+    m_Key: Hydro_Generator_Name
     m_Metadata:
       m_Items: []
   m_Metadata:

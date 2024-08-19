@@ -3,6 +3,12 @@ using UnityEngine.Localization;
 
 namespace Runtime.Gameplay.Buildings
 {
+    public enum EBuildTerritory
+    {
+        Ground,
+        Water
+    }
+    
     [CreateAssetMenu(menuName = "Gameplay/Buildings/Building Config")]
     public class BuildingConfig : ScriptableObject
     {
@@ -11,6 +17,7 @@ namespace Runtime.Gameplay.Buildings
         public int MineralsCost => _mineralsCost;
         public int ColonizersCost => _colonizersCost;
         public int EnergyCost => _energyCost;
+        public EBuildTerritory BuildTerritory => _buildTerritory;
         
         public string Name => _name.GetLocalizedString();
         public string Description => _description.GetLocalizedString();
@@ -20,6 +27,7 @@ namespace Runtime.Gameplay.Buildings
         [SerializeField] private int _mineralsCost;
         [SerializeField] private int _colonizersCost;
         [SerializeField] private int _energyCost;
+        [SerializeField] private EBuildTerritory _buildTerritory = EBuildTerritory.Ground;
         [Space] 
         [SerializeField] private LocalizedString _name;
         [SerializeField] private LocalizedString _description;

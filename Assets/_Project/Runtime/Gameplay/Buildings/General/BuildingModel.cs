@@ -1,28 +1,39 @@
 ﻿using System;
+using Runtime.Gameplay.Buildings.Builder;
 using Runtime.Gameplay.Colonizers;
 using Runtime.Gameplay.Planets;
 using Zenject;
+using R3;
 
 namespace Runtime.Gameplay.Buildings.General
 {
     public abstract class BuildingModel<T> : IBuildingModel
         where T : BuildingConditionalConfig
     {
+        public BuildingView View => _view;
         public bool Enabled => _enabled;
         public bool Broken => _broken;
+        public bool IsWrongTerritory => _isWrongTerritory;
         
         [Inject] protected BuildingView _view;
         [Inject] protected T _config;
 
         [Inject] protected Planet _planet;
         [Inject] protected ColonizersModel _colonizers;
+        [Inject] protected BuildService _buildService;
 
         private bool _enabled;
         private bool _broken;
+        private bool _isWrongTerritory;
+        private IDisposable _brokeSync;
         
         public void Build()
         {
             _colonizers.Minerals.ApplyPurchase(_config.MineralsCost);
+            if (_config.BuildTerritory == EBuildTerritory.Water)
+                _brokeSync = WaterSync();
+            else
+                _brokeSync = GroundSync();
             SetEnabled(true);
         }
 
@@ -30,15 +41,6 @@ namespace Runtime.Gameplay.Buildings.General
         {
             SetEnabled(false);
             _colonizers.Minerals.AddMinerals(_config.MineralsCost / 2, out _);
-        }
-
-        public void Flood()
-        {
-            if (!_broken)
-            {
-                _broken = true;
-                SetEnabled(false);
-            }
         }
 
         public void Repair()
@@ -77,7 +79,46 @@ namespace Runtime.Gameplay.Buildings.General
         protected abstract void OnEnable();
         protected abstract void OnDisable();
         protected abstract void Dispose();
+
+        private void Broke()
+        {
+            if (!_broken)
+            {
+                _broken = true;
+                SetEnabled(false);
+            }
+        }
         
-        void IDisposable.Dispose() => Dispose();
+        private IDisposable WaterSync()
+        {
+            return _planet.Water.Value
+                .Subscribe(_ =>
+                {
+                    var territory = _buildService.CheckBuildTerritory(_view.transform.position,
+                        out var newPosition);
+                    _view.transform.position = newPosition;
+                    _isWrongTerritory = territory != EBuildTerritory.Water;
+                    if (_isWrongTerritory && !_broken)
+                        Broke();
+                });
+        }
+        
+        private IDisposable GroundSync()
+        {
+            return _planet.Water.Value
+                .Subscribe(_ =>
+                {
+                    var territory = _buildService.CheckBuildTerritory(_view.transform.position, out var _);
+                    _isWrongTerritory = territory != EBuildTerritory.Ground;
+                    if (_isWrongTerritory && !_broken)
+                        Broke();
+                });
+        }
+
+        void IDisposable.Dispose()
+        {
+            _brokeSync?.Dispose();
+            Dispose();
+        }
     }
 }

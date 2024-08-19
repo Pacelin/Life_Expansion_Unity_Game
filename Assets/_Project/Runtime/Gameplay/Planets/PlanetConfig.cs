@@ -6,7 +6,8 @@ namespace Runtime.Gameplay.Planets
     public class PlanetConfig : ScriptableObject
     {
         public PlanetComponent Prefab => _prefab;
-        public float Radius => _radius;
+        public float MaxRadius => _maxRadius;
+        public float MinRadius => _minRadius;
         public float OrbitalSpeed => _orbitalSpeed;
 
         public PlanetIndicatorConfig Temperature => _temperature;
@@ -14,7 +15,8 @@ namespace Runtime.Gameplay.Planets
         public PlanetIndicatorConfig Water => _water;
 
         [SerializeField] private PlanetComponent _prefab;
-        [SerializeField] private float _radius;
+        [SerializeField] private float _minRadius;
+        [SerializeField] private float _maxRadius;
         [SerializeField] private float _orbitalSpeed;
 
         [SerializeField] private PlanetIndicatorConfig _temperature;

@@ -13,6 +13,7 @@ namespace Runtime.Gameplay.Buildings
         public int MineralsCost => _generalConfig.MineralsCost;
         public int ColonizersCost => _generalConfig.ColonizersCost;
         public int EnergyCost => _generalConfig.EnergyCost;
+        public EBuildTerritory BuildTerritory => _generalConfig.BuildTerritory;
         
         public string Name => _generalConfig.Name;
         public string Description => _generalConfig.Description;

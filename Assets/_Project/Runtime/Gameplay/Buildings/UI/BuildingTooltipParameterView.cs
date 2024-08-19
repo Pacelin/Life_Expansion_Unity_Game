@@ -31,5 +31,11 @@ namespace Runtime.Gameplay.Buildings.UI
             _iconImage.transform.rotation = Quaternion.Euler(0, 0, value > 0 ? 0 : 180);
             _iconImage.color = _opinionColors[opinion];
         }
+
+        public void SetAsBuildingPersonality()
+        {
+            _iconImage.gameObject.SetActive(false);
+            _iconText.gameObject.SetActive(false);
+        }
     }
 }

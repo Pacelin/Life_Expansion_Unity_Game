@@ -154,8 +154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b6640dcd3c4bf09f4fd63d568a0910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitBuildingSphere: {fileID: 604550634055432505}
   _meshContainer: {fileID: 6221587756411721369}
+  _projector: {fileID: 1055207641227109340}
+  _badProjectorMaterial: {fileID: 2100000, guid: 1468035c6b7066347b7ec7adf86fd6bd, type: 2}
+  _goodProjectorMaterial: {fileID: 2100000, guid: 8fc54e41c6efc6043bf535398f57abda, type: 2}
 --- !u!1 &6196001625553335502
 GameObject:
   m_ObjectHideFlags: 0

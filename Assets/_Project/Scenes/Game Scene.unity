@@ -574,11 +574,39 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 706467016612391144, guid: 5c577f251b464074490a46016a32c5be, type: 3}
       propertyPath: ShapeModule.radius.value
-      value: 180
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 706467016612391144, guid: 5c577f251b464074490a46016a32c5be, type: 3}
       propertyPath: ShapeModule.radiusThickness
-      value: 0.6
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 706467016612391144, guid: 5c577f251b464074490a46016a32c5be, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 706467016612391144, guid: 5c577f251b464074490a46016a32c5be, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 706467016612391144, guid: 5c577f251b464074490a46016a32c5be, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 706467016612391144, guid: 5c577f251b464074490a46016a32c5be, type: 3}
+      propertyPath: InitialModule.startSize.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 706467016612391144, guid: 5c577f251b464074490a46016a32c5be, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 706467016612391144, guid: 5c577f251b464074490a46016a32c5be, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 706467016612391144, guid: 5c577f251b464074490a46016a32c5be, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 2428350970114353246, guid: 5c577f251b464074490a46016a32c5be, type: 3}
       propertyPath: m_LocalPosition.x
