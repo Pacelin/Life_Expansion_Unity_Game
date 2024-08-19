@@ -28,7 +28,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 129706122153984
-    m_Key: Hydro_Generator_Description
+    m_Key: Wind_Generator_Description
     m_Metadata:
       m_Items: []
   - m_Id: 134274558070784
@@ -40,23 +40,93 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 370450799923200
-    m_Key: Hydro_Generator_Name
+    m_Key: Geothermal_Generator_Name
     m_Metadata:
       m_Items: []
   - m_Id: 426366689161216
-    m_Key: Geothermal_generator_Name
+    m_Key: Geothermal_Generator_Description
     m_Metadata:
       m_Items: []
   - m_Id: 441293197881344
-    m_Key: Wind_Generator_Entry
+    m_Key: Hydro_Generator_Name
     m_Metadata:
       m_Items: []
   - m_Id: 442006246338560
-    m_Key: Geothermal_generator_Entry
+    m_Key: Hydro_Generator_Description
     m_Metadata:
       m_Items: []
   - m_Id: 444440502939648
-    m_Key: Mine_Entry
+    m_Key: Mine_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 444574963937280
+    m_Key: Mine_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 446953595678720
+    m_Key: Living_House_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 447094260051968
+    m_Key: Living_House_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 463768682049536
+    m_Key: Cosmoport_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 463845190348800
+    m_Key: Cosmoport_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 467338957500416
+    m_Key: Hydrothermal_Converter_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 467602418511872
+    m_Key: Hydrothermal_Converter_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 467712854536192
+    m_Key: Nitrogen_Catalyst_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 467855754473472
+    m_Key: Nitrogen_Catalyst_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 467941125337088
+    m_Key: A_Huge_Sunflower_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 468105458167808
+    m_Key: A_Huge_Sunflower_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 468176409014272
+    m_Key: Atmospheric_Absorber_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 468291349721088
+    m_Key: Atmospheric_Absorber_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 468368336171008
+    m_Key: Cloudbuster_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 468521667342336
+    m_Key: Cloudbuster_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 468624729780224
+    m_Key: Scale_Dehumidifier_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 468735065141248
+    m_Key: 'Scale_Dehumidifier_Description
+
+'
     m_Metadata:
       m_Items: []
   m_Metadata:

@@ -54,6 +54,14 @@ MonoBehaviour:
     m_Localized: Production time
     m_Metadata:
       m_Items: []
+  - m_Id: 426136648364032
+    m_Localized: Colonizers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427755343523840
+    m_Localized: Production
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
