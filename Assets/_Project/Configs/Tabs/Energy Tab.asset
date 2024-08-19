@@ -9,19 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d646d374bde44ec19e2e86bd2d77500c, type: 3}
-  m_Name: Level 1 Cosmoport Unlock
+  m_Script: {fileID: 11500000, guid: 33d5d4b3fb194302aa5d9512139bfa3e, type: 3}
+  m_Name: Energy Tab
   m_EditorClassIdentifier: 
-  _lockingDescription:
+  _caption:
     m_TableReference:
-      m_TableCollectionName: GUID:3f0cc1033c686c640bfd9394c9dddb9e
+      m_TableCollectionName: GUID:f6153ee75ecfac645be2f1985c9d4b3e
     m_TableEntryReference:
-      m_KeyId: 355942084608
+      m_KeyId: 156761416609792
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  _targetPopulation: 90
   references:
     version: 2
     RefIds: []

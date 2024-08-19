@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hydro Generator
   m_EditorClassIdentifier: 
   _generalConfig: {fileID: 11400000, guid: cfabc989f4c8df54a939da803bf2d208, type: 2}
-  _unlockCondition: {fileID: 11400000, guid: fe40f717a82c0654abaabc0197005fcb, type: 2}
+  _unlockCondition: {fileID: 11400000, guid: 96892008a02cb854a99cb79650fc56c9, type: 2}
   _waterDelta:
     Value: -1
     Config: {fileID: 11400000, guid: 7182bb5dd979edd4f897e59611e69d56, type: 2}
