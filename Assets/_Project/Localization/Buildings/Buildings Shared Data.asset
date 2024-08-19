@@ -43,6 +43,10 @@ MonoBehaviour:
     m_Key: Hydro_Generator_Name
     m_Metadata:
       m_Items: []
+  - m_Id: 426366689161216
+    m_Key: Geothermal_generator_Name
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

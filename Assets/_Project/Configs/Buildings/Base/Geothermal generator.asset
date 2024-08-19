@@ -15,13 +15,13 @@ MonoBehaviour:
   _prefab: {fileID: 4064135220031198543, guid: 23ca6c64871f53244b3924621963626b, type: 3}
   _mineralsCost: 200
   _colonizersCost: 0
-  _energyCost: 4
+  _energyCost: 0
   _buildTerritory: 0
   _name:
     m_TableReference:
       m_TableCollectionName: GUID:d25c57a826b512544abe177ba1d21c57
     m_TableEntryReference:
-      m_KeyId: 129658399363072
+      m_KeyId: 426366689161216
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
