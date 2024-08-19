@@ -14,7 +14,15 @@ namespace Runtime.Gameplay.Buildings.UI
         [SerializeField] private Sprite[] _arrowsSprites;
 
         public void SetCaption(string caption) => _caption.text = caption;
-
+        
+        public void SetIcon(string value, EParameterOpinion opinion)
+        {
+            _iconImage.gameObject.SetActive(false);
+            _iconText.gameObject.SetActive(true);
+            _iconText.text = value;
+            _iconText.color = _opinionColors[opinion];
+        }
+        
         public void SetIcon(int value, EParameterOpinion opinion)
         {
             _iconImage.gameObject.SetActive(false);

@@ -47,6 +47,10 @@ MonoBehaviour:
     m_Key: Temperature
     m_Metadata:
       m_Items: []
+  - m_Id: 419757041258496
+    m_Key: Production_Seconds
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
