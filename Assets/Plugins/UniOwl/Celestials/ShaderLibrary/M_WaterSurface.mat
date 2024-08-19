@@ -47,7 +47,7 @@ Material:
     - Base_Scale: 1
     - Octaves: 12
     - Persistence: 0.5
-    - _Deep_Distance: 0.6
+    - _Deep_Distance: 1.06
     - _Deep_Factor: 0.9
     - _ENABLE_NORMALS: 1
     - _ENABLE_TEMPERATURE: 1
@@ -65,19 +65,19 @@ Material:
     - _Surface_Normal_Strength: 0.2
     - _Temperature_Offset: 0.5
     - _Temperature_Power: 15
-    - _Water_Normal_Strength: 0.01
+    - _Water_Normal_Strength: 0.03
     - _Water_Smoothness: 0.7
     - _Wave_Speed: 2
     - _t: 32.35
     m_Colors:
     - Ice_Color: {r: 0.8915094, g: 0.99582726, b: 1, a: 0}
     - _Base_Color: {r: 0.21133986, g: 0.34905657, b: 0.090557106, a: 0}
-    - _Deep_Color: {r: 0.14386791, g: 0.15789522, b: 0.5, a: 0}
+    - _Deep_Color: {r: 0.10464061, g: 0.113125, b: 0.36200002, a: 0}
     - _Detail_Color: {r: 0.34901956, g: 0.19009596, b: 0.090196066, a: 0}
     - _Foam_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Foam_Distance: {r: 0, g: 0, b: 0, a: 0}
     - _Rim_Color: {r: 0.4680935, g: 0.55602586, b: 0.6320754, a: 1}
-    - _Shore_Color: {r: 0.39609292, g: 0.6509434, b: 0.58645767, a: 0}
+    - _Shore_Color: {r: 0.44313726, g: 0.7294118, b: 0.7184282, a: 0}
     - _Snow_Color: {r: 1, g: 1, b: 1, a: 0}
     - _edge: {r: 11.8, g: 12.8, b: 1, a: 0}
   m_BuildTextureStacks: []

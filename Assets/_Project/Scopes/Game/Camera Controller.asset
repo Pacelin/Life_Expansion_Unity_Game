@@ -16,7 +16,7 @@ MonoBehaviour:
   _config:
     _minDistance: 1
     _initialDistance: 8
-    _maxDistance: 16
+    _maxDistance: 32
     _zoomStep: 1
     _zoomSpeed: 10
     _rotateSensitivityRange: {x: 0.03, y: 0.1}
