@@ -47,6 +47,18 @@ MonoBehaviour:
     m_Key: Geothermal_generator_Name
     m_Metadata:
       m_Items: []
+  - m_Id: 441293197881344
+    m_Key: Wind_Generator_Entry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 442006246338560
+    m_Key: Geothermal_generator_Entry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 444440502939648
+    m_Key: Mine_Entry
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
