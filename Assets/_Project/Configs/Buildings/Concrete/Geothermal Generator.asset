@@ -15,8 +15,8 @@ MonoBehaviour:
   _generalConfig: {fileID: 11400000, guid: dc441793d9dc21042967e0bac3b66fd8, type: 2}
   _unlockCondition: {fileID: 11400000, guid: fe40f717a82c0654abaabc0197005fcb, type: 2}
   _temperatureDelta:
-    Value: 0
-    Config: {fileID: 0}
+    Value: 1
+    Config: {fileID: 11400000, guid: b1f7548811fd68b4bb263882264421be, type: 2}
   _energyDelta:
-    Value: 0
-    Config: {fileID: 0}
+    Value: 4
+    Config: {fileID: 11400000, guid: cfd45c23bb1be0a418607b13b7525a8c, type: 2}

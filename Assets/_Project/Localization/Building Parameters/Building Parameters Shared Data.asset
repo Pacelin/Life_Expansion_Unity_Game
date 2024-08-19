@@ -43,6 +43,10 @@ MonoBehaviour:
     m_Key: Water
     m_Metadata:
       m_Items: []
+  - m_Id: 368403534393344
+    m_Key: Temperature
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

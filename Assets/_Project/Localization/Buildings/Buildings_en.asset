@@ -46,6 +46,10 @@ MonoBehaviour:
     m_Localized: Hydrogenerator
     m_Metadata:
       m_Items: []
+  - m_Id: 426366689161216
+    m_Localized: Geothermal generator
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
