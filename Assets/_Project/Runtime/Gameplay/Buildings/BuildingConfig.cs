@@ -1,14 +1,9 @@
-﻿using UnityEngine;
+﻿using Runtime.Gameplay.Buildings.UI;
+using UnityEngine;
 using UnityEngine.Localization;
 
 namespace Runtime.Gameplay.Buildings
 {
-    public enum EBuildTerritory
-    {
-        Ground,
-        Water
-    }
-    
     [CreateAssetMenu(menuName = "Gameplay/Buildings/Building Config")]
     public class BuildingConfig : ScriptableObject
     {
@@ -22,6 +17,7 @@ namespace Runtime.Gameplay.Buildings
         public string Name => _name.GetLocalizedString();
         public string Description => _description.GetLocalizedString();
         public Sprite Icon => _icon;
+        public BuildingsToolbarTabConfig ToolbarTab => _toolbarTab;
         
         [SerializeField] private BuildingView _prefab;
         [SerializeField] private int _mineralsCost;
@@ -32,5 +28,6 @@ namespace Runtime.Gameplay.Buildings
         [SerializeField] private LocalizedString _name;
         [SerializeField] private LocalizedString _description;
         [SerializeField] private Sprite _icon;
+        [SerializeField] private BuildingsToolbarTabConfig _toolbarTab;
     }
 }

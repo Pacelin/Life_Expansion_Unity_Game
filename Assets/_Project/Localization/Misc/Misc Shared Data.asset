@@ -31,6 +31,14 @@ MonoBehaviour:
     m_Key: Alive
     m_Metadata:
       m_Items: []
+  - m_Id: 107199407198208
+    m_Key: Production_Toolbar_Tab
+    m_Metadata:
+      m_Items: []
+  - m_Id: 107388712914944
+    m_Key: Terraforming_Toolbar_Tab
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

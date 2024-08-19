@@ -1,3 +1,4 @@
+using System;
 using R3;
 using Runtime.Gameplay.Misc;
 using TMPro;
@@ -29,6 +30,12 @@ namespace Runtime.Gameplay.Buildings.UI
         private ReactiveProperty<bool> _isSelected = new();
         private ReactiveProperty<bool> _isHover = new();
         private bool _locked;
+
+        private void OnDisable()
+        {
+            if (_isSelected.Value)
+                SetSelected(false);
+        }
 
         public void SetSelected(bool selected)
         {
