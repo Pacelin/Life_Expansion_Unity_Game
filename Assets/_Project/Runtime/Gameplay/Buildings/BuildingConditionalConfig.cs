@@ -20,6 +20,8 @@ namespace Runtime.Gameplay.Buildings
         public string Name => _generalConfig.Name;
         public string Description => _generalConfig.Description;
         public Sprite Icon => _generalConfig.Icon;
+
+        public BuildingUnlockCondition UnlockCondition => _unlockCondition;
         
         [SerializeField] private BuildingConfig _generalConfig;
         [SerializeField] private BuildingUnlockCondition _unlockCondition;
