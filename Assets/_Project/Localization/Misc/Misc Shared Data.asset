@@ -39,6 +39,10 @@ MonoBehaviour:
     m_Key: Terraforming_Toolbar_Tab
     m_Metadata:
       m_Items: []
+  - m_Id: 156761416609792
+    m_Key: Energy_Toolbar_Tab
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

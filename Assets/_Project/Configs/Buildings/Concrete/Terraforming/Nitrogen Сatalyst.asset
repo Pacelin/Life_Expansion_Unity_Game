@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Nitrogen \u0421atalyst"
   m_EditorClassIdentifier: 
   _generalConfig: {fileID: 11400000, guid: 0c9209b43c17bab4294c7bc780badeb6, type: 2}
-  _unlockCondition: {fileID: 11400000, guid: fe40f717a82c0654abaabc0197005fcb, type: 2}
+  _unlockCondition: {fileID: 11400000, guid: 96892008a02cb854a99cb79650fc56c9, type: 2}
   _temperatureDelta:
     Value: -4
     Config: {fileID: 11400000, guid: b1f7548811fd68b4bb263882264421be, type: 2}

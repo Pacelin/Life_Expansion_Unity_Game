@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Scale Dehumidifier
   m_EditorClassIdentifier: 
   _generalConfig: {fileID: 11400000, guid: 4c74666644ca0b34385e41509e84f3b9, type: 2}
-  _unlockCondition: {fileID: 11400000, guid: fe40f717a82c0654abaabc0197005fcb, type: 2}
+  _unlockCondition: {fileID: 11400000, guid: 96892008a02cb854a99cb79650fc56c9, type: 2}
   _temperatureDelta:
     Value: 2
     Config: {fileID: 11400000, guid: b1f7548811fd68b4bb263882264421be, type: 2}
