@@ -21,14 +21,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-ru
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3da54faa144b3ef47a340bae22152f1c
-    m_Address: Tooltips_ru
+  - m_GUID: 1c2390e41b1683e45ad8dc8f11948bbc
+    m_Address: Locked_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1c2390e41b1683e45ad8dc8f11948bbc
-    m_Address: Locked_ru
+  - m_GUID: 3da54faa144b3ef47a340bae22152f1c
+    m_Address: Tooltips_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru

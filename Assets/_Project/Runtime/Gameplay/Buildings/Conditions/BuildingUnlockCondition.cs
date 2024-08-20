@@ -8,6 +8,7 @@ namespace Runtime.Gameplay.Buildings.Conditions
     public abstract class BuildingUnlockCondition : ScriptableObject
     {
         public string LockingDescription => _lockingDescription.GetLocalizedString();
+        public virtual bool HasDescription => true;
         
         [SerializeField] private LocalizedString _lockingDescription;
         

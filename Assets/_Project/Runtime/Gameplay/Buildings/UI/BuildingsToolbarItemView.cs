@@ -1,5 +1,5 @@
-using System;
 using R3;
+using Runtime.Core;
 using Runtime.Gameplay.Misc;
 using TMPro;
 using UnityEngine;
@@ -30,11 +30,18 @@ namespace Runtime.Gameplay.Buildings.UI
         private ReactiveProperty<bool> _isSelected = new();
         private ReactiveProperty<bool> _isHover = new();
         private bool _locked;
+        private bool _showedTooltip;
+        private string _tooltipText;
 
         private void OnDisable()
         {
             if (_isSelected.Value)
                 SetSelected(false);
+            if (_showedTooltip && CursorTooltip.Instance != null)
+            {
+                CursorTooltip.Instance.Hide();
+                _showedTooltip = false;
+            }
         }
 
         public void SetSelected(bool selected)
@@ -49,6 +56,7 @@ namespace Runtime.Gameplay.Buildings.UI
             _isHover.Value = hover;
         }
 
+        public void SetTooltipText(string text) => _tooltipText = text;
         public void SetIcon(Sprite icon) => _itemIcon.sprite = icon;
         public void SetCost(int cost) => _costText.text = cost.ToGameString();
         public void SetPurchasable(bool purchasable) => _darkBackground.SetActive(!purchasable);
@@ -59,6 +67,12 @@ namespace Runtime.Gameplay.Buildings.UI
             _lockedState.SetActive(locked);
             _unlockedState.SetActive(!locked);
             _locked = locked;
+
+            if (_showedTooltip && !_locked)
+            {
+                CursorTooltip.Instance.Hide();
+                _showedTooltip = false;
+            }
         }
         
         public void OnPointerClick(PointerEventData eventData)
@@ -69,16 +83,30 @@ namespace Runtime.Gameplay.Buildings.UI
         }
 
         public void OnPointerEnter(PointerEventData eventData)
-        { 
+        {
             if (_locked)
+            {
+                if (!_showedTooltip)
+                {
+                    CursorTooltip.Instance.Show(_tooltipText, ECursorIcon.Locked);
+                    _showedTooltip = true;
+                }
                 return;
+            }
             SetHover(true);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             if (_locked)
+            {
+                if (_showedTooltip)
+                {
+                    CursorTooltip.Instance.Hide();
+                    _showedTooltip = false;
+                }
                 return;
+            }
             SetHover(false);
         }
     }
