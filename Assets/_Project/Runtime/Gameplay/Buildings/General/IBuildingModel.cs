@@ -4,11 +4,13 @@ namespace Runtime.Gameplay.Buildings.General
 {
     public interface IBuildingModel : IDisposable
     {
-        BuildingView View { get; }
         bool Enabled { get; }
-        bool Broken { get; }
-        bool IsWrongTerritory { get; }
+        BuildingView View { get; }
         void Build();
+        void SetState(params EBuildingState[] states);
+        void CancelState(EBuildingState state);
         void Delete();
+        bool EnoughEnergy();
+        bool EnoughColonizers();
     }
 }

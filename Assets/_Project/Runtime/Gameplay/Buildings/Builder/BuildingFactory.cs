@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ObservableCollections;
 using Runtime.Gameplay.Buildings.General;
 using UnityEngine;
 using Zenject;
@@ -8,11 +9,11 @@ namespace Runtime.Gameplay.Buildings.Builder
 {
     public class BuildingFactory : IDisposable
     {
-        public IReadOnlyList<IBuildingModel> Buildings => _buildings;
+        public ObservableList<IBuildingModel> Buildings => _buildings;
 
         [Inject] private DiContainer _di;
         
-        private List<IBuildingModel> _buildings = new();
+        private ObservableList<IBuildingModel> _buildings = new();
         
         public void Add(BuildingConditionalConfig config, BuildingView view)
         {
