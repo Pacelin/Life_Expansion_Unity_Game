@@ -63,7 +63,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amplitude: 12.6
+    - _Amplitude: 18.3
     - _Fake_AO_Strength: 0.2
     - _Light_Sharpness: 0.5
     - _Noise_Strength: 1
@@ -73,7 +73,7 @@ Material:
     - _OverallLevel: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Radius: 13.5
+    - _Radius: 19.2
     - _Rock_Strength: 1
     m_Colors:
     - _Day_Color: {r: 1, g: 0.8980392, b: 0.5607843, a: 0}

@@ -26,13 +26,13 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _OverallLevel: 0.58
+    - _OverallLevel: 0.588459
     m_Colors:
     - _DryColor: {r: 0.8490566, g: 0.70888215, b: 0.71174467, a: 1}
     - _GrassColor: {r: 0.509434, g: 0.14658241, b: 0.2970331, a: 1}
     - _RimColor: {r: 0.21960784, g: 0.2627451, b: 0.29803923, a: 1}
     - _RockColor: {r: 0.6981132, g: 0.63561314, b: 0.38527945, a: 1}
-    - _TempTint: {r: 0.9986824, g: 0.975, b: 0.96762353, a: 1}
+    - _TempTint: {r: 0.6, g: 0.94340706, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &1922568096106470275
