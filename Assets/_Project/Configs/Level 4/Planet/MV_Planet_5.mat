@@ -25,8 +25,14 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _OverallLevel: 0.58
+    m_Colors:
+    - _DryColor: {r: 0.8490566, g: 0.70888215, b: 0.71174467, a: 1}
+    - _GrassColor: {r: 0.6792453, g: 0.3556426, b: 0.48831964, a: 1}
+    - _RimColor: {r: 0.21960784, g: 0.2627451, b: 0.29803923, a: 1}
+    - _RockColor: {r: 0.6981132, g: 0.63561314, b: 0.38527945, a: 1}
+    - _TempTint: {r: 0.9986824, g: 0.975, b: 0.96762353, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6332091397546676022

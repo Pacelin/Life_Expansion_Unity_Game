@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576299371b232924784fe7bb234bbe5b, type: 3}
   m_Name: Level_2_Settings
   m_EditorClassIdentifier: 
-  _planet: {fileID: 0}
+  _planet: {fileID: 1805717554810084708, guid: 124b983513af31346ad78cd16d130759, type: 3}
   _model:
     resolution: 64
     recalculateNormals: 1

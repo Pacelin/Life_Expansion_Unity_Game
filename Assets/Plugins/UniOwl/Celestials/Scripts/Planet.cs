@@ -6,6 +6,23 @@ namespace UniOwl.Celestials
 {
     public class Planet : MonoBehaviour
     {
+        private static readonly int s_rimColor = Shader.PropertyToID("_RimColor");
+        private static readonly int s_grassColor = Shader.PropertyToID("_GrassColor");
+        private static readonly int s_dryColor = Shader.PropertyToID("_DryColor");
+        private static readonly int s_rockColor = Shader.PropertyToID("_RockColor");
+        private static readonly int s_tempTint = Shader.PropertyToID("_TempTint");
+        private static readonly int s_overallLevel = Shader.PropertyToID("_OverallLevel");
+        private static readonly int s_shoreColor = Shader.PropertyToID("_ShoreColor");
+        private static readonly int s_deepColor = Shader.PropertyToID("_DeepColor");
+        private static readonly int s_deepDistance = Shader.PropertyToID("_DeepDistance");
+        private static readonly int s_temperature = Shader.PropertyToID("_Temperature");
+        private static readonly int s_color = Shader.PropertyToID("_Color");
+        private static readonly int s_thickness = Shader.PropertyToID("_Thickness");
+        private static readonly int s_baseColor = Shader.PropertyToID("_BaseColor");
+        private static readonly int s_overcastColor = Shader.PropertyToID("_OvercastColor");
+        private static readonly int s_innerRadius = Shader.PropertyToID("_InnerRadius");
+
+        
         [FormerlySerializedAs("_faces")]
         [SerializeField]
         private PlanetFace[] surfaceFaces;
@@ -14,6 +31,9 @@ namespace UniOwl.Celestials
 
         public Mesh[] SurfaceSharedMeshes => surfaceFaces.Select(face => face.Filter.sharedMesh).ToArray();
 
+        [SerializeField]
+        private PlanetSettings settings;
+        
         [SerializeField]
         private MeshRenderer _sea;
         [SerializeField]
@@ -30,59 +50,68 @@ namespace UniOwl.Celestials
         
         public Transform SeaTransform => _sea.transform;
 
+        private float currentTemperature, currentAtmosphere, currentOverall;
+        
         private void Awake()
         {
             foreach (var mesh in SurfaceSharedMeshes)
                 mesh.bounds = new Bounds(Vector3.zero, Vector3.one * 2000);
         }
         
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="settings"></param>
-        /// <param name="seaLevel">Range [0, 2], 0 = no sea, 1 = full sea, 2 = double height sea.</param>
         /// <param name="temperatureLevel">Range [0, 1], 0 = very cold, 1 = very hot, 0.5 = normal temperature.</param>
-        /// <param name="atmosphereLevel">Range [0, 1], 0 = no atmosphere, 1 = dense atmosphere.</param>
-        /// <param name="overallLevel">Range [0, 1], 0 = no life, 1 = full life.</param>
-        public void UpdatePlanetAppearance(
-                PlanetSettings settings,
-                float seaLevel,
-                float temperatureLevel,
-                float atmosphereLevel,
-                float overallLevel
-            )
+        public void SetTemperatureLevel(float temperatureLevel)
         {
-            UpdateSurface(settings, seaLevel, temperatureLevel, atmosphereLevel, overallLevel);
-            UpdateSea(settings, seaLevel, temperatureLevel, atmosphereLevel, overallLevel);
-            UpdateAtmosphere(settings, seaLevel, temperatureLevel, atmosphereLevel, overallLevel);
-            UpdateClouds(settings, seaLevel, temperatureLevel, atmosphereLevel, overallLevel);
-            UpdateRings(settings);
+            currentTemperature = temperatureLevel;
+            
+            UpdateSurface();
+            UpdateSea();
+            UpdateAtmosphere();
+            UpdateClouds();
+        }
+        
+        /// <param name="atmosphereLevel">Range [0, 1], 0 = no atmosphere, 1 = dense atmosphere.</param>
+        public void SetAtmosphereLevel(float atmosphereLevel)
+        {
+            currentAtmosphere = atmosphereLevel;
+            
+            UpdateAtmosphere();
+            UpdateClouds();
         }
 
-        private void UpdateSurface(
-                PlanetSettings settings,
-                float seaLevel,
-                float temperatureLevel,
-                float atmosphereLevel,
-                float overallLevel
-            )
+        /// <param name="overallLevel">Range [0, 1], 0 = no life, 1 = full life.</param>
+        public void SetOverallLevel(float overallLevel)
+        {
+            currentOverall = overallLevel;
+            UpdateSurface();
+        }
+        
+        public void UpdatePlanetAppearance()
+        {
+            UpdateSurface();
+            UpdateSea();
+            UpdateAtmosphere();
+            UpdateClouds();
+            UpdateRings();
+        }
+
+        private void UpdateSurface()
         {
             foreach (PlanetFace face in surfaceFaces)
             {
                 var mat = face.Renderer.sharedMaterial;
-                mat.SetColor("_RimColor", settings.Appearance.rimColor);
-                mat.SetColor("_GrassColor", settings.Appearance.grassColor);
-                mat.SetColor("_DryColor", settings.Appearance.dryColor);
-                mat.SetColor("_RockColor", settings.Appearance.rockColor);
+                mat.SetColor(s_rimColor, settings.Appearance.rimColor);
+                mat.SetColor(s_grassColor, settings.Appearance.grassColor);
+                mat.SetColor(s_dryColor, settings.Appearance.dryColor);
+                mat.SetColor(s_rockColor, settings.Appearance.rockColor);
 
-                Color tint = GetTemperatureTint(settings, temperatureLevel);
-                mat.SetColor("_TempTint", tint);
+                Color tint = GetTemperatureTint(currentTemperature);
+                mat.SetColor(s_tempTint, tint);
                 
-                mat.SetFloat("_OverallLevel", overallLevel);
+                mat.SetFloat(s_overallLevel, currentOverall);
             }
         }
 
-        private Color GetTemperatureTint(PlanetSettings settings, float temperatureLevel)
+        private Color GetTemperatureTint(float temperatureLevel)
         {
             Color fromTint = temperatureLevel < 0.5f ? settings.Appearance.coldTint : Color.white;
             Color toTint = temperatureLevel < 0.5f ? Color.white : settings.Appearance.warmTint;
@@ -91,72 +120,54 @@ namespace UniOwl.Celestials
             return Color.Lerp(fromTint, toTint, temperatureT);
         }
 
-        private void UpdateSea(
-                PlanetSettings settings,
-                float seaLevel,
-                float temperatureLevel,
-                float atmosphereLevel,
-                float overallLevel
-            )
+        private void UpdateSea()
         {
             var mat = _sea.sharedMaterial;
-            mat.SetColor("_RimColor", settings.Appearance.rimColor);
-            mat.SetColor("_ShoreColor", settings.Appearance.waterShoreColor);
-            mat.SetColor("_DeepColor", settings.Appearance.waterDeepColor);
-            mat.SetFloat("_DeepDistance", settings.Appearance.deepDistance);
-            mat.SetFloat("_Temperature", temperatureLevel);
+            mat.SetColor(s_rimColor, settings.Appearance.rimColor);
+            mat.SetColor(s_shoreColor, settings.Appearance.waterShoreColor);
+            mat.SetColor(s_deepColor, settings.Appearance.waterDeepColor);
+            mat.SetFloat(s_deepDistance, settings.Appearance.deepDistance);
+            mat.SetFloat(s_temperature, currentTemperature);
 
-            Color tint = GetTemperatureTint(settings, temperatureLevel);
-            mat.SetColor("_TempTint", tint);
+            Color tint = GetTemperatureTint(currentTemperature);
+            mat.SetColor(s_tempTint, tint);
         }
 
-        public void UpdateAtmosphere(
-                PlanetSettings settings,
-                float seaLevel,
-                float temperatureLevel,
-                float atmosphereLevel,
-                float overallLevel
-            )
+        private void UpdateAtmosphere()
         {
             _atmosphere.gameObject.SetActive(settings.Appearance.hasAtmosphere);
-            _atmosphere.transform.localScale = Vector3.one * 2f * (settings.Physical.radius + settings.Appearance.atmosphereHeight);
+            _atmosphere.transform.localScale = Vector3.one * (2f * (settings.Physical.radius + settings.Appearance.atmosphereHeight));
 
             var mat = _atmosphere.sharedMaterial;
             
-            mat.SetColor("_Color", settings.Appearance.atmosphereColor);
-            mat.SetFloat("_Thickness", settings.Appearance.maxAtmosphereThickness * atmosphereLevel);
+            mat.SetColor(s_color, settings.Appearance.atmosphereColor);
+            mat.SetFloat(s_thickness, settings.Appearance.maxAtmosphereThickness * currentAtmosphere);
             
-            Color tint = GetTemperatureTint(settings, temperatureLevel);
-            mat.SetColor("_TempTint", tint);
+            Color tint = GetTemperatureTint(currentTemperature);
+            mat.SetColor(s_tempTint, tint);
         }
 
-        public void UpdateClouds(
-                PlanetSettings settings,
-                float seaLevel,
-                float temperatureLevel,
-                float atmosphereLevel,
-                float overallLevel
-            )
+        private void UpdateClouds()
         {
             _clouds.gameObject.SetActive(settings.Appearance.hasClouds);
-            _clouds.transform.localScale = Vector3.one * 2f * (settings.Physical.radius + settings.Appearance.cloudsHeight);
+            _clouds.transform.localScale = Vector3.one * (2f * (settings.Physical.radius + settings.Appearance.cloudsHeight));
 
             var mat = _clouds.sharedMaterial;
             
-            Color tint = GetTemperatureTint(settings, temperatureLevel);
-            mat.SetColor("_BaseColor", settings.Appearance.baseCloudsColor);
-            mat.SetColor("_OvercastColor", settings.Appearance.overcastCloudsColor);
-            mat.SetColor("_TempTint", tint);
-            mat.SetFloat("_Thickness", settings.Appearance.maxCloudThickness * atmosphereLevel);
+            Color tint = GetTemperatureTint(currentTemperature);
+            mat.SetColor(s_baseColor, settings.Appearance.baseCloudsColor);
+            mat.SetColor(s_overcastColor, settings.Appearance.overcastCloudsColor);
+            mat.SetColor(s_tempTint, tint);
+            mat.SetFloat(s_thickness, settings.Appearance.maxCloudThickness * currentAtmosphere);
         }
 
-        public void UpdateRings(PlanetSettings settings)
+        private void UpdateRings()
         {
             _rings.gameObject.SetActive(settings.Appearance.hasRings);
-            _rings.transform.localScale = Vector3.one * 2f * (settings.Physical.radius + settings.Appearance.ringOuterRadius);
+            _rings.transform.localScale = Vector3.one * (2f * (settings.Physical.radius + settings.Appearance.ringOuterRadius));
 
             var mat = _rings.sharedMaterial;
-            mat.SetFloat("_InnerRadius", settings.Appearance.ringInnerRadius);
+            mat.SetFloat(s_innerRadius, settings.Appearance.ringInnerRadius);
         }
     }
 }
