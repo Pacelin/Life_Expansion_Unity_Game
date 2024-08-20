@@ -16,7 +16,7 @@ namespace Runtime.Gameplay.Buildings
         [SerializeField] private Image _icon;
         [SerializeField] private SerializedDictionary<EBubbleIcon, Sprite> _icons;
 
-        private ReactiveCommand<Unit> _onClick;
+        private ReactiveCommand<Unit> _onClick = new();
         private string _tooltip;
         private ECursorIcon _cursorIcon;
         private bool _tooltipShown;

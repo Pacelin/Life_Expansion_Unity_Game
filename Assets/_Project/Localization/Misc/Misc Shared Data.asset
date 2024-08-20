@@ -59,6 +59,14 @@ MonoBehaviour:
     m_Key: Destroy
     m_Metadata:
       m_Items: []
+  - m_Id: 435636864946176
+    m_Key: No_Energy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 435719589203968
+    m_Key: No_Colonizers
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
