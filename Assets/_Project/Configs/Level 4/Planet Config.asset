@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 6994620855911247444, guid: 30d7cad1d271724409ed073319a22b4d, type: 3}
   _minRadius: 21
-  _maxRadius: 35
+  _maxRadius: 30
   _orbitalSpeed: 0.3
   _temperature:
     _min: -50
