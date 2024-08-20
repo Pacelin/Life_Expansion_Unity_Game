@@ -29,9 +29,11 @@ namespace UniOwl.Celestials.Editor
             
             if (EditorGUI.EndChangeCheck())
             {
+                var settings = (PlanetSettings)target;
+                PlanetCreatorEditor.CreatePlanet(settings);
+                
                 serializedObject.ApplyModifiedProperties();
                 
-                var settings = (PlanetSettings)target;
                 if (settings.Planet)
                 {
                     settings.Planet.SetOverallLevel(settings.overallLevel);
