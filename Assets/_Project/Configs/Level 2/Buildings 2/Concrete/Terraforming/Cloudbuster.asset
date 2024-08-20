@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a968cc53dc504953839c93beb2eee991, type: 3}
+  m_Name: Cloudbuster
+  m_EditorClassIdentifier: 
+  _generalConfig: {fileID: 11400000, guid: 07f6f3bababbd3e46a1a790d112321fc, type: 2}
+  _unlockCondition: {fileID: 11400000, guid: 96892008a02cb854a99cb79650fc56c9, type: 2}
+  _temperatureDelta:
+    Value: 0
+    Config: {fileID: 11400000, guid: b1f7548811fd68b4bb263882264421be, type: 2}
+  _oxygenDelta:
+    Value: -2
+    Config: {fileID: 11400000, guid: e2dbb7580095c104c883f88dd0f4e6f8, type: 2}
+  _waterDelta:
+    Value: 4
+    Config: {fileID: 11400000, guid: 7182bb5dd979edd4f897e59611e69d56, type: 2}

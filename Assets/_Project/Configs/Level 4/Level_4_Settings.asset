@@ -22,15 +22,15 @@ MonoBehaviour:
     generateNormals: 0
     generateHeights: 0
   _physical:
-    radius: 18
-    amplitude: 12.7
-    seaLevel: 0.1
+    radius: 16.2
+    amplitude: 24.8
+    seaLevel: 0.02
   _generation:
     seed: 1348764628
-    frequency: 0.06
-    persistence: 0.442
-    lacunarity: 2
-    octaves: 9
+    frequency: 3.75
+    persistence: 0.836
+    lacunarity: 1.15
+    octaves: 12
     redistributionPower: 5.67
     erosionPower: 1.13
     warpingOffset:
@@ -39,12 +39,12 @@ MonoBehaviour:
       z: 0.59
     warpingStrength: 0
   _appearance:
-    grassColor: {r: 0.6792453, g: 0.3556426, b: 0.48831964, a: 1}
+    grassColor: {r: 0.509434, g: 0.14658241, b: 0.2970331, a: 1}
     dryColor: {r: 0.8490566, g: 0.70888215, b: 0.71174467, a: 1}
     rockColor: {r: 0.6981132, g: 0.63561314, b: 0.38527945, a: 1}
     rimColor: {r: 0.21960784, g: 0.2627451, b: 0.29803923, a: 1}
-    waterShoreColor: {r: 0.99215686, g: 0.57137007, b: 0.5294118, a: 1}
-    waterDeepColor: {r: 0.5372549, g: 0.33333334, b: 0.34127724, a: 1}
+    waterShoreColor: {r: 1, g: 0.544842, b: 0.23137254, a: 1}
+    waterDeepColor: {r: 0.6698113, g: 0.06634923, b: 0.66772306, a: 1}
     deepDistance: 0.07
     hasAtmosphere: 1
     atmosphereColor: {r: 0.7529412, g: 0.5529412, b: 0.5568989, a: 1}
