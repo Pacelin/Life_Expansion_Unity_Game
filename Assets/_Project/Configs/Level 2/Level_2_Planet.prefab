@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 3570291423838586031, guid: d7b67afd338e2664ca415975b57e14f5, type: 3}
       propertyPath: _water
       value: 
-      objectReference: {fileID: 35781323192030145}
+      objectReference: {fileID: 4838722706728522490}
     - target: {fileID: 3570291423838586031, guid: d7b67afd338e2664ca415975b57e14f5, type: 3}
       propertyPath: _uniPlanet
       value: 
@@ -303,6 +303,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 0294e94b19e31bf458f367a778489452, type: 2}
+--- !u!4 &4838722706728522490 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3118000080264121476, guid: 124b983513af31346ad78cd16d130759, type: 3}
+  m_PrefabInstance: {fileID: 7522071478127550078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5278653529462086642 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2387557945648924044, guid: 124b983513af31346ad78cd16d130759, type: 3}

@@ -43,7 +43,7 @@ Material:
     - _Edge_Power: 0.5
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Thickness: 0.1
+    - _Thickness: 0.2
     m_Colors:
     - _Color: {r: 0.7529412, g: 0.5529412, b: 0.5568989, a: 1}
     - _TempTint: {r: 0.9752941, g: 0.53125036, b: 0.39294118, a: 1}

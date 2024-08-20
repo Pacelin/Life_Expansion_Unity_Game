@@ -17,20 +17,20 @@ MonoBehaviour:
   _maxRadius: 23
   _orbitalSpeed: 0.3
   _temperature:
-    _min: -50
-    _max: 50
-    _initial: -20
+    _min: -25
+    _max: 25
+    _initial: -10
     _sensitivity: 1
     _interpolation: 0.5
   _oxygen:
     _min: 0
-    _max: 100
-    _initial: 80
+    _max: 25
+    _initial: 40
     _sensitivity: 1
     _interpolation: 0.5
   _water:
     _min: 0
-    _max: 100
-    _initial: 50
+    _max: 50
+    _initial: 25
     _sensitivity: 1
     _interpolation: 0.5
