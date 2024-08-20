@@ -45,7 +45,9 @@ namespace Runtime.Gameplay.Buildings.General
 
         private void Update()
         {
-            var firstBuilding = _factory.Buildings.First(b => b.Enabled);
+            var firstBuilding = _factory.Buildings.FirstOrDefault(b => b.Enabled);
+            if (firstBuilding == null)
+                return;
             var noEnergy = _colonizers.Energy.EnergyUsage.CurrentValue > _colonizers.Energy.Energy.CurrentValue;
             var noColonizers = _colonizers.Population.BusyPopulation.CurrentValue > _colonizers.Population.CurrentPopulation.CurrentValue;
             if (noEnergy)
