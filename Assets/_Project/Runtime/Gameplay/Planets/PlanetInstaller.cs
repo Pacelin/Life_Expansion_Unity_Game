@@ -20,6 +20,8 @@ namespace Runtime.Gameplay.Planets
                 .WhenInjectedInto<Planet>();
             Container.BindInterfacesAndSelfTo<Planet>()
                 .AsSingle();
+            Container.BindInterfacesTo<PlanetSync>()
+                .AsSingle();
         }
     }
 }

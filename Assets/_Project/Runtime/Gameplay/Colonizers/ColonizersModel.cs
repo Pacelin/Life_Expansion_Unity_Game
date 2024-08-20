@@ -13,6 +13,7 @@ namespace Runtime.Gameplay.Colonizers
         public ColonizersMineralsModel Minerals => _minerals;
         public ColonizersPopulationModel Population => _population;
         public ColonizersEnergyModel Energy => _energy;
+        public ReadOnlyReactiveProperty<float> Feeling => _feeling;
 
         public float TargetTemperature => _temperature.TargetFeeling;
         public float TargetOxygen => _oxygen.TargetFeeling;
