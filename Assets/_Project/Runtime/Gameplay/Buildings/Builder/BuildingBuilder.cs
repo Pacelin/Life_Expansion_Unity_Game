@@ -93,6 +93,7 @@ namespace Runtime.Gameplay.Buildings.Builder
             _showingDisposables?.Dispose();
             _view.gameObject.SetActive(false);
             _currentBuilding = null;
+            _view.ClearMesh();
         }
 
         private void UpdatePosition()
