@@ -5,83 +5,56 @@ using ObservableCollections;
 using R3;
 using Runtime.Gameplay.Buildings.Builder;
 using Runtime.Gameplay.Colonizers;
+using UnityEngine;
 using Zenject;
 
 namespace Runtime.Gameplay.Buildings.General
 {
-    public class BuildingsValidator : IInitializable, IDisposable
+    public class BuildingsValidator : ITickable
     {
         private readonly BuildingFactory _factory;
         private readonly ColonizersModel _colonizers;
-        private readonly List<IBuildingModel> _disabledByEnergy;
-        private readonly List<IBuildingModel> _disabledByColonizers;
-        private IDisposable _updateDisposable;
         
         public BuildingsValidator(BuildingFactory factory, ColonizersModel colonizers)
         {
             _factory = factory;
             _colonizers = colonizers;
-            _disabledByEnergy = new();
-            _disabledByColonizers = new();
         }
 
-        public void Initialize()
+        public void Tick()
         {
-            _updateDisposable = R3.Observable.Merge(
-                _factory.Buildings.ObserveAdd().AsUnitObservable(),
-                _factory.Buildings.ObserveRemove().AsUnitObservable(),
-                _colonizers.Energy.Energy.AsUnitObservable(),
-                _colonizers.Energy.EnergyUsage.AsUnitObservable(),
-                _colonizers.Population.CurrentPopulation.AsUnitObservable(),
-                _colonizers.Population.BusyPopulation.AsUnitObservable())
-            .Subscribe(_ => Update());
-        }
-
-        public void Dispose()
-        {
-            _updateDisposable?.Dispose();
-        }
-
-        private void Update()
-        {
-            var firstBuilding = _factory.Buildings.LastOrDefault(b => b.Enabled);
-            if (firstBuilding == null)
-                return;
-            var noEnergy = _colonizers.Energy.EnergyUsage.CurrentValue > _colonizers.Energy.Energy.CurrentValue;
-            var noColonizers = _colonizers.Population.BusyPopulation.CurrentValue > _colonizers.Population.CurrentPopulation.CurrentValue;
-            if (noEnergy)
-                _disabledByEnergy.Add(firstBuilding);
-            if (noColonizers)
-                _disabledByColonizers.Add(firstBuilding);
-            
-            if (noEnergy && noColonizers)
-                firstBuilding.SetState(EBuildingState.NoEnergy, EBuildingState.NoColonists);
-            else if (noEnergy)
-                firstBuilding.SetState(EBuildingState.NoEnergy);
-            else if (noColonizers)
-                firstBuilding.SetState(EBuildingState.NoColonists);
-
-            if (!noColonizers)
+            var excessEnergy = _colonizers.Energy.EnergyUsage.CurrentValue - _colonizers.Energy.Energy.CurrentValue;
+            var excessColonizers = _colonizers.Population.BusyPopulation.CurrentValue - _colonizers.Population.CurrentPopulation.CurrentValue;
+            for (int i = _factory.Buildings.Count - 1; i >= 0; i--)
             {
-                foreach (var building in _disabledByColonizers)
+                var building = _factory.Buildings[i];
+                if (building.Enabled)
                 {
-                    if (building.EnoughColonizers())
+                    if (excessEnergy > 0)
                     {
-                        building.CancelState(EBuildingState.NoColonists);
-                        _disabledByColonizers.Remove(building);
-                        break;
+                        excessEnergy -= building.EnergyCost;
+                        if (excessColonizers > 0)
+                            building.SetState(EBuildingState.NoEnergy, EBuildingState.NoColonists);
+                        else
+                            building.SetState(EBuildingState.NoEnergy);
+                        excessColonizers -= building.ColonizersCost;
+                    }
+                    else if (excessColonizers > 0)
+                    {
+                        excessEnergy -= building.EnergyCost;
+                        excessColonizers -= building.ColonizersCost;
+                        building.SetState(EBuildingState.NoColonists);
                     }
                 }
-            }
-            if (!noEnergy)
-            {
-                foreach (var building in _disabledByEnergy)
+                else
                 {
-                    if (building.EnoughEnergy())
+                    if (Mathf.Abs(excessEnergy) >= building.EnergyCost &&
+                        Mathf.Abs(excessColonizers) >= building.ColonizersCost)
                     {
+                        building.CancelState(EBuildingState.NoColonists);
                         building.CancelState(EBuildingState.NoEnergy);
-                        _disabledByEnergy.Remove(building);
-                        break;
+                        excessEnergy += building.EnergyCost;
+                        excessColonizers += building.ColonizersCost;
                     }
                 }
             }

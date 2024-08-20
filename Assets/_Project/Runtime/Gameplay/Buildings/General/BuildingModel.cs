@@ -12,6 +12,8 @@ namespace Runtime.Gameplay.Buildings.General
     public abstract class BuildingModel<T> : IBuildingModel
         where T : BuildingConditionalConfig
     {
+        public int EnergyCost => _config.EnergyCost;
+        public int ColonizersCost => _config.ColonizersCost;
         public BuildingView View => _view;
         public bool Enabled => _enabled;
         
@@ -23,7 +25,7 @@ namespace Runtime.Gameplay.Buildings.General
         [Inject] protected BuildService _buildService;
         [Inject] protected BuildingBubbleConfig _bubbleConfig;
 
-        private EBuildingState _state;
+        private EBuildingState _state = EBuildingState.None;
         private bool _enabled;
         private IDisposable _brokeSync;
 
@@ -41,7 +43,6 @@ namespace Runtime.Gameplay.Buildings.General
                 _brokeSync = WaterSync();
             else
                 _brokeSync = GroundSync();
-            SetState(EBuildingState.Active);
         }
 
         public void Delete()
