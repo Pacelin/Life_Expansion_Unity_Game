@@ -39,6 +39,24 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  _noEnergy:
+    m_TableReference:
+      m_TableCollectionName: GUID:f6153ee75ecfac645be2f1985c9d4b3e
+    m_TableEntryReference:
+      m_KeyId: 412836146057216
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _noColonizers:
+    m_TableReference:
+      m_TableCollectionName: GUID:f6153ee75ecfac645be2f1985c9d4b3e
+    m_TableEntryReference:
+      m_KeyId: 412938549989376
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   references:
     version: 2
     RefIds: []
