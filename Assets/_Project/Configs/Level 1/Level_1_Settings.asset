@@ -27,7 +27,7 @@ MonoBehaviour:
     seaLevel: 0.1
   _generation:
     seed: 1348764628
-    frequency: 0.58
+    frequency: 0.32
     persistence: 0.442
     lacunarity: 2
     octaves: 9
@@ -65,6 +65,5 @@ MonoBehaviour:
   GrassColor: {r: 0, g: 0, b: 0, a: 0}
   RockColor: {r: 0, g: 0, b: 0, a: 0}
   tempLevel: 0.524
-  seaLevel: 0.507
   atmosphereLevel: 0
   overallLevel: 0.58

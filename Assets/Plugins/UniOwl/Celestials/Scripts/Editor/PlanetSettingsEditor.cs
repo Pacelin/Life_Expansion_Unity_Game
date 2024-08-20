@@ -14,25 +14,33 @@ namespace UniOwl.Celestials.Editor
          
             serializedObject.Update();
             
+            var settings = (PlanetSettings)target;
+            
             EditorGUI.BeginChangeCheck();
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_planet"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_model"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_textures"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_physical"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_generation"));
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                serializedObject.ApplyModifiedProperties();
+                PlanetCreatorEditor.CreatePlanet(settings);
+                serializedObject.ApplyModifiedProperties();
+            }
+            
+            EditorGUI.BeginChangeCheck();
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_appearance"));
             
             EditorGUILayout.PropertyField(serializedObject.FindProperty("tempLevel"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("seaLevel"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("atmosphereLevel"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("overallLevel"));
             
             if (EditorGUI.EndChangeCheck())
             {
-                var settings = (PlanetSettings)target;
-                PlanetCreatorEditor.CreatePlanet(settings);
-                
                 serializedObject.ApplyModifiedProperties();
+                settings = (PlanetSettings)target;
                 
                 if (settings.Planet)
                 {
@@ -43,8 +51,11 @@ namespace UniOwl.Celestials.Editor
                 }
 
                 PrefabUtility.SavePrefabAsset(settings.Planet.gameObject);
+
+                serializedObject.ApplyModifiedProperties();
             }
-            
+
+            /*
             EditorGUILayout.Space();
             
             if (GUILayout.Button("Random Seed"))
@@ -55,9 +66,7 @@ namespace UniOwl.Celestials.Editor
             {
                 var settings = (PlanetSettings)target;
                 PlanetCreatorEditor.CreatePlanet(settings);
-            }
-
-            serializedObject.ApplyModifiedProperties();
+            }*/
         }
     }
 }
