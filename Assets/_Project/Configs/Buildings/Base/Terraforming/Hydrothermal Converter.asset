@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a6e028ddac4d06aa6bb4083d93d9db, type: 3}
+  m_Name: Hydrothermal Converter
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 4064135220031198543, guid: 23ca6c64871f53244b3924621963626b, type: 3}
+  _mineralsCost: 75
+  _colonizersCost: 1
+  _energyCost: 2
+  _buildTerritory: 1
+  _name:
+    m_TableReference:
+      m_TableCollectionName: GUID:d25c57a826b512544abe177ba1d21c57
+    m_TableEntryReference:
+      m_KeyId: 467338957500416
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _description:
+    m_TableReference:
+      m_TableCollectionName: GUID:d25c57a826b512544abe177ba1d21c57
+    m_TableEntryReference:
+      m_KeyId: 467602418511872
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _icon: {fileID: 21300000, guid: e069e9b8944327d4da3b348b9801e73e, type: 3}
+  _toolbarTab: {fileID: 11400000, guid: 1810f23eb52102c468aaa894c96f6689, type: 2}
+  references:
+    version: 2
+    RefIds: []

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Colonizers Config
   m_EditorClassIdentifier: 
   _enabled: 1
-  _config: {fileID: 11400000, guid: 128df484b9d238643a3d8c9b1b4e0803, type: 2}
+  _config: {fileID: 11400000, guid: 2f2f3398fe665bf43a6ab67999c176ca, type: 2}

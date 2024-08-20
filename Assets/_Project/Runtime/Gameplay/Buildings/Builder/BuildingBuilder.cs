@@ -3,6 +3,7 @@ using R3;
 using Runtime.Gameplay.Buildings.UI;
 using Runtime.Gameplay.Planets;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 using Zenject;
 
@@ -19,11 +20,13 @@ namespace Runtime.Gameplay.Buildings.Builder
         private readonly Camera _camera;
         private readonly BuildingsToolbarPresenter _toolbar;
         private readonly BuildingBuilderView _view;
-        private readonly CompositeDisposable _disposables;
         private readonly BuildingApplier _applier;
+        private readonly BuildingFactory _factory;
+        private readonly CompositeDisposable _disposables;
         
         public BuildingBuilder(BuildingBuilderConfig config, Planet planet, Camera camera, 
-            BuildingsToolbarPresenter toolbar, BuildingBuilderView view, BuildingApplier applier)
+            BuildingsToolbarPresenter toolbar, BuildingBuilderView view, BuildingApplier applier,
+            BuildingFactory factory)
         {
             _config = config;
             _planet = planet;
@@ -31,6 +34,7 @@ namespace Runtime.Gameplay.Buildings.Builder
             _toolbar = toolbar;
             _view = view;
             _applier = applier;
+            _factory = factory;
             _disposables = new();
         }
 
@@ -60,6 +64,8 @@ namespace Runtime.Gameplay.Buildings.Builder
             var prefab = buildingConfig.Prefab;
             _view.SetBuildingMesh(prefab.Mesh);
             _view.SetBuildingRadius(prefab.BuildingRadius);
+            foreach (var building in _factory.Buildings)
+                building.View.EnableProjector();
             
             UpdatePosition();
             Observable.EveryUpdate(UnityFrameProvider.FixedUpdate)
@@ -70,7 +76,8 @@ namespace Runtime.Gameplay.Buildings.Builder
                 .Subscribe(_ => _toolbar.ResetSelection())
                 .AddTo(_showingDisposables);
             Observable.EveryUpdate(UnityFrameProvider.Update)
-                .Where(_ => _isActive && Input.GetMouseButtonDown((int)MouseButton.LeftMouse))
+                .Where(_ => _isActive && Input.GetMouseButtonDown((int)MouseButton.LeftMouse) &&
+                     !EventSystem.current.IsPointerOverGameObject())
                 .Subscribe(_ =>
                 {
                     if (_applier.TryBuild(_currentBuilding, _view))
@@ -81,6 +88,8 @@ namespace Runtime.Gameplay.Buildings.Builder
         
         private void Hide()
         {
+            foreach (var building in _factory.Buildings)
+                building.View.DisableProjector();
             _showingDisposables?.Dispose();
             _view.gameObject.SetActive(false);
             _currentBuilding = null;
@@ -96,7 +105,7 @@ namespace Runtime.Gameplay.Buildings.Builder
                 _isActive = true;
                 viewTransform.position = hit.point;
                 viewTransform.up = (hit.point - _planet.Center).normalized;
-                _applier.ValidatePosition(_currentBuilding, _view);
+                _applier.ValidatePosition(_currentBuilding, _view, hit.collider.CompareTag(_config.WaterTag));
             }
             else
             {

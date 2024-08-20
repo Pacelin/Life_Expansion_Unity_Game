@@ -19,6 +19,8 @@ namespace Runtime.Gameplay.Buildings.Builder
                 .AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingBuilder>()
                 .AsSingle();
+            Container.Bind<BuildService>()
+                .AsSingle();
         }
     }
 }

@@ -10,6 +10,8 @@ namespace Runtime.Gameplay.Planets
         public ReadOnlyReactiveProperty<float> Value => _value;
         public ReadOnlyReactiveProperty<float> NormalizedValue => _value.Select(v =>
             Mathf.Clamp01((v - _config.Min) / (_config.Max - _config.Min))).ToReadOnlyReactiveProperty();
+        public ReadOnlyReactiveProperty<float> NormalizedValueUnclamped => _value.Select(v =>
+            (v - _config.Min) / (_config.Max - _config.Min)).ToReadOnlyReactiveProperty();
         
         private float _targetValue;
         

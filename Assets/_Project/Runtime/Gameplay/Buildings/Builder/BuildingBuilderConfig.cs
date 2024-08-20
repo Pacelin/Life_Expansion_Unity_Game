@@ -7,6 +7,7 @@ namespace Runtime.Gameplay.Buildings.Builder
     {
         public LayerMask BuildLayer => _buildLayer;
         public LayerMask PlanetLayer => _planetLayer;
+        public string WaterTag => _waterTag;
 
         public AnimationCurve BuildAnimationCurve => _buildAnimationCurve;
         public float BuildAnimationDuration => _buildAnimationDuration;
@@ -14,6 +15,7 @@ namespace Runtime.Gameplay.Buildings.Builder
         
         [SerializeField] private LayerMask _buildLayer;
         [SerializeField] private LayerMask _planetLayer;
+        [SerializeField] private string _waterTag;
         [Space]
         [SerializeField] private AnimationCurve _buildAnimationCurve;
         [SerializeField] private float _buildAnimationDuration;

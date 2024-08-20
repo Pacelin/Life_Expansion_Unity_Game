@@ -1,6 +1,7 @@
 ﻿using System;
 using Runtime.Gameplay.Buildings.Conditions;
 using Runtime.Gameplay.Buildings.General;
+using Runtime.Gameplay.Buildings.UI;
 using UnityEngine;
 using Zenject;
 
@@ -13,10 +14,14 @@ namespace Runtime.Gameplay.Buildings
         public int MineralsCost => _generalConfig.MineralsCost;
         public int ColonizersCost => _generalConfig.ColonizersCost;
         public int EnergyCost => _generalConfig.EnergyCost;
+        public EBuildTerritory BuildTerritory => _generalConfig.BuildTerritory;
+        public BuildingsToolbarTabConfig ToolbarTab => _generalConfig.ToolbarTab;
         
         public string Name => _generalConfig.Name;
         public string Description => _generalConfig.Description;
         public Sprite Icon => _generalConfig.Icon;
+
+        public BuildingUnlockCondition UnlockCondition => _unlockCondition;
         
         [SerializeField] private BuildingConfig _generalConfig;
         [SerializeField] private BuildingUnlockCondition _unlockCondition;

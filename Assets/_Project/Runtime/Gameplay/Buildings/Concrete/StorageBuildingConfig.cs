@@ -7,6 +7,8 @@ namespace Runtime.Gameplay.Buildings.Concrete
     [CreateAssetMenu(menuName = "Gameplay/Buildings/Storage Config")]
     public class StorageBuildingConfig : BuildingConditionalConfig
     {
+        public int IncreaseStorage => (int) _increaseStorageParameter.Value;
+        
         [SerializeField] private BuildingParameterEntry _increaseStorageParameter;
 
 
@@ -16,18 +18,6 @@ namespace Runtime.Gameplay.Buildings.Concrete
         }
 
         public override IBuildingModel CreateModel(DiContainer container, BuildingView view) =>
-            container.Instantiate<BuildingStorageModel>(new object[] { this, view });
-    }
-
-    public class BuildingStorageModel : BuildingModel<StorageBuildingConfig>
-    {
-        protected override void EnableBuilding()
-        {
-            
-        }
-
-        protected override void DisableBuilding()
-        {
-        }
+            container.Instantiate<StorageBuildingModel>(new object[] { this, view });
     }
 }

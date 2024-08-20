@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01bc27d14c654e72a83a7ca8768ca7ee, type: 3}
+  m_Name: Production Seconds
+  m_EditorClassIdentifier: 
+  _caption:
+    m_TableReference:
+      m_TableCollectionName: GUID:75f699a667d2c2c49ab99ba973a20a4b
+    m_TableEntryReference:
+      m_KeyId: 419757041258496
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _format: '{0} s.'
+  references:
+    version: 2
+    RefIds: []

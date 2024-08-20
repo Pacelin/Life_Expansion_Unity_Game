@@ -14,7 +14,15 @@ namespace Runtime.Gameplay.Buildings.UI
         [SerializeField] private Sprite[] _arrowsSprites;
 
         public void SetCaption(string caption) => _caption.text = caption;
-
+        
+        public void SetIcon(string value, EParameterOpinion opinion)
+        {
+            _iconImage.gameObject.SetActive(false);
+            _iconText.gameObject.SetActive(true);
+            _iconText.text = value;
+            _iconText.color = _opinionColors[opinion];
+        }
+        
         public void SetIcon(int value, EParameterOpinion opinion)
         {
             _iconImage.gameObject.SetActive(false);
@@ -30,6 +38,12 @@ namespace Runtime.Gameplay.Buildings.UI
             _iconImage.sprite = _arrowsSprites[index];
             _iconImage.transform.rotation = Quaternion.Euler(0, 0, value > 0 ? 0 : 180);
             _iconImage.color = _opinionColors[opinion];
+        }
+
+        public void SetAsBuildingPersonality()
+        {
+            _iconImage.gameObject.SetActive(false);
+            _iconText.gameObject.SetActive(false);
         }
     }
 }

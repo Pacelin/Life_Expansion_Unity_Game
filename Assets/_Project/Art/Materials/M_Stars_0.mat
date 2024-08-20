@@ -29,7 +29,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
@@ -116,37 +116,37 @@ Material:
     - _Mask_Scale: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _Octaves: 4
+    - _Octaves: 5
     - _Parallax: 0.005
     - _Persistence: 0.5
-    - _Power: 4.5
-    - _QueueControl: 0
+    - _Power: 5
+    - _QueueControl: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Scale: 1
-    - _Sky_Emission_Power: 1
+    - _Sky_Emission_Power: 0.5
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
-    - _Star_Emission_Power: 1
-    - _Star_Scale: 0
-    - _Stars_Density: 0
-    - _Stars_Density_Edge: 0.5
+    - _Star_Emission_Power: 0.7
+    - _Star_Scale: 50
+    - _Stars_Density: 1
+    - _Stars_Density_Edge: 1
     - _Surface: 0
-    - _Warp_Offset: 0.66
-    - _Warp_Scale: 0.5
+    - _Warp_Offset: 5
+    - _Warp_Scale: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color_Tint: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 0}
-    - _Detail_Color_1: {r: 0.21015167, g: 0.28170955, b: 1.6055586, a: 0}
-    - _Detail_Color_2: {r: 203.13338, g: 0, b: 0, a: 0}
+    - _Color_Tint: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
+    - _Detail_Color_1: {r: 0.0346621, g: 0.04646475, b: 0.26481843, a: 1}
+    - _Detail_Color_2: {r: 0, g: 5.8380637, b: 5.992157, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Sky_Star_Color: {r: 0.9009434, g: 0.9687833, b: 1, a: 0}
+    - _Sky_Star_Color: {r: 0.9009434, g: 0.9687833, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -34,6 +34,34 @@ MonoBehaviour:
     m_Localized: Cost
     m_Metadata:
       m_Items: []
+  - m_Id: 96523678781440
+    m_Localized: Atmosphere
+    m_Metadata:
+      m_Items: []
+  - m_Id: 336149186220032
+    m_Localized: Build on water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 337437881929728
+    m_Localized: Water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 368403534393344
+    m_Localized: Temperature
+    m_Metadata:
+      m_Items: []
+  - m_Id: 419757041258496
+    m_Localized: Production time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 426136648364032
+    m_Localized: Colonizers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427755343523840
+    m_Localized: Production
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

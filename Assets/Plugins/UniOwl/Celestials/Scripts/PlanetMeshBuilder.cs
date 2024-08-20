@@ -11,7 +11,7 @@ namespace UniOwl.Celestials
         private static readonly VertexAttributeDescriptor[] vertexAttributes =
         {
             new(VertexAttribute.Position, VertexAttributeFormat.Float32, 3),
-            new(VertexAttribute.Normal, VertexAttributeFormat.Float16, 4),
+            new(VertexAttribute.Normal, VertexAttributeFormat.Float32, 3),
             new(VertexAttribute.TexCoord0, VertexAttributeFormat.Float16, 2),
         };
 
@@ -41,20 +41,20 @@ namespace UniOwl.Celestials
                 mesh.subMeshCount = 1;
                 mesh.SetSubMesh(0, new SubMeshDescriptor(0, indexCount));
 
-                planet.SharedMeshes[face].name = $"SM_{planet.name}_{face}";
+                planet.SurfaceSharedMeshes[face].name = $"SM_{planet.name}_{face}";
             }
             
-            Mesh.ApplyAndDisposeWritableMeshData(quadMeshes, planet.SharedMeshes);
+            Mesh.ApplyAndDisposeWritableMeshData(quadMeshes, planet.SurfaceSharedMeshes);
 
             for (int face = 0; face < 6; face++)
             {
-                var mesh = planet.SharedMeshes[face];
-                mesh.RecalculateBounds();
+                var mesh = planet.SurfaceSharedMeshes[face];
                 
                 if (settings.Model.recalculateNormals)
                     mesh.RecalculateNormals();
                 
                 mesh.Optimize();
+                mesh.RecalculateBounds();
             }
         }
 
@@ -64,7 +64,7 @@ namespace UniOwl.Celestials
             int ax1 = (face + 1) % 3;
             int ax2 = (face + 2) % 3;
             bool backFace = face > 2;
-
+            
             int resolution = settings.Model.resolution;
 
             float3 baseVertex = float3.zero;
@@ -79,6 +79,8 @@ namespace UniOwl.Celestials
                 resolution = resolution,
                 resolutionPlus1 = resolution + 1,
                 baseVertex = baseVertex,
+                radius = settings.Physical.radius,
+                amplitude = settings.Physical.amplitude
             };
 
             var indicesJob = new BuildPlanetQuadIndicesJob()

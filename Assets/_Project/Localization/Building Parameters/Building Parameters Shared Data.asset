@@ -31,6 +31,34 @@ MonoBehaviour:
     m_Key: Cost
     m_Metadata:
       m_Items: []
+  - m_Id: 96523678781440
+    m_Key: Oxygen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 336149186220032
+    m_Key: Build_On_Water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 337437881929728
+    m_Key: Water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 368403534393344
+    m_Key: Temperature
+    m_Metadata:
+      m_Items: []
+  - m_Id: 419757041258496
+    m_Key: Production_Seconds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 426136648364032
+    m_Key: Increase_Colonizers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427755343523840
+    m_Key: Production
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

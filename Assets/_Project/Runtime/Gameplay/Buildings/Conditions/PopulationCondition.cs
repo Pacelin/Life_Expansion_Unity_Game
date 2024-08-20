@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Runtime.Gameplay.Buildings.Conditions
 {
-    [CreateAssetMenu(menuName = "Gameplay/Buildings/Population Condition")]
+    [CreateAssetMenu(menuName = "Gameplay/Buildings Unlocks/Population Condition")]
     public class PopulationCondition : BuildingUnlockCondition
     {
         [SerializeField] private int _targetPopulation;

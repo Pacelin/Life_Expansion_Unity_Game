@@ -27,6 +27,8 @@ namespace Runtime.Gameplay.Buildings.UI
         {
             _view.SetIcon(_config.Icon);
             _view.SetCost(_config.MineralsCost);
+            if (_config.UnlockCondition.HasDescription)
+                _view.SetTooltipText(_config.UnlockCondition.LockingDescription);
             _colonizers.Minerals.CurrentMinerals
                 .Subscribe(minerals => _view.SetPurchasable(minerals >= _config.MineralsCost))
                 .AddTo(_disposables);

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enabled: 1
   _config:
-    _minDistance: 0.5
-    _initialDistance: 1
-    _maxDistance: 4
-    _zoomStep: 0.2
-    _zoomSpeed: 0.5
-    _rotateSensitivityRange: {x: 0.05, y: 0.1}
+    _minDistance: 1
+    _initialDistance: 8
+    _maxDistance: 32
+    _zoomStep: 1
+    _zoomSpeed: 10
+    _rotateSensitivityRange: {x: 0.03, y: 0.1}

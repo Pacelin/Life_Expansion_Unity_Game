@@ -6,9 +6,11 @@ namespace UniOwl.Celestials
     [Serializable]
     public class PhysicalSettings
     {
-        [Range(10f, 100f)]
+        [Range(0f, 50f)]
         public float radius;
-        [Range(0f, 1f)]
+        [Range(0f, 50f)]
+        public float amplitude;
+        [Range(0f, 2f)]
         public float seaLevel;
     }
 }
