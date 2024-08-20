@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Colonizers Config
   m_EditorClassIdentifier: 
   _capsule:
-    _initialPopulation: 2
-    _initialEnergy: 2
+    _initialPopulation: 10
+    _initialEnergy: 4
     _initialMinerals: 2000
     _initialMaxMinerals: 2000
   _idealPopulation: 100
