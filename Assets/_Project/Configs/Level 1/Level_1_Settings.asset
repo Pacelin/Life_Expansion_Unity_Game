@@ -24,10 +24,10 @@ MonoBehaviour:
   _physical:
     radius: 18
     amplitude: 12.7
-    seaLevel: 0.1
+    seaLevel: 0
   _generation:
     seed: 1348764628
-    frequency: 0.32
+    frequency: 0
     persistence: 0.442
     lacunarity: 2
     octaves: 9
@@ -49,7 +49,7 @@ MonoBehaviour:
     hasAtmosphere: 1
     atmosphereColor: {r: 0.7529412, g: 0.5529412, b: 0.5568989, a: 1}
     maxAtmosphereThickness: 1.13
-    atmosphereHeight: 6
+    atmosphereHeight: 8.25
     coldTint: {r: 0, g: 0.85851765, b: 1, a: 1}
     warmTint: {r: 0.972549, g: 0.47916707, b: 0.32549018, a: 1}
     whiteBalanceCold: -50

@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8581572168103132772, guid: 71dd40fab9924524db0dbbffea293f3f, type: 3}
+      propertyPath: settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d19015eb49b5af4892da4854590635f, type: 2}
     - target: {fileID: 9194726778604212903, guid: 71dd40fab9924524db0dbbffea293f3f, type: 3}
       propertyPath: m_Name
       value: Planet

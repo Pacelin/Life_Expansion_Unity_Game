@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planet
       objectReference: {fileID: 0}
+    - target: {fileID: 2085782221940489209, guid: aebf62a004d8d8747bb3d866f97c0539, type: 3}
+      propertyPath: settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 5fa6a3cdddac93a4ba471b36cbbb5aa9, type: 2}
     - target: {fileID: 7917829138158037794, guid: aebf62a004d8d8747bb3d866f97c0539, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

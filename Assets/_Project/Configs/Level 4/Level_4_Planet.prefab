@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planet
       objectReference: {fileID: 0}
+    - target: {fileID: 8712819649233580561, guid: d8ea7c4f4c9fd3f44aada363ecf3382c, type: 3}
+      propertyPath: settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a6dda9d1fd059947b16e7a0df428c35, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
