@@ -1,4 +1,5 @@
 ﻿using Jamcelin.Runtime.Core;
+using Runtime.Gameplay.Buildings.General;
 using UnityEngine;
 
 namespace Runtime.Gameplay.Buildings.Builder
@@ -20,6 +21,8 @@ namespace Runtime.Gameplay.Buildings.Builder
             Container.BindInterfacesAndSelfTo<BuildingBuilder>()
                 .AsSingle();
             Container.Bind<BuildService>()
+                .AsSingle();
+            Container.BindInterfacesAndSelfTo<BuildingsValidator>()
                 .AsSingle();
         }
     }
