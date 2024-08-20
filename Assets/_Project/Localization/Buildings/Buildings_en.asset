@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 378684182528
-    m_Localized: Description
+    m_Localized: The building full of boxes that looks very much like a labyrinth.
     m_Metadata:
       m_Items: []
   - m_Id: 129658399363072
@@ -31,7 +31,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 129706122153984
-    m_Localized: Description
+    m_Localized: Yet another element has become subject to energy.
     m_Metadata:
       m_Items: []
   - m_Id: 134274558070784
@@ -39,7 +39,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 134363045302272
-    m_Localized: Description
+    m_Localized: It's nothing but a parody of a plant, but it still produces energy.
     m_Metadata:
       m_Items: []
   - m_Id: 370450799923200
@@ -47,7 +47,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 426366689161216
-    m_Localized: Description
+    m_Localized: Produces electricity using energy of the bowels of the earth.
     m_Metadata:
       m_Items: []
   - m_Id: 441293197881344
@@ -55,11 +55,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 442006246338560
-    m_Localized: Description
+    m_Localized: Water is a good source of energy.
     m_Metadata:
       m_Items: []
   - m_Id: 444574963937280
-    m_Localized: Description
+    m_Localized: Workers extract minerals from the earth.
     m_Metadata:
       m_Items: []
   - m_Id: 444440502939648
@@ -71,15 +71,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 447094260051968
-    m_Localized: Description
+    m_Localized: Brand new building in the center of space.
     m_Metadata:
       m_Items: []
   - m_Id: 463768682049536
-    m_Localized: Cosmoport
+    m_Localized: Spaceport
     m_Metadata:
       m_Items: []
   - m_Id: 463845190348800
-    m_Localized: Description
+    m_Localized: And dream we not of the thundorous spaceport.
     m_Metadata:
       m_Items: []
   - m_Id: 467338957500416
@@ -87,7 +87,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 467602418511872
-    m_Localized: Description
+    m_Localized: Loads the lake into a giant boiler.
     m_Metadata:
       m_Items: []
   - m_Id: 467712854536192
@@ -95,7 +95,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 467855754473472
-    m_Localized: Description
+    m_Localized: Generates liquid oxygen in a vacuum.
     m_Metadata:
       m_Items: []
   - m_Id: 467941125337088
@@ -103,7 +103,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 468105458167808
-    m_Localized: Description
+    m_Localized: Absorbs sunlight and releases oxygen.
     m_Metadata:
       m_Items: []
   - m_Id: 468176409014272
@@ -111,7 +111,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 468291349721088
-    m_Localized: Description
+    m_Localized: It may accidentally hit a neighboring planet.
     m_Metadata:
       m_Items: []
   - m_Id: 468368336171008
@@ -119,7 +119,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 468521667342336
-    m_Localized: Description
+    m_Localized: Grabs a cloud and squeezes it out like a rag.
     m_Metadata:
       m_Items: []
   - m_Id: 468624729780224
@@ -127,7 +127,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 468735065141248
-    m_Localized: Description
+    m_Localized: It's like a french fries, but with no sauce.
     m_Metadata:
       m_Items: []
   references:
