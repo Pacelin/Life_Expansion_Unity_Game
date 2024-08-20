@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576299371b232924784fe7bb234bbe5b, type: 3}
   m_Name: Level_1_Settings
   m_EditorClassIdentifier: 
-  _planet: {fileID: 0}
+  _planet: {fileID: 2085782221940489209, guid: aebf62a004d8d8747bb3d866f97c0539, type: 3}
   _model:
     resolution: 64
     recalculateNormals: 1
@@ -48,7 +48,7 @@ MonoBehaviour:
     deepDistance: 0.07
     hasAtmosphere: 1
     atmosphereColor: {r: 0.7529412, g: 0.5529412, b: 0.5568989, a: 1}
-    maxAtmosphereThickness: 0.4
+    maxAtmosphereThickness: 1.13
     atmosphereHeight: 6
     coldTint: {r: 0, g: 0.85851765, b: 1, a: 1}
     warmTint: {r: 0.972549, g: 0.47916707, b: 0.32549018, a: 1}
@@ -61,10 +61,10 @@ MonoBehaviour:
     cloudsHeight: 4
     hasRings: 0
     ringOuterRadius: 51.97
-    ringInnerRadius: 0.477
+    ringInnerRadius: 0.604
   GrassColor: {r: 0, g: 0, b: 0, a: 0}
   RockColor: {r: 0, g: 0, b: 0, a: 0}
   tempLevel: 0.524
   seaLevel: 0.507
-  atmosphereLevel: 0.512
+  atmosphereLevel: 0
   overallLevel: 0.58

@@ -53,7 +53,7 @@ Material:
     - _Detail_Scale: 10
     - _EMISSION: 0
     - _Emission_Power: 0
-    - _InnerRadius: 0.5
+    - _InnerRadius: 0.477
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Rotation_Speed: 0

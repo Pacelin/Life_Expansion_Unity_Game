@@ -33,7 +33,13 @@ namespace UniOwl.Celestials.Editor
                 
                 var settings = (PlanetSettings)target;
                 if (settings.Planet)
-                    settings.Planet.UpdatePlanetAppearance(settings, settings.seaLevel, settings.tempLevel, settings.atmosphereLevel, settings.overallLevel);
+                {
+                    settings.Planet.SetOverallLevel(settings.overallLevel);
+                    settings.Planet.SetAtmosphereLevel(settings.atmosphereLevel);
+                    settings.Planet.SetTemperatureLevel(settings.tempLevel);
+                    settings.Planet.UpdatePlanetAppearance();
+                }
+
                 PrefabUtility.SavePrefabAsset(settings.Planet.gameObject);
             }
             

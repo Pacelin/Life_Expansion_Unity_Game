@@ -30,7 +30,7 @@ namespace UniOwl.Celestials
         public AppearanceSettings Appearance => _appearance;
 
         [Range(0f, 1f)]
-        public float tempLevel, seaLevel, atmosphereLevel, overallLevel;
+        public float tempLevel, atmosphereLevel, overallLevel;
         
         public Planet Planet
         {
