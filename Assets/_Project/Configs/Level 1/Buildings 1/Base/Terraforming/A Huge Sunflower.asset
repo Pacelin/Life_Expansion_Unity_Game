@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a6e028ddac4d06aa6bb4083d93d9db, type: 3}
   m_Name: A Huge Sunflower
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 4064135220031198543, guid: 23ca6c64871f53244b3924621963626b, type: 3}
+  _prefab: {fileID: 4064135220031198543, guid: c2166bc83a0ffef42855aceb420ce3fe, type: 3}
   _mineralsCost: 75
   _colonizersCost: 1
   _energyCost: 2
