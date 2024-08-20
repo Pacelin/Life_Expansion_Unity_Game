@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Runtime.Gameplay.Buildings.Builder;
 using Runtime.Gameplay.Colonizers;
 using Runtime.Gameplay.Planets;
@@ -13,8 +14,6 @@ namespace Runtime.Gameplay.Buildings.General
     {
         public BuildingView View => _view;
         public bool Enabled => _enabled;
-        public bool Broken => _broken;
-        public bool IsWrongTerritory => _isWrongTerritory;
         
         [Inject] protected BuildingView _view;
         [Inject] protected T _config;
@@ -24,10 +23,16 @@ namespace Runtime.Gameplay.Buildings.General
         [Inject] protected BuildService _buildService;
         [Inject] protected BuildingBubbleConfig _bubbleConfig;
 
+        private EBuildingState _state;
         private bool _enabled;
-        private bool _broken;
-        private bool _isWrongTerritory;
         private IDisposable _brokeSync;
+
+        public bool EnoughEnergy() =>
+            _colonizers.Energy.Energy.CurrentValue - 
+            _colonizers.Energy.EnergyUsage.CurrentValue >= _config.EnergyCost;
+        public bool EnoughColonizers() =>
+            _colonizers.Population.CurrentPopulation.CurrentValue -
+            _colonizers.Population.BusyPopulation.CurrentValue >= _config.ColonizersCost;
         
         public void Build()
         {
@@ -37,6 +42,7 @@ namespace Runtime.Gameplay.Buildings.General
             else
                 _brokeSync = GroundSync();
             SetEnabled(true);
+            SetState(EBuildingState.Active);
         }
 
         public void Delete()
@@ -45,7 +51,43 @@ namespace Runtime.Gameplay.Buildings.General
             _colonizers.Minerals.AddMinerals(_config.MineralsCost / 2, out _);
         }
 
-        public void SetEnabled(bool enabled)
+        public void SetState(params EBuildingState[] states)
+        {
+            bool changed = false;
+            foreach (var state in states)
+            {
+                if (_state.HasFlag(state))
+                    continue;
+                _state |= state;
+                changed = true;
+            }
+
+            if (!changed)
+                return;
+            if ((int)_state == (int)EBuildingState.Active)
+                SetEnabled(true);
+            else
+                SetEnabled(false);
+            UpdateState();
+        }
+
+        public void CancelState(EBuildingState state)
+        {
+            if (!_state.HasFlag(state))
+                return;
+            _state -= state;
+            if ((int)_state == (int)EBuildingState.Active)
+                SetEnabled(true);
+            else
+                SetEnabled(false);
+            UpdateState();
+        }
+        
+        protected abstract void OnEnable();
+        protected abstract void OnDisable();
+        protected abstract void Dispose();
+
+        private void SetEnabled(bool enabled)
         {
             if (_enabled == enabled)
                 return;
@@ -68,32 +110,22 @@ namespace Runtime.Gameplay.Buildings.General
                 OnDisable();
             }
         }
-        
-        protected abstract void OnEnable();
-        protected abstract void OnDisable();
-        protected abstract void Dispose();
 
-        private void Broke()
+        private void UpdateState()
         {
-            if (!_broken)
-            {
-                _broken = true;
-                SetEnabled(false);
-                if (_config.BuildTerritory == EBuildTerritory.Water)
-                    _view.Bubble.ShowBubble(EBubbleIcon.Warning, _bubbleConfig.NoWaterText, ECursorIcon.Warning);
-                else
-                    _view.Bubble.ShowBubble(EBubbleIcon.Warning, _bubbleConfig.FloodText, ECursorIcon.Warning);
-            }
-        }
-        
-        private void Repair()
-        {
-            if (_broken)
-            {
-                _broken = false;
-                SetEnabled(true);
+            List<string> reasons = new List<string>();
+            if (_state.HasFlag(EBuildingState.NoColonists)) 
+                reasons.Add(_bubbleConfig.NoColonizersText);
+            if (_state.HasFlag(EBuildingState.NoEnergy))
+                reasons.Add(_bubbleConfig.NoEnergyText);
+            if (_state.HasFlag(EBuildingState.NoWater))
+                reasons.Add(_bubbleConfig.NoWaterText);
+            if (_state.HasFlag(EBuildingState.Flooded))
+                reasons.Add(_bubbleConfig.FloodText);
+            if(reasons.Count == 0)
                 _view.Bubble.Hide();
-            }
+            else
+                _view.Bubble.ShowBubble(EBubbleIcon.Warning, string.Join("\n", reasons), ECursorIcon.Warning);
         }
         
         private IDisposable WaterSync()
@@ -104,11 +136,10 @@ namespace Runtime.Gameplay.Buildings.General
                     var territory = _buildService.CheckBuildTerritory(_view.transform.position,
                         out var newPosition);
                     _view.transform.position = newPosition;
-                    _isWrongTerritory = territory != EBuildTerritory.Water;
-                    if (_isWrongTerritory && !_broken)
-                        Broke();
-                    else if (!_isWrongTerritory && _broken)
-                        Repair();
+                    if (territory != EBuildTerritory.Water)
+                        SetState(EBuildingState.NoWater);
+                    else
+                        CancelState(EBuildingState.NoWater);
                 });
         }
         
@@ -118,9 +149,10 @@ namespace Runtime.Gameplay.Buildings.General
                 .Subscribe(_ =>
                 {
                     var territory = _buildService.CheckBuildTerritory(_view.transform.position, out var _);
-                    _isWrongTerritory = territory != EBuildTerritory.Ground;
-                    if (_isWrongTerritory && !_broken)
-                        Broke();
+                    if (territory != EBuildTerritory.Ground)
+                        SetState(EBuildingState.Flooded);
+                    else
+                        CancelState(EBuildingState.Flooded);
                 });
         }
 
