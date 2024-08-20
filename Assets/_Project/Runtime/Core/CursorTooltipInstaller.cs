@@ -12,7 +12,8 @@ namespace Runtime.Core
         {
             Container.Bind<CursorTooltipView>()
                 .FromComponentInNewPrefab(_viewPrefab)
-                .AsCanvasView();
+                .AsCanvasView()
+                .OnInstantiated<CursorTooltipView>((ic, o) => o.gameObject.SetActive(false));
             Container.BindInterfacesAndSelfTo<CursorTooltip>()
                 .AsSingle();
         }

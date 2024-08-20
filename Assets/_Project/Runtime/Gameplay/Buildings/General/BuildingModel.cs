@@ -4,6 +4,7 @@ using Runtime.Gameplay.Colonizers;
 using Runtime.Gameplay.Planets;
 using Zenject;
 using R3;
+using Runtime.Core;
 
 namespace Runtime.Gameplay.Buildings.General
 {
@@ -21,6 +22,7 @@ namespace Runtime.Gameplay.Buildings.General
         [Inject] protected Planet _planet;
         [Inject] protected ColonizersModel _colonizers;
         [Inject] protected BuildService _buildService;
+        [Inject] protected BuildingBubbleConfig _bubbleConfig;
 
         private bool _enabled;
         private bool _broken;
@@ -41,15 +43,6 @@ namespace Runtime.Gameplay.Buildings.General
         {
             SetEnabled(false);
             _colonizers.Minerals.AddMinerals(_config.MineralsCost / 2, out _);
-        }
-
-        public void Repair()
-        {
-            if (_broken)
-            {
-                _broken = false;
-                SetEnabled(true);
-            }
         }
 
         public void SetEnabled(bool enabled)
@@ -86,6 +79,20 @@ namespace Runtime.Gameplay.Buildings.General
             {
                 _broken = true;
                 SetEnabled(false);
+                if (_config.BuildTerritory == EBuildTerritory.Water)
+                    _view.Bubble.ShowBubble(EBubbleIcon.Warning, _bubbleConfig.NoWaterText, ECursorIcon.Warning);
+                else
+                    _view.Bubble.ShowBubble(EBubbleIcon.Warning, _bubbleConfig.FloodText, ECursorIcon.Warning);
+            }
+        }
+        
+        private void Repair()
+        {
+            if (_broken)
+            {
+                _broken = false;
+                SetEnabled(true);
+                _view.Bubble.Hide();
             }
         }
         
@@ -100,6 +107,8 @@ namespace Runtime.Gameplay.Buildings.General
                     _isWrongTerritory = territory != EBuildTerritory.Water;
                     if (_isWrongTerritory && !_broken)
                         Broke();
+                    else if (!_isWrongTerritory && _broken)
+                        Repair();
                 });
         }
         

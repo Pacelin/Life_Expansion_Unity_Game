@@ -10,6 +10,5 @@ namespace Runtime.Gameplay.Buildings.General
         bool IsWrongTerritory { get; }
         void Build();
         void Delete();
-        void Repair();
     }
 }

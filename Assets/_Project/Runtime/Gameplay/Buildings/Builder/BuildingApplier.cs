@@ -2,6 +2,7 @@
 
 using System;
 using DG.Tweening;
+using Runtime.Cinematic;
 using Runtime.Gameplay.Colonizers;
 using Runtime.Gameplay.Colonizers.UI;
 using Runtime.Gameplay.Planets;
@@ -14,17 +15,19 @@ namespace Runtime.Gameplay.Buildings.Builder
     {
         private readonly BuildingBuilderConfig _config;
         private readonly BuildingFactory _factory;
+        private readonly Camera _mainCamera;
         private readonly Planet _planet;
         private readonly ColonizersModel _colonizers;
         private readonly ColonizersInfoPresenter _colonizersInfoPresenter;
         private bool _canBuild;
         private Tween _tween;
         
-        public BuildingApplier(BuildingBuilderConfig config, BuildingFactory factory,
+        public BuildingApplier(BuildingBuilderConfig config, BuildingFactory factory, Camera mainCamera,
             Planet planet, ColonizersModel colonizers, ColonizersInfoPresenter colonizersInfoPresenter)
         {
             _config = config;
             _factory = factory;
+            _mainCamera = mainCamera;
             _planet = planet;
             _colonizers = colonizers;
             _colonizersInfoPresenter = colonizersInfoPresenter;
@@ -55,9 +58,15 @@ namespace Runtime.Gameplay.Buildings.Builder
             var startPosition = position + up * _config.BuildAnimationStartDistance;
 
             var building = Object.Instantiate(buildingConfig.Prefab, startPosition, view.transform.rotation, _planet.Transform);
+            building.Bubble.SetCamera(_mainCamera);
+            building.Bubble.gameObject.SetActive(false);
             _tween = building.transform.DOMove(position, _config.BuildAnimationDuration)
-                .SetEase(_config.BuildAnimationCurve);
-            _factory.Add(buildingConfig, building);
+                .SetEase(_config.BuildAnimationCurve)
+                .OnComplete(() =>
+                {
+                    Audio.PlaySound(Audio.Database.BuildSound, Audio.Database.BuildSoundVolume);
+                    _factory.Add(buildingConfig, building);
+                });
             return true;
         }
 

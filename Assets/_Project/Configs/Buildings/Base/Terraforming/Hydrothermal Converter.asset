@@ -16,7 +16,7 @@ MonoBehaviour:
   _mineralsCost: 75
   _colonizersCost: 1
   _energyCost: 2
-  _buildTerritory: 0
+  _buildTerritory: 1
   _name:
     m_TableReference:
       m_TableCollectionName: GUID:d25c57a826b512544abe177ba1d21c57

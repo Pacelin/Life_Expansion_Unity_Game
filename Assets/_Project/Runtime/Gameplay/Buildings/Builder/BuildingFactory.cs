@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Runtime.Gameplay.Buildings.General;
+using UnityEngine;
 using Zenject;
 
 namespace Runtime.Gameplay.Buildings.Builder
@@ -23,7 +24,9 @@ namespace Runtime.Gameplay.Buildings.Builder
 
         public void Remove(IBuildingModel building)
         {
+            building.Delete();
             building.Dispose();
+            GameObject.Destroy(building.View.gameObject);
             _buildings.Remove(building);
         }
 

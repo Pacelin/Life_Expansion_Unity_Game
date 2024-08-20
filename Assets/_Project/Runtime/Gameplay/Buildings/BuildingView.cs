@@ -1,5 +1,4 @@
-﻿using System;
-using Runtime.Gameplay.Buildings.General;
+﻿using Runtime.Gameplay.Buildings.General;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -10,8 +9,11 @@ namespace Runtime.Gameplay.Buildings
         public float BuildingRadius => _buildingRadius;
         public BuildingMesh Mesh => _buildingMesh;
         public IBuildingModel Model => _model;
+
+        public BuildingBubbleView Bubble => _bubble;
         
         [SerializeField] private float _buildingRadius;
+        [SerializeField] private BuildingBubbleView _bubble;
         [SerializeField] private BuildingMesh _buildingMesh;
         [SerializeField] private SphereCollider _buildingCollider;
         [SerializeField] private DecalProjector _projector;

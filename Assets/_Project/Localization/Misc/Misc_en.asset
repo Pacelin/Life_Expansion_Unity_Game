@@ -46,6 +46,22 @@ MonoBehaviour:
     m_Localized: Energy
     m_Metadata:
       m_Items: []
+  - m_Id: 351349482328064
+    m_Localized: Flooded
+    m_Metadata:
+      m_Items: []
+  - m_Id: 351452792229888
+    m_Localized: No Water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 351549944893440
+    m_Localized: Collect minerals
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359398309761024
+    m_Localized: Destroy
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

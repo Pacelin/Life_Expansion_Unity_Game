@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60468e16962b4ad29f7a40a39d401ff4, type: 3}
+  m_Name: Audio Database
+  m_EditorClassIdentifier: 
+  _mainMenu: {fileID: 8300000, guid: 34c202c2a54614f40b2985ec1fc6a112, type: 3}
+  _mainMenuVolumeScale: 1
+  _game: {fileID: 8300000, guid: 51944f67c35e6124883ebce2b9bad187, type: 3}
+  _gameVolumeScale: 1
+  _build: {fileID: 8300000, guid: 65058b34c3c4e2e478a88be71159ef72, type: 3}
+  _buildVolumeScale: 1
+  _destroy: {fileID: 8300000, guid: 6c83e759e0813ed498bd57de503e79f9, type: 3}
+  _destroyVolumeScale: 1
