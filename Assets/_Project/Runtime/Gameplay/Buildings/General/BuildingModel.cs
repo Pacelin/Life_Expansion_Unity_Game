@@ -41,7 +41,6 @@ namespace Runtime.Gameplay.Buildings.General
                 _brokeSync = WaterSync();
             else
                 _brokeSync = GroundSync();
-            SetEnabled(true);
             SetState(EBuildingState.Active);
         }
 
@@ -64,10 +63,6 @@ namespace Runtime.Gameplay.Buildings.General
 
             if (!changed)
                 return;
-            if ((int)_state == (int)EBuildingState.Active)
-                SetEnabled(true);
-            else
-                SetEnabled(false);
             UpdateState();
         }
 
@@ -75,11 +70,7 @@ namespace Runtime.Gameplay.Buildings.General
         {
             if (!_state.HasFlag(state))
                 return;
-            _state -= state;
-            if ((int)_state == (int)EBuildingState.Active)
-                SetEnabled(true);
-            else
-                SetEnabled(false);
+            _state &= ~state;
             UpdateState();
         }
         
@@ -122,10 +113,16 @@ namespace Runtime.Gameplay.Buildings.General
                 reasons.Add(_bubbleConfig.NoWaterText);
             if (_state.HasFlag(EBuildingState.Flooded))
                 reasons.Add(_bubbleConfig.FloodText);
-            if(reasons.Count == 0)
+            if (reasons.Count == 0)
+            {
                 _view.Bubble.Hide();
+                SetEnabled(true);
+            }
             else
+            {
                 _view.Bubble.ShowBubble(EBubbleIcon.Warning, string.Join("\n", reasons), ECursorIcon.Warning);
+                SetEnabled(false);
+            }
         }
         
         private IDisposable WaterSync()

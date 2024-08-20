@@ -16,7 +16,6 @@ namespace Runtime.Gameplay.Buildings.General
         private readonly List<IBuildingModel> _disabledByEnergy;
         private readonly List<IBuildingModel> _disabledByColonizers;
         private IDisposable _updateDisposable;
-
         
         public BuildingsValidator(BuildingFactory factory, ColonizersModel colonizers)
         {
@@ -45,7 +44,7 @@ namespace Runtime.Gameplay.Buildings.General
 
         private void Update()
         {
-            var firstBuilding = _factory.Buildings.FirstOrDefault(b => b.Enabled);
+            var firstBuilding = _factory.Buildings.LastOrDefault(b => b.Enabled);
             if (firstBuilding == null)
                 return;
             var noEnergy = _colonizers.Energy.EnergyUsage.CurrentValue > _colonizers.Energy.Energy.CurrentValue;
