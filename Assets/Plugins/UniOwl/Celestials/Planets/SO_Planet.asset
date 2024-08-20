@@ -12,31 +12,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576299371b232924784fe7bb234bbe5b, type: 3}
   m_Name: SO_Planet
   m_EditorClassIdentifier: 
-  _planet: {fileID: 3413370610706134739, guid: bd98122ba7fc22b479879d4763ef5457, type: 3}
+  _planet: {fileID: 7071453814184598404, guid: 0e6e87680a0d402498305d915a5ef3c5, type: 3}
   _model:
     resolution: 64
     recalculateNormals: 1
   _textures:
-    resolution: 2
+    resolution: 128
     generateTextures: 0
     generateNormals: 0
     generateHeights: 0
   _physical:
-    radius: 20
-    amplitude: 10
+    radius: 18
+    amplitude: 12.7
     seaLevel: 0.1
   _generation:
-    seed: -1540041773
-    frequency: 0.59
-    persistence: 0.5
+    seed: 1348764628
+    frequency: 0.58
+    persistence: 0.442
     lacunarity: 2
-    octaves: 8
-    redistributionPower: 4
-    erosionPower: 1
+    octaves: 9
+    redistributionPower: 5.67
+    erosionPower: 1.13
     warpingOffset:
-      x: -3.81
-      y: 1.83
-      z: -0.43
+      x: 1.44
+      y: -0.79
+      z: 0.59
     warpingStrength: 0
-  GrassColor: {r: 0.31520113, g: 0.7169812, b: 0.26041296, a: 1}
-  RockColor: {r: 0.3679245, g: 0.25468358, b: 0.21693662, a: 1}
+  _appearance:
+    grassColor: {r: 0.23202206, g: 0.32352218, b: 0.6226415, a: 1}
+    dryColor: {r: 0.8490566, g: 0.70888215, b: 0.71174467, a: 1}
+    rockColor: {r: 0.6981132, g: 0.63561314, b: 0.38527945, a: 1}
+    rimColor: {r: 0.21960784, g: 0.2627451, b: 0.29803923, a: 1}
+    waterShoreColor: {r: 0.99215686, g: 0.57137007, b: 0.5294118, a: 1}
+    waterDeepColor: {r: 0.5372549, g: 0.33333334, b: 0.34127724, a: 1}
+    deepDistance: 0.07
+    hasAtmosphere: 1
+    atmosphereColor: {r: 0.7529412, g: 0.5529412, b: 0.5568989, a: 1}
+    maxAtmosphereThickness: 0.4
+    atmosphereHeight: 6
+    coldTint: {r: 0, g: 0.85851765, b: 1, a: 1}
+    warmTint: {r: 0.972549, g: 0.47916707, b: 0.32549018, a: 1}
+    whiteBalanceCold: -50
+    whiteBalanceWarm: 75
+    hasClouds: 1
+    baseCloudsColor: {r: 1, g: 0, b: 0, a: 1}
+    overcastCloudsColor: {r: 1, g: 1, b: 1, a: 1}
+    maxCloudThickness: 0.6
+    cloudsHeight: 4
+    hasRings: 0
+    ringOuterRadius: 51.97
+    ringInnerRadius: 0.477
+  GrassColor: {r: 0, g: 0, b: 0, a: 0}
+  RockColor: {r: 0, g: 0, b: 0, a: 0}
+  tempLevel: 0.524
+  seaLevel: 0.507
+  atmosphereLevel: 0.512
+  overallLevel: 0.58

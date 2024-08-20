@@ -14,7 +14,7 @@ namespace UniOwl.Celestials
         {
             GeneratePlanetTerrain(settings);
             
-            settings.Planet.Sea.localScale = 2f * (settings.Physical.radius + settings.Physical.seaLevel * settings.Physical.amplitude) * Vector3.one;
+            settings.Planet.SeaTransform.localScale = 2f * (settings.Physical.radius + settings.Physical.seaLevel * settings.Physical.amplitude) * Vector3.one;
             UpdateMaterials(settings);
         }
 
@@ -83,7 +83,7 @@ namespace UniOwl.Celestials
 
         private static void UpdateMaterials(PlanetSettings settings)
         {
-            Material parentMat = settings.Planet.Faces[0].Renderer.sharedMaterial.parent;
+            Material parentMat = settings.Planet.SurfaceFaces[0].Renderer.sharedMaterial.parent;
             parentMat.SetFloat(s_radius, settings.Physical.radius);
             parentMat.SetFloat(s_amplitude, settings.Physical.amplitude);
         }

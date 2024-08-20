@@ -14,14 +14,29 @@ namespace UniOwl.Celestials.Editor
          
             serializedObject.Update();
             
+            EditorGUI.BeginChangeCheck();
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_planet"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_model"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_textures"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_physical"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_generation"));
-            EditorGUILayout.Space();
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("GrassColor"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("RockColor"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("_appearance"));
+            
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("tempLevel"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("seaLevel"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("atmosphereLevel"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("overallLevel"));
+            
+            if (EditorGUI.EndChangeCheck())
+            {
+                serializedObject.ApplyModifiedProperties();
+                
+                var settings = (PlanetSettings)target;
+                if (settings.Planet)
+                    settings.Planet.UpdatePlanetAppearance(settings, settings.seaLevel, settings.tempLevel, settings.atmosphereLevel, settings.overallLevel);
+                PrefabUtility.SavePrefabAsset(settings.Planet.gameObject);
+            }
+            
             EditorGUILayout.Space();
             
             if (GUILayout.Button("Random Seed"))

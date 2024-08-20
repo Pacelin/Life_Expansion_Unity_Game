@@ -25,7 +25,7 @@ namespace UniOwl.Celestials
 
         private static void BuildTexture(PlanetSettings settings, int face, in NativeArray<float> heights, in NativeArray<float3> normals)
         {
-            Material material = settings.Planet.Faces[face].Renderer.sharedMaterial;
+            Material material = settings.Planet.SurfaceFaces[face].Renderer.sharedMaterial;
             
             if (settings.Textures.generateTextures)
                 BuildMainTexture(settings, material, heights, normals);

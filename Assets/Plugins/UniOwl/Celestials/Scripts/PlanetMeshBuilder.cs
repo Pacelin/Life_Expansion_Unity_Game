@@ -41,14 +41,14 @@ namespace UniOwl.Celestials
                 mesh.subMeshCount = 1;
                 mesh.SetSubMesh(0, new SubMeshDescriptor(0, indexCount));
 
-                planet.SharedMeshes[face].name = $"SM_{planet.name}_{face}";
+                planet.SurfaceSharedMeshes[face].name = $"SM_{planet.name}_{face}";
             }
             
-            Mesh.ApplyAndDisposeWritableMeshData(quadMeshes, planet.SharedMeshes);
+            Mesh.ApplyAndDisposeWritableMeshData(quadMeshes, planet.SurfaceSharedMeshes);
 
             for (int face = 0; face < 6; face++)
             {
-                var mesh = planet.SharedMeshes[face];
+                var mesh = planet.SurfaceSharedMeshes[face];
                 
                 if (settings.Model.recalculateNormals)
                     mesh.RecalculateNormals();

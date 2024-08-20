@@ -17,6 +17,8 @@ namespace UniOwl.Celestials
         private PhysicalSettings _physical;
         [SerializeField]
         private TerrainGeneratorSettings _generation;
+        [SerializeField]
+        private AppearanceSettings _appearance;
         
         [SerializeField]
         public Color GrassColor, RockColor;
@@ -25,6 +27,10 @@ namespace UniOwl.Celestials
         public TextureSettings Textures => _textures;
         public PhysicalSettings Physical => _physical;
         public TerrainGeneratorSettings Generation => _generation;
+        public AppearanceSettings Appearance => _appearance;
+
+        [Range(0f, 1f)]
+        public float tempLevel, seaLevel, atmosphereLevel, overallLevel;
         
         public Planet Planet
         {

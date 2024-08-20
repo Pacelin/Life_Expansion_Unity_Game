@@ -135,13 +135,27 @@ namespace UniOwl.Celestials.Editor
 
             for (int i = 0; i < 6; i++)
             {
-                planet.Faces[i].Filter.sharedMesh = meshes[i];
-                planet.Faces[i].Renderer.sharedMaterial = materials[i];
+                planet.SurfaceFaces[i].Filter.sharedMesh = meshes[i];
+                planet.SurfaceFaces[i].Renderer.sharedMaterial = materials[i];
             }
+            
+            MakeChildMaterial(planet.SeaRenderer, folderName, folderPath);
+            MakeChildMaterial(planet.AtmosphereRenderer, folderName, folderPath);
+            MakeChildMaterial(planet.CloudsRenderer, folderName, folderPath);
+            MakeChildMaterial(planet.RingsRenderer, folderName, folderPath);
             
             AssetDatabase.SaveAssets();
             
             return planet;
+        }
+
+        private static void MakeChildMaterial(MeshRenderer renderer, string planetName, string folderPath)
+        {
+            var mat = renderer.sharedMaterial;
+            mat = new Material(mat);
+            renderer.sharedMaterial = mat;
+            
+            SaveUtility.SaveMaterial(mat, $"M_{planetName}_{mat.name.Substring(2, mat.name.Length - 2)}.mat", folderPath);
         }
     }
 }

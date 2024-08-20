@@ -7,13 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Planet
-  m_Shader: {fileID: -6465566751694194690, guid: 825c043d8d4936143a78bcbb78a7ae28, type: 3}
+  m_Name: M_Atmosphere
+  m_Shader: {fileID: -6465566751694194690, guid: 3fcbd7f775fe2f04e8e86ffcc001740b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -24,18 +24,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _HeightMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -50,31 +38,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amplitude: 12.7
-    - _Fake_AO_Strength: 0.2
-    - _Light_Sharpness: 0.5
-    - _Noise_Strength: 1
-    - _Normal_Strength: 1
-    - _Normal_Vector_Contribution: 0.5
-    - _Octaves: 6
-    - _OverallLevel: 0
+    - Smoothness: 0.4
+    - Thickness: 0.1
+    - _Edge_Power: 0.5
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Radius: 18
-    - _Rock_Strength: 1
     m_Colors:
-    - _Day_Color: {r: 1, g: 0.8980392, b: 0.5607843, a: 0}
-    - _DryColor: {r: 0.5566037, g: 0.5566037, b: 0.5566037, a: 0}
-    - _Edge: {r: 0.8, g: 1, b: 0, a: 0}
-    - _GrassColor: {r: 0.33712527, g: 0.735849, b: 0.30891764, a: 0}
-    - _Night_Color: {r: 0.30588236, g: 0.41568628, b: 0.5490196, a: 0}
-    - _RimColor: {r: 0.21853328, g: 0.26177248, b: 0.29799998, a: 1}
-    - _RockColor: {r: 0.5566037, g: 0.5566037, b: 0.5566037, a: 0}
-    - _TempTint: {r: 1, g: 1, b: 1, a: 0}
-    - _TemperatureTint: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.7490196, g: 0.9490196, b: 1, a: 1}
+    - _TempTint: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &6883237552123250880
+--- !u!114 &5379922850717215869
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
