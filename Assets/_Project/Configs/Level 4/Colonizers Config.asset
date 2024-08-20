@@ -22,14 +22,14 @@ MonoBehaviour:
   _achievementPopulation: 98
   _populationInterpolation: 0.5
   _temperature:
-    _min: -50
-    _max: 50
-    _target: 20
+    _min: -25
+    _max: 25
+    _target: 5
   _oxygen:
     _min: 0
-    _max: 100
-    _target: 90
+    _max: 50
+    _target: 35
   _water:
     _min: 0
-    _max: 100
+    _max: 50
     _target: 36
