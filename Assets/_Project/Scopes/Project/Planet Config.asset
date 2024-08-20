@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Planet Config
   m_EditorClassIdentifier: 
   _enabled: 1
-  _config: {fileID: 11400000, guid: ddb9df647461ef84297b60fdf8106bcb, type: 2}
+  _config: {fileID: 11400000, guid: a855ad896ab13a346bae4cc30211fe5b, type: 2}

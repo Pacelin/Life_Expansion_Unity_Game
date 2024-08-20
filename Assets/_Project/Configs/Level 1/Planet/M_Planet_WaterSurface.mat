@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8967393096217542562
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Planet_WaterSurface
+  m_Shader: {fileID: -6465566751694194690, guid: fe6e3f364ed998f41b6714d8e30fad6d, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _ENABLE_NORMALS
+  - _ENABLE_TEMPERATURE
+  - _ENABLE_WATER
+  - _RANDOMIZE_TEMPERATURE
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - Base_Power: 2
+    - Base_Redistribution: 3
+    - Base_Scale: 1
+    - Octaves: 12
+    - Persistence: 0.5
+    - _DeepDistance: 0.5
+    - _Deep_Distance: 1.06
+    - _Deep_Factor: 0.9
+    - _ENABLE_NORMALS: 1
+    - _ENABLE_TEMPERATURE: 1
+    - _ENABLE_WATER: 1
+    - _Elevation_Strength: 0.1
+    - _Equator_Strength: 0.5
+    - _Foam_Distance: 0.03
+    - _Land_Smoothness: 0.3
+    - _Ocean_Height: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _RANDOMIZE_TEMPERATURE: 1
+    - _Randomize_Strength: 0.2
+    - _Snow_Smoothness: 0.6
+    - _Surface_Normal_Strength: 0.2
+    - _Temperature_Offset: 0.5
+    - _Temperature_Power: 15
+    - _Water_Normal_Strength: 0.03
+    - _Water_Smoothness: 0.7
+    - _Wave_Speed: 2
+    - _t: 32.35
+    m_Colors:
+    - Ice_Color: {r: 0.8915094, g: 0.99582726, b: 1, a: 0}
+    - _Base_Color: {r: 0.21133986, g: 0.34905657, b: 0.090557106, a: 0}
+    - _DeepColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Deep_Color: {r: 0.10464061, g: 0.113125, b: 0.36200002, a: 0}
+    - _Detail_Color: {r: 0.34901956, g: 0.19009596, b: 0.090196066, a: 0}
+    - _Foam_Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Foam_Distance: {r: 0, g: 0, b: 0, a: 0}
+    - _RimColor: {r: 0.21960784, g: 0.2627451, b: 0.29803923, a: 1}
+    - _Rim_Color: {r: 0.4680935, g: 0.55602586, b: 0.6320754, a: 1}
+    - _ShoreColor: {r: 0.29411766, g: 0.5921569, b: 0.67058825, a: 1}
+    - _Shore_Color: {r: 0.44313726, g: 0.7294118, b: 0.7184282, a: 0}
+    - _Snow_Color: {r: 1, g: 1, b: 1, a: 0}
+    - _TempTint: {r: 0, g: 0, b: 0, a: 1}
+    - _edge: {r: 11.8, g: 12.8, b: 1, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b62d9b9f9c450db8b679467531dd5b, type: 3}
+  m_Name: Planet Config
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 6994620855911247444, guid: 7e8901154ef6f014c9c27ae442c1b7f5, type: 3}
+  _minRadius: 20
+  _maxRadius: 23.5
+  _orbitalSpeed: 0.3
+  _temperature:
+    _min: -50
+    _max: 50
+    _initial: -20
+    _sensitivity: 1
+    _interpolation: 0.5
+  _oxygen:
+    _min: 0
+    _max: 100
+    _initial: 10
+    _sensitivity: 1
+    _interpolation: 0.5
+  _water:
+    _min: 0
+    _max: 100
+    _initial: 25
+    _sensitivity: 1
+    _interpolation: 0.5

@@ -104,6 +104,7 @@ namespace UniOwl.Celestials
             mat.SetColor("_ShoreColor", settings.Appearance.waterShoreColor);
             mat.SetColor("_DeepColor", settings.Appearance.waterDeepColor);
             mat.SetFloat("_DeepDistance", settings.Appearance.deepDistance);
+            mat.SetFloat("_Temperature", temperatureLevel);
 
             Color tint = GetTemperatureTint(settings, temperatureLevel);
             mat.SetColor("_TempTint", tint);
