@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 4064135220031198543}
   - component: {fileID: 5755928869195641581}
   m_Layer: 7
-  m_Name: Storage Building
+  m_Name: HydroGen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

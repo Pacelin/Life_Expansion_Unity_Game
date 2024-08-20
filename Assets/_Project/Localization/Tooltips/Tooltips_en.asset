@@ -27,11 +27,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 118905769984
-    m_Localized: Colonizers
+    m_Localized: Colonists
     m_Metadata:
       m_Items: []
   - m_Id: 197175676928
-    m_Localized: 'Goal: populate the planet'
+    m_Localized: 'Objective: populate the planet'
     m_Metadata:
       m_Items: []
   references:
