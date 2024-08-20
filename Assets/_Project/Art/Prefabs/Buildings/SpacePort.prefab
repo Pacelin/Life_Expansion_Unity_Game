@@ -522,6 +522,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8143710011712545758, guid: a80a982ad3e61594ca8813dc8f458b68, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b2b574c24564ae459eaddbd9f7aa511, type: 2}
+    - target: {fileID: -4683669308469848369, guid: a80a982ad3e61594ca8813dc8f458b68, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b2b574c24564ae459eaddbd9f7aa511, type: 2}
+    - target: {fileID: -1806680513116206669, guid: a80a982ad3e61594ca8813dc8f458b68, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b2b574c24564ae459eaddbd9f7aa511, type: 2}
     - target: {fileID: 919132149155446097, guid: a80a982ad3e61594ca8813dc8f458b68, type: 3}
       propertyPath: m_Name
       value: SM_SpacePort

@@ -522,6 +522,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a21e56953e0073d4f84212921fc0faf7, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b2b574c24564ae459eaddbd9f7aa511, type: 2}
     - target: {fileID: 919132149155446097, guid: a21e56953e0073d4f84212921fc0faf7, type: 3}
       propertyPath: m_Name
       value: SM_Warehouse

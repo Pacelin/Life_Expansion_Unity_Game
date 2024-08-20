@@ -506,10 +506,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8296501855837295048, guid: 0d54d45939ba3d648b74ea194d103252, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b2b574c24564ae459eaddbd9f7aa511, type: 2}
     - target: {fileID: 919132149155446097, guid: 0d54d45939ba3d648b74ea194d103252, type: 3}
       propertyPath: m_Name
       value: SM_HydroGenerator
       objectReference: {fileID: 0}
+    - target: {fileID: 4531912228224351498, guid: 0d54d45939ba3d648b74ea194d103252, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b2b574c24564ae459eaddbd9f7aa511, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
