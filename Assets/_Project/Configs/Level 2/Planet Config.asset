@@ -19,18 +19,18 @@ MonoBehaviour:
   _temperature:
     _min: -50
     _max: 50
-    _initial: -20
+    _initial: 45
     _sensitivity: 1
     _interpolation: 0.5
   _oxygen:
     _min: 0
     _max: 100
-    _initial: 10
+    _initial: 25
     _sensitivity: 1
     _interpolation: 0.5
   _water:
     _min: 0
     _max: 100
-    _initial: 25
+    _initial: 20
     _sensitivity: 1
     _interpolation: 0.5
