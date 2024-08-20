@@ -25,7 +25,10 @@ namespace Runtime.Gameplay.Buildings.Builder
             _mesh = mesh.gameObject;
         }
 
-        public void ClearMesh() =>
-            Destroy(_mesh);
+        public void ClearMesh()
+        {
+            if (_mesh)
+                Destroy(_mesh);
+        }
     }
 }
