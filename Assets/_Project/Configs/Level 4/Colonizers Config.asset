@@ -28,8 +28,8 @@ MonoBehaviour:
   _oxygen:
     _min: 0
     _max: 100
-    _target: 30
+    _target: 90
   _water:
     _min: 0
     _max: 100
-    _target: 25
+    _target: 36

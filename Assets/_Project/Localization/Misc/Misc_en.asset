@@ -51,7 +51,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 351452792229888
-    m_Localized: No Water
+    m_Localized: Not enough water
     m_Metadata:
       m_Items: []
   - m_Id: 351549944893440
@@ -60,14 +60,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 359398309761024
     m_Localized: Destroy
-    m_Metadata:
-      m_Items: []
-  - m_Id: 412836146057216
-    m_Localized: No Energy
-    m_Metadata:
-      m_Items: []
-  - m_Id: 412938549989376
-    m_Localized: No colonizers
     m_Metadata:
       m_Items: []
   references:
