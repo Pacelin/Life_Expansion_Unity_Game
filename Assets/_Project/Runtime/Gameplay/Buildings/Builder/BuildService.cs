@@ -13,7 +13,7 @@ namespace Runtime.Gameplay.Buildings.Builder
         public EBuildTerritory CheckBuildTerritory(Vector3 position, out Vector3 hitPoint)
         {
             var direction = (_planet.Center - position).normalized;
-            var ray = new Ray(position - direction * 0.05f, direction);
+            var ray = new Ray(position - direction * 10f, direction);
             if (Physics.Raycast(ray, out var hit, float.MaxValue, _config.PlanetLayer))
             {
                 hitPoint = hit.point;
