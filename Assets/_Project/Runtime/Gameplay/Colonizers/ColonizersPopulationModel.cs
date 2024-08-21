@@ -9,9 +9,8 @@ namespace Runtime.Gameplay.Colonizers
         public int Target => _config.TargetPopulation;
         public int Achievement => _config.AchievementPopulation;
         public float Interpolation => _config.PopulationInterpolation;
-        
-        public ReadOnlyReactiveProperty<int> CurrentPopulation => _currentPopulation
-            .Select(v => (int) v).ToReadOnlyReactiveProperty();
+
+        public ReadOnlyReactiveProperty<float> CurrentPopulation => _currentPopulation;
         public ReadOnlyReactiveProperty<int> MaxPopulation => _maxPopulation;
         public ReadOnlyReactiveProperty<int> BusyPopulation => _busy;
 

@@ -15,12 +15,12 @@ MonoBehaviour:
   _capsule:
     _initialPopulation: 6
     _initialEnergy: 2
-    _initialMinerals: 500
-    _initialMaxMinerals: 500
+    _initialMinerals: 200
+    _initialMaxMinerals: 200
   _idealPopulation: 100
   _targetPopulation: 90
   _achievementPopulation: 98
-  _populationInterpolation: 0.5
+  _populationInterpolation: 0.05
   _temperature:
     _min: -25
     _max: 25

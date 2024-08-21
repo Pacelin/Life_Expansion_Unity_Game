@@ -9,18 +9,18 @@ namespace Runtime.Cinematic
         
         public static float MasterVolume
         {
-            get => _component.MasterVolume;
-            set => _component.MasterVolume = value;
+            get => Get(_component.MasterVolume);
+            set => _component.MasterVolume = Set(value);
         }
         public static float MusicVolume
         {
-            get => _component.MusicVolume;
-            set => _component.MusicVolume = value;
+            get => Get(_component.MusicVolume);
+            set => _component.MusicVolume = Set(value);
         }
         public static float SoundVolume
         {
-            get => _component.SoundVolume;
-            set => _component.SoundVolume = value;
+            get => Get(_component.SoundVolume);
+            set => _component.SoundVolume = Set(value);
         }
         
         private static AudioComponent _component;
@@ -40,5 +40,11 @@ namespace Runtime.Cinematic
 
         public static void PlayMusic(AudioClip clip, float volume) => _component.PlayMusic(clip, volume);
         public static void PlaySound(AudioClip clip, float volume) => _component.PlaySound(clip, volume);
+
+        private static float Get(float value) =>
+            Mathf.Pow(value, 5);
+
+        private static float Set(float value) =>
+            Mathf.Pow(value, 1 / 5f);
     }
 }

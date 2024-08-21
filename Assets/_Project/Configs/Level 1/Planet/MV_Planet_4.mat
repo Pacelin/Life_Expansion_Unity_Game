@@ -26,7 +26,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _OverallLevel: 0.46031746
+    - _OverallLevel: 0.47619048
     m_Colors:
     - _DryColor: {r: 1, g: 1, b: 1, a: 1}
     - _GrassColor: {r: 0.49803922, g: 0.6313726, b: 0.49962872, a: 1}

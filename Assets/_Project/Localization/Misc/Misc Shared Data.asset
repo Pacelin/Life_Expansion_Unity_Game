@@ -67,6 +67,54 @@ MonoBehaviour:
     m_Key: No_Colonizers
     m_Metadata:
       m_Items: []
+  - m_Id: 672276405424128
+    m_Key: Planet_1_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672423159926784
+    m_Key: Planet_3_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674170959958016
+    m_Key: Planet_2_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 678063861272576
+    m_Key: Play_Caption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 678202722095104
+    m_Key: Settings_Caption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 678323295752192
+    m_Key: About_Caption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 678425850679296
+    m_Key: Exit_Caption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 678545933602816
+    m_Key: Back_Caption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 678747964837888
+    m_Key: Language_Caption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 678901191151616
+    m_Key: Master_Volume_Caption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 679064894836736
+    m_Key: Music_Volume_Caption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 679203491418112
+    m_Key: Sound_Volume_Caption
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -45,7 +45,7 @@ namespace Runtime.Gameplay.Colonizers.UI
                     (Current, Busy) => (Current, Busy))
                 .Subscribe(pair =>
                 {
-                    _view.SetPopulation(pair.Current - pair.Busy, pair.Current);
+                    _view.SetPopulation((int)pair.Current - pair.Busy, (int)pair.Current);
                     if (!_model.Population.IsTargetCompleted.CurrentValue)
                         _view.SetTargetProgress(1f * _model.Population.CurrentPopulation.CurrentValue / _model.Population.Target);
                 })

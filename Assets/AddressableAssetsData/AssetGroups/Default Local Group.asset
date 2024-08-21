@@ -26,8 +26,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Game Scope
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f5b5dff67a942289a9defa416b206f3
+    m_Address: TMP Settings
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 762b6fd55d896d64eb2fd1ff682d4d06
     m_Address: Game Scene
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f586378b4e144a9851e7b34d9b748ee
+    m_Address: LiberationSans SDF
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

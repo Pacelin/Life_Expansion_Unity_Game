@@ -36,9 +36,9 @@ namespace Runtime.Cinematic
         {
             if (!_enabled) return;
 
-            if (Input.GetMouseButtonDown((int)MouseButton.RightMouse))
+            if (Input.GetMouseButtonDown((int)MouseButton.LeftMouse))
                 _lastPoint = GetMousePosition();
-            else if (Input.GetMouseButton((int)MouseButton.RightMouse))
+            else if (Input.GetMouseButton((int)MouseButton.LeftMouse))
                 Rotate();
 
             if (Input.mouseScrollDelta.y != 0)

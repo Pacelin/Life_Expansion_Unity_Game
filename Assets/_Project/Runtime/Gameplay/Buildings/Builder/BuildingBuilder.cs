@@ -23,6 +23,13 @@ namespace Runtime.Gameplay.Buildings.Builder
         private readonly BuildingApplier _applier;
         private readonly BuildingFactory _factory;
         private readonly CompositeDisposable _disposables;
+
+        private Vector3 _lastPoint;
+        private float _lastTime;
+        private bool _down;
+        
+        private const float _clickTimeThreshold = 200;
+        private const float _clickDistanceThreshold = 10f;
         
         public BuildingBuilder(BuildingBuilderConfig config, Planet planet, Camera camera, 
             BuildingsToolbarPresenter toolbar, BuildingBuilderView view, BuildingApplier applier,
@@ -76,16 +83,36 @@ namespace Runtime.Gameplay.Buildings.Builder
                 .Subscribe(_ => _toolbar.ResetSelection())
                 .AddTo(_showingDisposables);
             Observable.EveryUpdate(UnityFrameProvider.Update)
+                .Where(_ => Input.GetMouseButtonDown((int)MouseButton.RightMouse))
+                .Subscribe(_ => _toolbar.ResetSelection())
+                .AddTo(_showingDisposables);
+            Observable.EveryUpdate(UnityFrameProvider.Update)
                 .Where(_ => _isActive && Input.GetMouseButtonDown((int)MouseButton.LeftMouse) &&
                      !EventSystem.current.IsPointerOverGameObject())
-                .Subscribe(_ =>
-                {
-                    if (_applier.TryBuild(_currentBuilding, _view))
-                        _toolbar.ResetSelection();
-                })
+                .Subscribe(_ => DownAsActive())
+                .AddTo(_showingDisposables);
+            Observable.EveryUpdate(UnityFrameProvider.Update)
+                .Where(_ => _isActive && _down && Input.GetMouseButtonUp((int)MouseButton.LeftMouse) &&
+                    !EventSystem.current.IsPointerOverGameObject())
+                .Subscribe(_ => UpAsActive())
                 .AddTo(_showingDisposables);
         }
-        
+
+        private void DownAsActive()
+        {
+            _lastPoint = Input.mousePosition;
+            _lastTime = Time.time;
+            _down = true;
+        }
+
+        private void UpAsActive()
+        {
+            _down = false;
+            if (Time.time - _lastTime < _clickTimeThreshold &&
+                Vector2.Distance(_lastPoint, Input.mousePosition) < _clickDistanceThreshold &&
+                _applier.TryBuild(_currentBuilding, _view))
+                _toolbar.ResetSelection();
+        }
         private void Hide()
         {
             foreach (var building in _factory.Buildings)

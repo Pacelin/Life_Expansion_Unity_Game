@@ -18,7 +18,6 @@ namespace Runtime.Gameplay.Buildings.Builder
         public void Add(BuildingConditionalConfig config, BuildingView view)
         {
             var newModel = config.CreateModel(_di, view);
-            newModel.SetState(EBuildingState.Active);
             view.SetModel(newModel);
             _buildings.Add(newModel);
             newModel.Build();

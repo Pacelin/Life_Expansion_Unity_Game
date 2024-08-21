@@ -61,7 +61,7 @@ Material:
     - _QueueOffset: 0
     - _Scale: 1
     - _Smoothness: 0.5
-    - _Thickness: 0.48000002
+    - _Thickness: 0.6
     - _Warp_Offset: 1
     - _Warp_Scale: 1
     m_Colors:

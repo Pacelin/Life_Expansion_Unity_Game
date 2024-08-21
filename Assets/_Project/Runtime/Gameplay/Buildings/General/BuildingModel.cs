@@ -16,6 +16,8 @@ namespace Runtime.Gameplay.Buildings.General
         public int ColonizersCost => _config.ColonizersCost;
         public BuildingView View => _view;
         public bool Enabled => _enabled;
+
+        public bool IsNew { get; set; } = true;
         
         [Inject] protected BuildingView _view;
         [Inject] protected T _config;
@@ -29,13 +31,6 @@ namespace Runtime.Gameplay.Buildings.General
         private bool _enabled;
         private IDisposable _brokeSync;
 
-        public bool EnoughEnergy() =>
-            _colonizers.Energy.Energy.CurrentValue - 
-            _colonizers.Energy.EnergyUsage.CurrentValue >= _config.EnergyCost;
-        public bool EnoughColonizers() =>
-            _colonizers.Population.CurrentPopulation.CurrentValue -
-            _colonizers.Population.BusyPopulation.CurrentValue >= _config.ColonizersCost;
-        
         public void Build()
         {
             _colonizers.Minerals.ApplyPurchase(_config.MineralsCost);
@@ -84,7 +79,8 @@ namespace Runtime.Gameplay.Buildings.General
             if (_enabled == enabled)
                 return;
             _enabled = enabled;
-
+            _view.SetEnabled(_enabled);    
+            
             if (_enabled)
             {
                 if (_config.EnergyCost > 0)

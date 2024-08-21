@@ -15,8 +15,8 @@ MonoBehaviour:
   _capsule:
     _initialPopulation: 6
     _initialEnergy: 2
-    _initialMinerals: 500
-    _initialMaxMinerals: 500
+    _initialMinerals: 200
+    _initialMaxMinerals: 200
   _idealPopulation: 100
   _targetPopulation: 90
   _achievementPopulation: 98
