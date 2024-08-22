@@ -1,4 +1,3 @@
-using PCG.TerrainGeneration;
 using System;
 using System.Runtime.CompilerServices;
 using Unity.Mathematics;
@@ -9,7 +8,7 @@ namespace UniOwl.Celestials
     [Serializable]
     public struct TerrainGeneratorSettings
     {
-        public int seed;
+        public uint seed;
 
         [Range(0f, 10f)]
         public float frequency;
@@ -29,7 +28,7 @@ namespace UniOwl.Celestials
         public float warpingStrength;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public terrainDensity Evaluate(in float3 position)
+        public noise3 Evaluate(in float3 position)
         {
             var warpedPos = DomainWarping(position);
             var value = FBM(warpedPos);
@@ -50,9 +49,9 @@ namespace UniOwl.Celestials
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public terrainDensity FBM(in float3 position)
+        public noise3 FBM(in float3 position)
         {
-            terrainDensity totalDensity = new terrainDensity();
+            noise3 totalDensity = new noise3();
 
             float freq = frequency;
             float amp = 1f, ampSum = 0f;
@@ -60,9 +59,10 @@ namespace UniOwl.Celestials
             for (int i = 0; i < octaves; i++)
             {
                 float height = noise.snoise(position * freq, out float3 grad);
-                height = (height + 1) * 0.5f;
+                noise3 density = new noise3(height, grad * freq);
+                density = (density + 1f) * 0.5f;
 
-                totalDensity += amp * new terrainDensity(height, grad * amp);
+                totalDensity += amp * density;
 
                 ampSum += amp;
                 amp *= persistence;
@@ -73,9 +73,9 @@ namespace UniOwl.Celestials
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public terrainDensity Redistribute(in float3 position, in terrainDensity value)
+        public noise3 Redistribute(in float3 position, in noise3 value)
         {
-            return terrainDensity.pow(value, redistributionPower);
+            return noise3.pow(value, redistributionPower);
         }
     }
 }

@@ -13,16 +13,20 @@ namespace UniOwl.Celestials
         public int ax1, ax2;
 
         public float3 baseVertex;
+        public float3 offset;
 
         public TerrainGeneratorSettings settings;
+        public float radius, amplitude;
         
         [WriteOnly]
         public NativeArray<float> heights;
         [WriteOnly]
         public NativeArray<float3> normals;
-    
+
         public void Execute(int index)
         {
+            const float k = 0.25f; // 1f / math.TAU;
+            
             int x = index / resolutionPlus1, y = index % resolutionPlus1;
             
             float3 vertex = baseVertex;
@@ -31,9 +35,9 @@ namespace UniOwl.Celestials
 
             vertex = MathUtils.GetSpherePosition(vertex, resolution);
 
-            var density = settings.Evaluate(vertex);
-            var height = density.value;
-            float3 normal = density.CalculateNormal(new float3(0f, 1f, 0f));
+            var noise = settings.Evaluate(vertex + offset);
+            var height = noise.value;
+            float3 normal = noise.CalculateNormal(vertex, k * amplitude / radius);
 
             heights[index] = height;
             normals[index] = normal;

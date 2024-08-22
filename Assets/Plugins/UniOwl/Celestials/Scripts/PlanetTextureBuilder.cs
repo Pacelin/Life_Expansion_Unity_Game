@@ -46,8 +46,8 @@ namespace UniOwl.Celestials
                 normals = normals,
                 mainColors = colors,
 
-                rockColor = settings.RockColor.ToFloat4(),
-                grassColor = settings.GrassColor.ToFloat4(),
+                rockColor = settings.RockColor.ToFloat3(),
+                grassColor = settings.GrassColor.ToFloat3(),
             }.ScheduleParallel(colors.Length, 0, default);
             colorJob.Complete();
             
@@ -93,7 +93,14 @@ namespace UniOwl.Celestials
 
             texture.SetPixelData(colors, 0, 0);
             texture.Apply(false);
-            texture.Compress(true);
+        }
+        
+        private static void ApplyTexture(Material material, int textureID, in NativeArray<float4> colors)
+        {
+            var texture = (Texture2D)material.GetTexture(textureID);
+
+            texture.SetPixelData(colors, 0, 0);
+            texture.Apply(false);
         }
         
         private static void ApplyTexture(Material material, int textureID, in NativeArray<byte> colors)
@@ -102,7 +109,6 @@ namespace UniOwl.Celestials
 
             texture.SetPixelData(colors, 0, 0);
             texture.Apply(false);
-            //texture.Compress(true);
         }
 
         [BurstCompile]
@@ -115,8 +121,7 @@ namespace UniOwl.Celestials
             
             public void Execute(int index)
             {
-                float4 normal = new float4(normals[index], 1f);
-                normalColors[index] = MathUtils.Float4ToRGB24(normal);
+                normalColors[index] = MathUtils.Float3ToRGB24((normals[index] + 1f) * 0.5f);
             }
         }
 
@@ -130,12 +135,12 @@ namespace UniOwl.Celestials
             [WriteOnly]
             public NativeArray<byte3> mainColors;
             
-            public float4 rockColor, grassColor;
+            public float3 rockColor, grassColor;
             
             public void Execute(int index)
             {
-                float4 color = math.lerp(rockColor, grassColor, math.saturate(math.dot(normals[index], new float3(0f, 1f, 0f))));
-                mainColors[index] = MathUtils.Float4ToRGB24(color);
+                float3 color = math.lerp(rockColor, grassColor, math.saturate(math.dot(normals[index], new float3(0f, 1f, 0f))));
+                mainColors[index] = MathUtils.Float3ToRGB24(color);
             }
         }
 

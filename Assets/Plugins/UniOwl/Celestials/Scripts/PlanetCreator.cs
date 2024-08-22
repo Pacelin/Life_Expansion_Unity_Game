@@ -2,6 +2,7 @@ using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = Unity.Mathematics.Random;
 
 namespace UniOwl.Celestials
 {
@@ -20,9 +21,9 @@ namespace UniOwl.Celestials
 
         private static void GeneratePlanetTerrain(PlanetSettings settings)
         {
-            var meshHeightData = GenerateTerrain(settings.Model.resolution, settings.Generation);
-            var textureHeightData = GenerateTerrain(settings.Textures.resolution - 1, settings.Generation);
-
+            var meshHeightData = GenerateTerrain(settings.Model.resolution, settings.Generation, settings.Physical.radius, settings.Physical.amplitude);
+            var textureHeightData = GenerateTerrain(settings.Textures.resolution - 1, settings.Generation, settings.Physical.radius, settings.Physical.amplitude);
+            
             PlanetMeshBuilder.BuildMeshes(settings, settings.Planet, meshHeightData);
             PlanetTextureBuilder.BuildTextures(settings, settings.Planet, textureHeightData);
             
@@ -30,7 +31,7 @@ namespace UniOwl.Celestials
             textureHeightData.Dispose();
         }
         
-        private static PlanetHeightData GenerateTerrain(int resolution, in TerrainGeneratorSettings settings)
+        private static PlanetHeightData GenerateTerrain(int resolution, in TerrainGeneratorSettings settings, in float radius, in float amplitude)
         {
             int size = (resolution + 1) * (resolution + 1);
 
@@ -45,7 +46,7 @@ namespace UniOwl.Celestials
                 NativeArray<float> heights = new NativeArray<float>(size, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
                 NativeArray<float3> normals = new NativeArray<float3>(size, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
                 
-                GenerateQuadTerrain(face, resolution, heights, normals, settings);
+                GenerateQuadTerrain(face, resolution, heights, normals, settings, radius, amplitude);
 
                 heightData.heights[face] = heights;
                 heightData.normals[face] = normals;
@@ -54,7 +55,7 @@ namespace UniOwl.Celestials
             return heightData;
         }
         
-        private static void GenerateQuadTerrain(int face, int resolution, in NativeArray<float> heights, in NativeArray<float3> normals, in TerrainGeneratorSettings settings)
+        private static void GenerateQuadTerrain(int face, int resolution, in NativeArray<float> heights, in NativeArray<float3> normals, in TerrainGeneratorSettings settings, in float radius, in float amplitude)
         {
             int dir = face % 3;
             int ax1 = (face + 1) % 3;
@@ -64,6 +65,11 @@ namespace UniOwl.Celestials
             
             float3 baseVertex = float3.zero;
             baseVertex[dir] = math.select(0, resolution, backFace);
+
+            uint seed = settings.seed;
+            Random rnd = new Random(seed);
+            float3 offset = rnd.NextFloat3() * 1125.123f;
+            
             
             JobHandle buildTerrainJob = new GenerateTerrainJob()
             {
@@ -72,11 +78,14 @@ namespace UniOwl.Celestials
 
                 ax1 = ax1, ax2 = ax2,
                 baseVertex = baseVertex,
+                offset = offset,
 
                 heights = heights,
                 normals = normals,
                 
                 settings = settings,
+                radius = radius,
+                amplitude = amplitude,
             }.ScheduleParallel(heights.Length, 0, default);
             buildTerrainJob.Complete();
         }

@@ -16,19 +16,19 @@ namespace UniOwl.Celestials.Editor
             
             var settings = (PlanetSettings)target;
             
-            EditorGUI.BeginChangeCheck();
+            //EditorGUI.BeginChangeCheck();
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_planet"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_model"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_textures"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_physical"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_generation"));
 
-            if (EditorGUI.EndChangeCheck())
+            /*if (EditorGUI.EndChangeCheck())
             {
                 serializedObject.ApplyModifiedProperties();
                 PlanetCreatorEditor.CreatePlanet(settings);
                 serializedObject.ApplyModifiedProperties();
-            }
+            }*/
             
             EditorGUI.BeginChangeCheck();
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_appearance"));
@@ -40,7 +40,6 @@ namespace UniOwl.Celestials.Editor
             if (EditorGUI.EndChangeCheck())
             {
                 serializedObject.ApplyModifiedProperties();
-                settings = (PlanetSettings)target;
                 
                 if (settings.Planet)
                 {
@@ -51,22 +50,20 @@ namespace UniOwl.Celestials.Editor
                 }
 
                 PrefabUtility.SavePrefabAsset(settings.Planet.gameObject);
-
-                serializedObject.ApplyModifiedProperties();
             }
-
-            /*
+            
             EditorGUILayout.Space();
             
             if (GUILayout.Button("Random Seed"))
             {
-                serializedObject.FindProperty("_generation").FindPropertyRelative("seed").intValue = Random.Range(int.MinValue, int.MaxValue);
+                serializedObject.FindProperty("_generation").FindPropertyRelative("seed").uintValue = unchecked((uint)Random.Range(int.MinValue, int.MaxValue));
             }
             if (GUILayout.Button("Generate Planet"))
             {
-                var settings = (PlanetSettings)target;
                 PlanetCreatorEditor.CreatePlanet(settings);
-            }*/
+            }
+
+            serializedObject.ApplyModifiedProperties();
         }
     }
 }

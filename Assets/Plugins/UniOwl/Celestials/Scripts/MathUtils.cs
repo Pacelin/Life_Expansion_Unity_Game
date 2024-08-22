@@ -15,6 +15,7 @@ namespace UniOwl.Celestials
             float y2 = v.y * v.y;
             float z2 = v.z * v.z;
 
+            // Better approximation on a sphere.
             float3 s = new float3()
             {
                 x = 1f - y2 * .5f - z2 * .5f + y2 * z2 / 3f,
@@ -29,6 +30,12 @@ namespace UniOwl.Celestials
         public static float4 ToFloat4(this Color color)
         {
             return new float4(color.r, color.g, color.b, color.a);
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 ToFloat3(this Color color)
+        {
+            return new float3(color.r, color.g, color.b);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -45,7 +52,7 @@ namespace UniOwl.Celestials
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static byte3 Float4ToRGB24(float4 color)
+        public static byte3 Float3ToRGB24(float3 color)
         {
             color = math.clamp(color, 0f, 1f) * 255f;
 

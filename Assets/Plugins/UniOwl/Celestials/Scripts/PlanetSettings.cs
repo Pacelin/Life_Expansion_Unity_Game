@@ -1,4 +1,6 @@
+using System.Drawing;
 using UnityEngine;
+using Color = UnityEngine.Color;
 using Random = UnityEngine.Random;
 
 namespace UniOwl.Celestials
@@ -41,7 +43,7 @@ namespace UniOwl.Celestials
         private void OnEnable()
         {
             if (_generation.seed == 0)
-                _generation.seed = Random.Range(int.MinValue, int.MaxValue);
+                _generation.seed = unchecked((uint)Random.Range(int.MinValue, int.MaxValue));
         }
     }
 }

@@ -50,31 +50,26 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amplitude: 12.7
-    - _Fake_AO_Strength: 0.2
+    - _Height_Contribution: 0
+    - _Height_Power: 1
     - _Light_Sharpness: 0.5
-    - _Noise_Strength: 1
-    - _Normal_Strength: 1
-    - _Normal_Vector_Contribution: 0.5
-    - _Octaves: 6
     - _OverallLevel: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Radius: 18
     - _Rock_Strength: 1
     m_Colors:
     - _Day_Color: {r: 1, g: 0.8980392, b: 0.5607843, a: 0}
     - _DryColor: {r: 0.5566037, g: 0.5566037, b: 0.5566037, a: 0}
-    - _Edge: {r: 0.8, g: 1, b: 0, a: 0}
     - _GrassColor: {r: 0.33712527, g: 0.735849, b: 0.30891764, a: 0}
+    - _Height_Edge: {r: 0, g: 1, b: 0, a: 0}
     - _Night_Color: {r: 0.30588236, g: 0.41568628, b: 0.5490196, a: 0}
     - _RimColor: {r: 0.21853328, g: 0.26177248, b: 0.29799998, a: 1}
     - _RockColor: {r: 0.5566037, g: 0.5566037, b: 0.5566037, a: 0}
+    - _Slope_Edge: {r: 0.8, g: 1, b: 0, a: 0}
     - _TempTint: {r: 1, g: 1, b: 1, a: 0}
-    - _TemperatureTint: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &6883237552123250880
+--- !u!114 &6185644904106795460
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

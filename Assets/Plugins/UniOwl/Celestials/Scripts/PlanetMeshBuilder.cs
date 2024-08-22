@@ -80,7 +80,7 @@ namespace UniOwl.Celestials
                 resolutionPlus1 = resolution + 1,
                 baseVertex = baseVertex,
                 radius = settings.Physical.radius,
-                amplitude = settings.Physical.amplitude
+                amplitude = settings.Physical.amplitude,
             };
 
             var indicesJob = new BuildPlanetQuadIndicesJob()

@@ -2,7 +2,6 @@ using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
-using UnityEngine;
 
 namespace UniOwl.Celestials
 {
@@ -27,17 +26,21 @@ namespace UniOwl.Celestials
         {
             int x = vertexIndex / resolutionPlus1, y = vertexIndex % resolutionPlus1;
             
-            float3 vertex = baseVertex;
-            vertex[ax1] += x;
-            vertex[ax2] += y;
+            float3 unitPosition = baseVertex;
+            unitPosition[ax1] += x;
+            unitPosition[ax2] += y;
 
-            vertex = MathUtils.GetSpherePosition(vertex, resolution);
+            unitPosition = MathUtils.GetSpherePosition(unitPosition, resolution);
 
+            float3 vertex = unitPosition * (radius + amplitude * heights[vertexIndex]);
+            float3 normal = normals[vertexIndex];
+            half2 uv0 = new half2((half)((float)y / resolution), (half)((float)x / resolution));
+            
             vertices[vertexIndex] = new Vertex()
             {
-                position = vertex * (radius + amplitude * heights[vertexIndex]),
-                normal = normals[vertexIndex], //vertex, //new half4((half3)normals[vertexIndex], half.zero), //(half[w float4(vertex, 0f),
-                uv0 = new half2((half)((float)y / resolution), (half)((float)x / resolution)),
+                position = vertex,
+                normal = normal,
+                uv0 = uv0,
             };
         }
     }

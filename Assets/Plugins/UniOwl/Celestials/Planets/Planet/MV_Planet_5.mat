@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6896760314371718050
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -23,29 +36,23 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _HeightMap:
+        m_Texture: {fileID: 2800000, guid: 620968aeeccf2d846acd9f2752d22346, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 0b4d90acae7a2d84c9e1e1af13fc0e1d, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _OverallLevel: 0.58
     m_Colors:
     - _DryColor: {r: 0.8490566, g: 0.70888215, b: 0.71174467, a: 1}
-    - _GrassColor: {r: 0.23202206, g: 0.32352218, b: 0.6226415, a: 1}
+    - _GrassColor: {r: 0.62352943, g: 0.4589836, b: 0.23137252, a: 1}
     - _RimColor: {r: 0.21960784, g: 0.2627451, b: 0.29803923, a: 1}
-    - _RockColor: {r: 0.6981132, g: 0.63561314, b: 0.38527945, a: 1}
+    - _RockColor: {r: 1, g: 0.84615386, b: 0, a: 1}
     - _TempTint: {r: 0.9986824, g: 0.975, b: 0.96762353, a: 1}
-    - _TemperatureTint: {r: 0.378, g: 0.911998, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &4096353503431426455
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 9

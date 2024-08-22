@@ -57,7 +57,7 @@ namespace UniOwl.Celestials
             foreach (var mesh in SurfaceSharedMeshes)
                 mesh.bounds = new Bounds(Vector3.zero, Vector3.one * 2000);
         }
-        
+
         /// <param name="temperatureLevel">Range [0, 1], 0 = very cold, 1 = very hot, 0.5 = normal temperature.</param>
         public void SetTemperatureLevel(float temperatureLevel)
         {
