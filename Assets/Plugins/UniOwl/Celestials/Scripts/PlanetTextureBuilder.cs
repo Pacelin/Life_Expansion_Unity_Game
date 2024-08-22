@@ -87,28 +87,13 @@ namespace UniOwl.Celestials
             heightColors.Dispose();
         }
         
-        private static void ApplyTexture(Material material, int textureID, in NativeArray<byte3> colors)
+        private static void ApplyTexture<T>(Material material, int textureID, in NativeArray<T> colors) where T : unmanaged
         {
             var texture = (Texture2D)material.GetTexture(textureID);
 
             texture.SetPixelData(colors, 0, 0);
-            texture.Apply(false);
-        }
-        
-        private static void ApplyTexture(Material material, int textureID, in NativeArray<float4> colors)
-        {
-            var texture = (Texture2D)material.GetTexture(textureID);
-
-            texture.SetPixelData(colors, 0, 0);
-            texture.Apply(false);
-        }
-        
-        private static void ApplyTexture(Material material, int textureID, in NativeArray<byte> colors)
-        {
-            var texture = (Texture2D)material.GetTexture(textureID);
-
-            texture.SetPixelData(colors, 0, 0);
-            texture.Apply(false);
+            texture.Compress(true);
+            texture.Apply(false, true);
         }
 
         [BurstCompile]
