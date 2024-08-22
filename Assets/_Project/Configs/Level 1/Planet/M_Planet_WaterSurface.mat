@@ -77,7 +77,7 @@ Material:
     - _Randomize_Strength: 0.2
     - _Snow_Smoothness: 0.6
     - _Surface_Normal_Strength: 0.2
-    - _Temperature: 0.774
+    - _Temperature: 0.3
     - _Temperature_Offset: 0.5
     - _Temperature_Power: 15
     - _Water_Normal_Strength: 0.03
@@ -97,7 +97,7 @@ Material:
     - _ShoreColor: {r: 0.76561946, g: 0.8461094, b: 0.8773585, a: 1}
     - _Shore_Color: {r: 0.44313726, g: 0.7294118, b: 0.7184282, a: 0}
     - _Snow_Color: {r: 1, g: 1, b: 1, a: 0}
-    - _TempTint: {r: 0.98495686, g: 0.7145836, b: 0.63036865, a: 1}
+    - _TempTint: {r: 0.6, g: 0.94340706, b: 1, a: 1}
     - _edge: {r: 11.8, g: 12.8, b: 1, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

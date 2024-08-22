@@ -1,5 +1,4 @@
-﻿using System;
-using AYellowpaper.SerializedCollections;
+﻿using AYellowpaper.SerializedCollections;
 using R3;
 using Runtime.Core;
 using UnityEngine;
@@ -8,15 +7,15 @@ using UnityEngine.UI;
 
 namespace Runtime.Gameplay.Buildings
 {
-    public class BuildingBubbleView : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+    public class BuildingBubbleView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        public Observable<Unit> OnClick => _onClick;
+        public Observable<Unit> OnClick => _button.OnClickAsObservable();
 
         [SerializeField] private Canvas _canvas;
         [SerializeField] private Image _icon;
+        [SerializeField] private Button _button;
         [SerializeField] private SerializedDictionary<EBubbleIcon, Sprite> _icons;
 
-        private ReactiveCommand<Unit> _onClick;
         private string _tooltip;
         private ECursorIcon _cursorIcon;
         private bool _tooltipShown;
@@ -73,7 +72,5 @@ namespace Runtime.Gameplay.Buildings
                 _tooltipShown = false;
             }
         }
-        
-        public void OnPointerClick(PointerEventData eventData) => _onClick.Execute(Unit.Default);
     }
 }

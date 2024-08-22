@@ -22,9 +22,9 @@ MonoBehaviour:
     generateNormals: 0
     generateHeights: 0
   _physical:
-    radius: 13.5
-    amplitude: 12.6
-    seaLevel: 0.148
+    radius: 19.2
+    amplitude: 18.3
+    seaLevel: 0.066
   _generation:
     seed: 1348764628
     frequency: 1.51

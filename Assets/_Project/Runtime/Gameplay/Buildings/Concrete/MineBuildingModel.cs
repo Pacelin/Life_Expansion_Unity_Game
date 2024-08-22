@@ -29,6 +29,7 @@ namespace Runtime.Gameplay.Buildings.Concrete
                     {
                         _timerFinished = false;
                         _colonizers.Minerals.AddMinerals(_config.Production, out var _);
+                        _view.Bubble.Hide();
                         _timerDisposable = 
                             Observable.Timer(TimeSpan.FromSeconds(_config.ProductionSeconds), UnityTimeProvider.Update)
                                 .Subscribe(_ =>

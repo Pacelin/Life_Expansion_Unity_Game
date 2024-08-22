@@ -62,6 +62,62 @@ MonoBehaviour:
     m_Localized: Destroy
     m_Metadata:
       m_Items: []
+  - m_Id: 435636864946176
+    m_Localized: No Energy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 435719589203968
+    m_Localized: No Colonizers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672276405424128
+    m_Localized: Alpha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 672423159926784
+    m_Localized: Omega
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674170959958016
+    m_Localized: Charlie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 678063861272576
+    m_Localized: Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 678202722095104
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 678323295752192
+    m_Localized: About
+    m_Metadata:
+      m_Items: []
+  - m_Id: 678425850679296
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 678545933602816
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 678747964837888
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 678901191151616
+    m_Localized: Master Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 679064894836736
+    m_Localized: Music Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 679203491418112
+    m_Localized: Sound Volume
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

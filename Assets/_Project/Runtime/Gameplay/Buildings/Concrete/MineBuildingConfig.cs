@@ -16,7 +16,7 @@ namespace Runtime.Gameplay.Buildings.Concrete
         [SerializeField] private BuildingParameterEntry _productionTime;
 
         public override BuildingParameterEntry[] GetAdditionalParameters() =>
-            new[] { _production, _oxygenDelta };
+            new[] { _production, _productionTime, _oxygenDelta };
 
         public override IBuildingModel CreateModel(DiContainer container, BuildingView view) =>
             container.Instantiate<MineBuildingModel>(new object[] { this, view });

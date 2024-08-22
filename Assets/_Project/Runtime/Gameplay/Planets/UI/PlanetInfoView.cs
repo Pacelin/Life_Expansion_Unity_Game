@@ -28,7 +28,6 @@ namespace Runtime.Gameplay.Planets.UI
 
         private void MoveMarkerTo(RectTransform marker, RectTransform parent, float percent)
         {
-            Debug.Log(percent);
             var rect = parent.rect;
             var pos = marker.anchoredPosition;
             pos.x = Mathf.Lerp(0, rect.width, percent);

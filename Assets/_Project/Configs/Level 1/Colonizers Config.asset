@@ -15,21 +15,21 @@ MonoBehaviour:
   _capsule:
     _initialPopulation: 6
     _initialEnergy: 2
-    _initialMinerals: 500
-    _initialMaxMinerals: 500
+    _initialMinerals: 200
+    _initialMaxMinerals: 200
   _idealPopulation: 100
   _targetPopulation: 90
   _achievementPopulation: 98
   _populationInterpolation: 0.5
   _temperature:
-    _min: -50
-    _max: 50
-    _target: 20
+    _min: -25
+    _max: 25
+    _target: 10
   _oxygen:
     _min: 0
-    _max: 100
-    _target: 30
+    _max: 50
+    _target: 15
   _water:
     _min: 0
-    _max: 100
-    _target: 25
+    _max: 50
+    _target: 15

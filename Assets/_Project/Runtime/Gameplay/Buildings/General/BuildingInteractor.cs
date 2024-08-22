@@ -2,7 +2,6 @@
 using R3;
 using Runtime.Gameplay.Buildings.Builder;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 using Zenject;
 
@@ -44,6 +43,13 @@ namespace Runtime.Gameplay.Buildings.General
 
         public void Tick()
         {
+            if ((Input.GetMouseButtonDown((int)MouseButton.LeftMouse) ||
+                 Input.GetMouseButtonDown((int)MouseButton.RightMouse)) &&
+                !_view.Hover && _choosedBuilding != null)
+            {
+                _choosedBuilding = null;
+                _view.Hide();
+            }
             if (Input.GetMouseButtonDown((int)MouseButton.RightMouse))
             {
                 if (Physics.Raycast(_mainCamera.ScreenPointToRay(Input.mousePosition),
@@ -55,17 +61,11 @@ namespace Runtime.Gameplay.Buildings.General
                         _view.ShowMessage(_view.DestroyString, Input.mousePosition);
                     }
                 }
-                else
+                else if (_choosedBuilding != null)
                 {
                     _choosedBuilding = null;
                     _view.Hide();
                 }
-            }
-            else if (Input.GetMouseButtonDown((int)MouseButton.LeftMouse) &&
-                 !EventSystem.current.IsPointerOverGameObject())
-            {
-                _choosedBuilding = null;
-                _view.Hide();
             }
         }
     }

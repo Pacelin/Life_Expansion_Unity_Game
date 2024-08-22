@@ -10,11 +10,11 @@ namespace Runtime.Cinematic
             get
             {
                 _mixer.GetFloat("MasterVolume", out var result);
-                return result;
+                return (result + 80) / 80f;
             }
             set
             {
-                _mixer.SetFloat("MasterVolume", value);
+                _mixer.SetFloat("MasterVolume", value * 80 - 80);
             }
         }
         
@@ -23,11 +23,11 @@ namespace Runtime.Cinematic
             get
             {
                 _mixer.GetFloat("MusicVolume", out var result);
-                return result;
+                return (result + 80) / 80f;
             }
             set
             {
-                _mixer.SetFloat("MusicVolume", value);
+                _mixer.SetFloat("MusicVolume", value * 80 - 80);
             }
         }
         
@@ -36,11 +36,11 @@ namespace Runtime.Cinematic
             get
             {
                 _mixer.GetFloat("SoundVolume", out var result);
-                return result;
+                return (result + 80) / 80f;
             }
             set
             {
-                _mixer.SetFloat("SoundVolume", value);
+                _mixer.SetFloat("SoundVolume", value * 80 - 80);
             }
         }
 

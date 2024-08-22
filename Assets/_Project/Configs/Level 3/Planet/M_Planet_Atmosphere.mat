@@ -56,9 +56,9 @@ Material:
     - _Edge_Power: 0.5
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Thickness: 0.20480001
+    - _Thickness: 0.080000006
     m_Colors:
     - _Color: {r: 0.7529412, g: 0.5529412, b: 0.5568989, a: 1}
-    - _TempTint: {r: 0.9986824, g: 0.975, b: 0.96762353, a: 1}
+    - _TempTint: {r: 0.9802353, g: 0.6250003, b: 0.5143529, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

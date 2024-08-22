@@ -49,8 +49,12 @@ namespace Runtime.Gameplay.Colonizers
             _tickDisposable = _gameplayCore.OnTick
                 .Subscribe(delta =>
                 {
-                    var targetPopulation = Mathf.Lerp(0, _population.Ideal, _feeling.CurrentValue);
-                    _population.Set(Mathf.Lerp(_population.CurrentPopulation.CurrentValue, targetPopulation, 
+                    var targetPopulation = Mathf.Lerp(0, _population.Ideal, _feeling.CurrentValue * _feeling.CurrentValue);
+                    if (targetPopulation >= _population.CurrentPopulation.CurrentValue)
+                        _population.Set(Mathf.Lerp(_population.CurrentPopulation.CurrentValue, targetPopulation, 
+                            _population.Interpolation * delta));
+                    else
+                        _population.Set(Mathf.Lerp(targetPopulation, _population.CurrentPopulation.CurrentValue, 
                         _population.Interpolation * delta));
                 });
         }

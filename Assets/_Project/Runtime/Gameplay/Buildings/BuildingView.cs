@@ -17,6 +17,7 @@ namespace Runtime.Gameplay.Buildings
         [SerializeField] private BuildingMesh _buildingMesh;
         [SerializeField] private SphereCollider _buildingCollider;
         [SerializeField] private DecalProjector _projector;
+        [SerializeField] private MonoBehaviour[] _buildingComponents;
 
         private IBuildingModel _model;
         
@@ -44,6 +45,12 @@ namespace Runtime.Gameplay.Buildings
         public void SetModel(IBuildingModel model) =>
             _model = model;
 
+        public void SetEnabled(bool enabled)
+        {
+            foreach (var component in _buildingComponents)
+                component.enabled = enabled;
+        }
+        
         public void EnableProjector() => _projector.gameObject.SetActive(true);
         public void DisableProjector() => _projector.gameObject.SetActive(false);
     }

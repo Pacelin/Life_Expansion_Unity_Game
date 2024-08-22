@@ -15,11 +15,12 @@ namespace Runtime.Gameplay.Colonizers
         public ColonizersIndicatorModel(ColonizersIndicatorConfig config, 
             PlanetIndicator planetIndicator)
         {
-            _targetFeeling = 1 - (config.Max - config.Target) / (config.Max - config.Min);
+            _targetFeeling = (config.Target - config.Min) / (config.Max - config.Min);
             _feeling = planetIndicator.Value.Select(v =>
             {
-                return Mathf.Clamp01(1 - (v - config.Target) / 
-                    ((v < config.Target ? config.Min : config.Max) - config.Target));
+                if (v < config.Target)
+                    return Mathf.Clamp01((v - config.Min) / (config.Target - config.Min));
+                return 1 - Mathf.Clamp01((v - config.Target) / (config.Max - config.Target));
             }).ToReadOnlyReactiveProperty();
         }
     }

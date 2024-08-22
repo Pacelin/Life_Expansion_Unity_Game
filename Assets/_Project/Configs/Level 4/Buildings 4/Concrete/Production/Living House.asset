@@ -15,5 +15,5 @@ MonoBehaviour:
   _generalConfig: {fileID: 11400000, guid: 40d15070c9b18a94bacd3dbeab2fcb09, type: 2}
   _unlockCondition: {fileID: 11400000, guid: fe40f717a82c0654abaabc0197005fcb, type: 2}
   _colonizersMaxDelta:
-    Value: 4
+    Value: 10
     Config: {fileID: 11400000, guid: 486380c5b57d9a0478af5d1ddba53d6c, type: 2}

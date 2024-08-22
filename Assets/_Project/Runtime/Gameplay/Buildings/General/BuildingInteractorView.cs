@@ -1,17 +1,20 @@
 ﻿using R3;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Localization;
 using UnityEngine.UI;
 using Zenject;
 
 namespace Runtime.Gameplay.Buildings.General
 {
-    public class BuildingInteractorView : MonoBehaviour
+    public class BuildingInteractorView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         public Observable<Unit> OnClick => _button.OnClickAsObservable();
         public string DestroyString => _destroyString.GetLocalizedString();
 
+        public bool Hover => _hover;
+        
         [SerializeField] private LocalizedString _destroyString;
         [SerializeField] private RectTransform _anchor;
         [SerializeField] private Button _button;
@@ -19,6 +22,7 @@ namespace Runtime.Gameplay.Buildings.General
         
         [Inject] private Camera _camera;
         [Inject] private Canvas _canvas;
+        private bool _hover;
 
         public void ShowMessage(string text, Vector3 screenPoint)
         {
@@ -47,5 +51,8 @@ namespace Runtime.Gameplay.Buildings.General
         {
             gameObject.SetActive(false);
         }
+
+        public void OnPointerEnter(PointerEventData eventData) => _hover = true;
+        public void OnPointerExit(PointerEventData eventData) => _hover = false;
     }
 }

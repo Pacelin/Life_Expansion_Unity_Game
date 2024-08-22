@@ -18,8 +18,8 @@ MonoBehaviour:
     Value: -1
     Config: {fileID: 11400000, guid: e2dbb7580095c104c883f88dd0f4e6f8, type: 2}
   _production:
-    Value: 5
+    Value: 25
     Config: {fileID: 11400000, guid: b7a0b946f0521e84892d05ef14334229, type: 2}
   _productionTime:
-    Value: 15
+    Value: 10
     Config: {fileID: 11400000, guid: b4acb536ae284ee488ef6e9cba655723, type: 2}
