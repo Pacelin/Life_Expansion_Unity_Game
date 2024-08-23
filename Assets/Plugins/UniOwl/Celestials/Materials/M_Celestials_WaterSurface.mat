@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_WaterSurface
+  m_Name: M_Celestials_WaterSurface
   m_Shader: {fileID: -6465566751694194690, guid: fe6e3f364ed998f41b6714d8e30fad6d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
