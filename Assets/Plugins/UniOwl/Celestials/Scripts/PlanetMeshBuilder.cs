@@ -11,8 +11,8 @@ namespace UniOwl.Celestials
         private static readonly VertexAttributeDescriptor[] vertexAttributes =
         {
             new(VertexAttribute.Position, VertexAttributeFormat.Float32, 3),
-            new(VertexAttribute.Normal, VertexAttributeFormat.Float32, 3),
-            new(VertexAttribute.TexCoord0, VertexAttributeFormat.Float32, 2),
+            new(VertexAttribute.Normal, VertexAttributeFormat.Float16, 4),
+            new(VertexAttribute.TexCoord0, VertexAttributeFormat.Float16, 2),
         };
 
         public static void BuildMeshes(PlanetSettings settings, PlanetHeightData heightData)

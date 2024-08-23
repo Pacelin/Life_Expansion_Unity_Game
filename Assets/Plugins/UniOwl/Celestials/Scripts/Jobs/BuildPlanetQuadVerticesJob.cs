@@ -33,9 +33,10 @@ namespace UniOwl.Celestials
             unitPosition = MathUtils.GetSpherePosition(unitPosition, resolution);
 
             float3 vertex = unitPosition * (radius + amplitude * heights[vertexIndex]);
-            float3 normal = normals[vertexIndex];
-            //half2 uv0 = new half2((half)((float)y / resolution), (half)((float)x / resolution));
-            float2 uv0 = new((float)y / resolution, (float)x / resolution);
+            //float3 normal = normals[vertexIndex];
+            half4 normal = new half4((half3)normals[vertexIndex], half.zero);
+            half2 uv0 = new half2((half)((float)y / resolution), (half)((float)x / resolution));
+            //float2 uv0 = new((float)y / resolution, (float)x / resolution);
             
             vertices[vertexIndex] = new Vertex()
             {

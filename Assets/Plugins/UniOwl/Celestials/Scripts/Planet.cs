@@ -21,6 +21,8 @@ namespace UniOwl.Celestials
         private static readonly int s_baseColor = Shader.PropertyToID("_BaseColor");
         private static readonly int s_overcastColor = Shader.PropertyToID("_OvercastColor");
         private static readonly int s_innerRadius = Shader.PropertyToID("_InnerRadius");
+        private static readonly int s_heightRange = Shader.PropertyToID("_HeightRange");
+        private static readonly int s_slopeRange = Shader.PropertyToID("_SlopeRange");
 
         [SerializeField]
         private PlanetFace[] surfaceFaces;
@@ -48,8 +50,6 @@ namespace UniOwl.Celestials
         public Transform SeaTransform => _sea.transform;
 
         private float currentTemperature, currentAtmosphere, currentOverall;
-        private static readonly int s_heightRange = Shader.PropertyToID("_HeightRange");
-        private static readonly int s_slopeRange = Shader.PropertyToID("_SlopeRange");
 
         private void Awake()
         {

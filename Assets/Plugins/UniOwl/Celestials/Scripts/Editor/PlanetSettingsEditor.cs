@@ -39,9 +39,8 @@ namespace UniOwl.Celestials.Editor
                     settings.Planet.SetAtmosphereLevel(settings.atmosphereLevel);
                     settings.Planet.SetTemperatureLevel(settings.tempLevel);
                     settings.Planet.UpdatePlanetAppearance();
+                    PrefabUtility.SavePrefabAsset(settings.Planet.gameObject);
                 }
-
-                PrefabUtility.SavePrefabAsset(settings.Planet.gameObject);
             }
             
             EditorGUILayout.Space();
@@ -53,6 +52,10 @@ namespace UniOwl.Celestials.Editor
             if (GUILayout.Button("Generate Planet"))
             {
                 PlanetCreatorEditor.CreatePlanet(settings);
+                settings.Planet.SetOverallLevel(settings.overallLevel);
+                settings.Planet.SetAtmosphereLevel(settings.atmosphereLevel);
+                settings.Planet.SetTemperatureLevel(settings.tempLevel);
+                settings.Planet.UpdatePlanetAppearance();
             }
 
             serializedObject.ApplyModifiedProperties();
