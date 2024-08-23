@@ -12,11 +12,15 @@ namespace UniOwl.Celestials
         {
             new(VertexAttribute.Position, VertexAttributeFormat.Float32, 3),
             new(VertexAttribute.Normal, VertexAttributeFormat.Float32, 3),
-            new(VertexAttribute.TexCoord0, VertexAttributeFormat.Float16, 2),
+            new(VertexAttribute.TexCoord0, VertexAttributeFormat.Float32, 2),
         };
 
-        public static void BuildMeshes(PlanetSettings settings, Planet planet, PlanetHeightData heightData)
+        public static void BuildMeshes(PlanetSettings settings, PlanetHeightData heightData)
         {
+            PlanetCreator.ReportStage("Build Meshes");
+
+            Planet planet = settings.Planet;
+            
             int resolution = settings.Model.resolution;
             
             int vertexCount = (resolution + 1) * (resolution + 1);
@@ -26,6 +30,8 @@ namespace UniOwl.Celestials
             
             for (int face = 0; face < 6; face++)
             {
+                PlanetCreator.ReportDescription($"Face {face + 1} of 6");
+
                 Mesh.MeshData mesh = quadMeshes[face];
                 mesh.SetVertexBufferParams(vertexCount, vertexAttributes);
                 mesh.SetIndexBufferParams(indexCount, IndexFormat.UInt16);
@@ -44,10 +50,14 @@ namespace UniOwl.Celestials
                 planet.SurfaceSharedMeshes[face].name = $"SM_{planet.name}_{face}";
             }
             
+            PlanetCreator.ReportStage("Finalize Meshes");
+            
             Mesh.ApplyAndDisposeWritableMeshData(quadMeshes, planet.SurfaceSharedMeshes);
 
             for (int face = 0; face < 6; face++)
             {
+                PlanetCreator.ReportDescription($"Face {face + 1} of 6");
+
                 var mesh = planet.SurfaceSharedMeshes[face];
                 
                 if (settings.Model.recalculateNormals)
