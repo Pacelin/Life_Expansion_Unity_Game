@@ -96,6 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1224880522798317004}
   - component: {fileID: 7056100612576111895}
+  - component: {fileID: 3898435238664955647}
   m_Layer: 0
   m_Name: Planet_Blank
   m_TagString: Untagged
@@ -147,10 +148,28 @@ MonoBehaviour:
   - {fileID: 4467587494322341657}
   - {fileID: 3795842657935312962}
   - {fileID: 3822853437279730197}
+  settings: {fileID: 0}
   _sea: {fileID: 4894582401393493912}
   _atmosphere: {fileID: 6095709036613475504}
   _clouds: {fileID: 1932970507129960294}
   _rings: {fileID: 4188364355465434780}
+--- !u!114 &3898435238664955647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7593538730360586708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a16e3c7cde40aebb9562154d88dd01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transform: {fileID: 1224880522798317004}
+  _radius: 200
+  _rotationPeriod: 90
+  _rotationOffset: 0
+  _rotationEuler: {x: 5, y: 0, z: 0}
 --- !u!1001 &942061350151728098
 PrefabInstance:
   m_ObjectHideFlags: 0
