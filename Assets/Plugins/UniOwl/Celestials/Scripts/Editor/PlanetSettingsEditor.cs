@@ -16,20 +16,12 @@ namespace UniOwl.Celestials.Editor
             
             var settings = (PlanetSettings)target;
             
-            //EditorGUI.BeginChangeCheck();
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_planet"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_model"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_textures"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_physical"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_generation"));
 
-            /*if (EditorGUI.EndChangeCheck())
-            {
-                serializedObject.ApplyModifiedProperties();
-                PlanetCreatorEditor.CreatePlanet(settings);
-                serializedObject.ApplyModifiedProperties();
-            }*/
-            
             EditorGUI.BeginChangeCheck();
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_appearance"));
             

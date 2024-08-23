@@ -1,6 +1,5 @@
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace UniOwl.Celestials
 {
@@ -23,8 +22,6 @@ namespace UniOwl.Celestials
         private static readonly int s_overcastColor = Shader.PropertyToID("_OvercastColor");
         private static readonly int s_innerRadius = Shader.PropertyToID("_InnerRadius");
 
-        
-        [FormerlySerializedAs("_faces")]
         [SerializeField]
         private PlanetFace[] surfaceFaces;
 
@@ -32,8 +29,7 @@ namespace UniOwl.Celestials
 
         public Mesh[] SurfaceSharedMeshes => surfaceFaces.Select(face => face.Filter.sharedMesh).ToArray();
 
-        [SerializeField]
-        private PlanetSettings settings;
+        public PlanetSettings settings;
         
         [SerializeField]
         private MeshRenderer _sea;
