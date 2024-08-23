@@ -9,6 +9,6 @@ namespace UniOwl.Celestials
         public float3 position;
         public float3 normal;
         //public half4 tangent;
-        public half2 uv0;
+        public float2 uv0;
     }
 }

@@ -34,7 +34,8 @@ namespace UniOwl.Celestials
 
             float3 vertex = unitPosition * (radius + amplitude * heights[vertexIndex]);
             float3 normal = normals[vertexIndex];
-            half2 uv0 = new half2((half)((float)y / resolution), (half)((float)x / resolution));
+            //half2 uv0 = new half2((half)((float)y / resolution), (half)((float)x / resolution));
+            float2 uv0 = new((float)y / resolution, (float)x / resolution);
             
             vertices[vertexIndex] = new Vertex()
             {
