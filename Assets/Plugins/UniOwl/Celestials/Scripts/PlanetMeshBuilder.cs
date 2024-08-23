@@ -26,6 +26,9 @@ namespace UniOwl.Celestials
             int vertexCount = (resolution + 1) * (resolution + 1);
             int indexCount = 6 * resolution * resolution;
 
+            float diameter = 2f * (settings.Physical.radius + settings.Physical.amplitude);
+            var bounds = new Bounds(Vector3.zero, Vector3.one * diameter);
+
             Mesh.MeshDataArray quadMeshes = Mesh.AllocateWritableMeshData(6);
             
             for (int face = 0; face < 6; face++)
@@ -43,16 +46,28 @@ namespace UniOwl.Celestials
                 };
 
                 BuildFace(settings, face, quad, heightData.heights[face], heightData.normals[face]);
-                
-                mesh.subMeshCount = 1;
-                mesh.SetSubMesh(0, new SubMeshDescriptor(0, indexCount));
 
+                var descriptor = new SubMeshDescriptor()
+                {
+                    bounds = bounds,
+                    baseVertex = 0,
+                    firstVertex = 0,
+                    indexCount = indexCount,
+                    indexStart = 0,
+                    topology = MeshTopology.Triangles,
+                    vertexCount = vertexCount,
+                };
+                mesh.subMeshCount = 1;
+                mesh.SetSubMesh(0, descriptor, settings.Model.updateFlags);
+
+                planet.SurfaceSharedMeshes[face].bounds = bounds;
+                planet.SurfaceSharedMeshes[face].UploadMeshData(true);
                 planet.SurfaceSharedMeshes[face].name = $"SM_{planet.name}_{face}";
             }
             
             PlanetCreator.ReportStage("Finalize Meshes");
             
-            Mesh.ApplyAndDisposeWritableMeshData(quadMeshes, planet.SurfaceSharedMeshes);
+            Mesh.ApplyAndDisposeWritableMeshData(quadMeshes, planet.SurfaceSharedMeshes, settings.Model.updateFlags);
 
             for (int face = 0; face < 6; face++)
             {
@@ -62,9 +77,10 @@ namespace UniOwl.Celestials
                 
                 if (settings.Model.recalculateNormals)
                     mesh.RecalculateNormals();
-                
-                mesh.Optimize();
-                mesh.RecalculateBounds();
+                if (settings.Model.recalculateTangents)
+                    mesh.RecalculateTangents();
+                if (settings.Model.optimizeMesh)
+                    mesh.Optimize();
             }
         }
 
