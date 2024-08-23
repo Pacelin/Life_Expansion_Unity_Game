@@ -43,9 +43,9 @@ MonoBehaviour:
     grassColor: {r: 0.31043077, g: 0.6037736, b: 0.33675054, a: 1}
     sandColor: {r: 1, g: 0.93449014, b: 0.6084906, a: 1}
     dryColor: {r: 0.754717, g: 0.4521182, b: 0.4521182, a: 1}
-    rockColor: {r: 0.2758989, g: 0.3063368, b: 0.3773585, a: 1}
-    heightRange: {x: 0.13, y: 1}
-    slopeRange: {x: 16.44, y: 90}
+    rockColor: {r: 0.3764706, g: 0.28277636, b: 0.27450982, a: 1}
+    heightRange: {x: 0.15, y: 1}
+    slopeRange: {x: 15.6, y: 90}
     waterShoreColor: {r: 0.41960788, g: 1, b: 0.7995177, a: 1}
     waterDeepColor: {r: 0.30215383, g: 0.46498272, b: 0.6603774, a: 1}
     deepDistance: 0.44
