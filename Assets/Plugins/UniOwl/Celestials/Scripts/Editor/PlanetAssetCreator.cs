@@ -70,7 +70,7 @@ namespace UniOwl.Celestials.Editor
             
             for (int i = 0; i < 6; i++)
             {
-                var texture = new Texture2D(settings.Textures.resolution, settings.Textures.resolution, format, false, false, true)
+                var texture = new Texture2D(settings.Textures.resolution, settings.Textures.resolution, format, false, true, true)
                 {
                     filterMode = FilterMode.Point,
                     wrapMode = TextureWrapMode.Clamp,
