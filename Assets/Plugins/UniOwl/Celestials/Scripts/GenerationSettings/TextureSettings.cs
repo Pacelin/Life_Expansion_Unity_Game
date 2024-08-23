@@ -6,7 +6,7 @@ namespace UniOwl.Celestials
     [Serializable]
     public class TextureSettings
     {
-        [Range(2f, 2048f)]
+        [Range(2f, 4096f)]
         public int resolution = 128;
         
         public bool generateTextures = true;

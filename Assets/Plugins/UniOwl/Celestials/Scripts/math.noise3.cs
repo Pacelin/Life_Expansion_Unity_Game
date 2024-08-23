@@ -6,10 +6,17 @@ namespace UniOwl.Celestials
     public readonly partial struct noise3
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float3 CalculateNormal(in float3 sphereNormal, in float k)
+        public float3 GetProjectedGradient(in float3 sphereNormal)
         {
             float3 grad = -gradient;
             float3 projectedGradient = grad - math.dot(grad, sphereNormal) * sphereNormal;
+            return projectedGradient;
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float3 GetNormal(in float3 sphereNormal, in float k)
+        {
+            float3 projectedGradient = GetProjectedGradient(sphereNormal);
             return math.normalize(sphereNormal + k * projectedGradient);
         }
         

@@ -37,7 +37,7 @@ namespace UniOwl.Celestials
 
             var noise = settings.Evaluate(vertex + offset);
             var height = noise.value;
-            float3 normal = noise.CalculateNormal(vertex, k * amplitude / radius);
+            float3 normal = noise.GetNormal(vertex, k * amplitude / radius);
 
             heights[index] = height;
             normals[index] = normal;

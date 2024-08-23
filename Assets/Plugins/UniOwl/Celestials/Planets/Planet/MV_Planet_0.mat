@@ -34,16 +34,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _OverallLevel: 0.58
+    - _OverallLevel: 1
     m_Colors:
-    - _DryColor: {r: 0.8490566, g: 0.70888215, b: 0.71174467, a: 1}
-    - _GrassColor: {r: 0.62352943, g: 0.4589836, b: 0.23137252, a: 1}
+    - _DryColor: {r: 0.754717, g: 0.4521182, b: 0.4521182, a: 1}
+    - _GrassColor: {r: 0.31043077, g: 0.6037736, b: 0.33675054, a: 1}
+    - _HeightRange: {r: 0.13, g: 1, b: 0, a: 0}
     - _RimColor: {r: 0.21960784, g: 0.2627451, b: 0.29803923, a: 1}
-    - _RockColor: {r: 1, g: 0.84615386, b: 0, a: 1}
-    - _TempTint: {r: 0.9986824, g: 0.975, b: 0.96762353, a: 1}
+    - _RockColor: {r: 0.2758989, g: 0.3063368, b: 0.3773585, a: 1}
+    - _SandColor: {r: 1, g: 0.93449014, b: 0.6084906, a: 1}
+    - _SlopeRange: {r: 16.44, g: 90, b: 0, a: 0}
+    - _TempTint: {r: 0.99813336, g: 0.9645834, b: 0.95413333, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &7326199789988654352
+--- !u!114 &7920979955229675877
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

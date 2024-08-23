@@ -8,6 +8,7 @@ namespace UniOwl.Celestials
     {
         private static readonly int s_rimColor = Shader.PropertyToID("_RimColor");
         private static readonly int s_grassColor = Shader.PropertyToID("_GrassColor");
+        private static readonly int s_sandColor = Shader.PropertyToID("_SandColor");
         private static readonly int s_dryColor = Shader.PropertyToID("_DryColor");
         private static readonly int s_rockColor = Shader.PropertyToID("_RockColor");
         private static readonly int s_tempTint = Shader.PropertyToID("_TempTint");
@@ -51,7 +52,9 @@ namespace UniOwl.Celestials
         public Transform SeaTransform => _sea.transform;
 
         private float currentTemperature, currentAtmosphere, currentOverall;
-        
+        private static readonly int s_heightRange = Shader.PropertyToID("_HeightRange");
+        private static readonly int s_slopeRange = Shader.PropertyToID("_SlopeRange");
+
         private void Awake()
         {
             foreach (var mesh in SurfaceSharedMeshes)
@@ -101,6 +104,7 @@ namespace UniOwl.Celestials
                 var mat = face.Renderer.sharedMaterial;
                 mat.SetColor(s_rimColor, settings.Appearance.rimColor);
                 mat.SetColor(s_grassColor, settings.Appearance.grassColor);
+                mat.SetColor(s_sandColor, settings.Appearance.sandColor);
                 mat.SetColor(s_dryColor, settings.Appearance.dryColor);
                 mat.SetColor(s_rockColor, settings.Appearance.rockColor);
 
@@ -108,6 +112,8 @@ namespace UniOwl.Celestials
                 mat.SetColor(s_tempTint, tint);
                 
                 mat.SetFloat(s_overallLevel, currentOverall);
+                mat.SetVector(s_heightRange, settings.Appearance.heightRange);
+                mat.SetVector(s_slopeRange, settings.Appearance.slopeRange);
             }
         }
 

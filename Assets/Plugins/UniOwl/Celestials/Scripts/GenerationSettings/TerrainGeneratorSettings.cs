@@ -28,28 +28,29 @@ namespace UniOwl.Celestials
         public float warpingStrength;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public noise3 Evaluate(in float3 position)
+        public noise3 Evaluate(in float3 sphereNormal, in float3 offset = new())
         {
-            var warpedPos = DomainWarping(position);
-            var value = FBM(warpedPos);
+            var position = sphereNormal + offset;
+            var warpedPos = DomainWarping(position, sphereNormal);
+            var value = FBM(warpedPos, sphereNormal);
             value = Redistribute(warpedPos, value);
             
             return value;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float3 DomainWarping(in float3 position)
+        public float3 DomainWarping(in float3 position, in float3 sphereNormal)
         {
             var q = new float3(
-                FBM(position - warpingOffset).value,
-                FBM(position).value,
-                FBM(position + warpingOffset).value
+                FBM(position - warpingOffset, sphereNormal).value,
+                FBM(position, sphereNormal).value,
+                FBM(position + warpingOffset, sphereNormal).value
             );
             return position + q * warpingStrength;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public noise3 FBM(in float3 position)
+        public noise3 FBM(in float3 position, in float3 sphereNormal)
         {
             noise3 totalDensity = new noise3();
 
@@ -62,7 +63,9 @@ namespace UniOwl.Celestials
                 noise3 density = new noise3(height, grad * freq);
                 density = (density + 1f) * 0.5f;
 
-                totalDensity += amp * density;
+                float erosionFactor = 1f + erosionPower * math.dot(density.gradient, density.gradient);
+                
+                totalDensity += amp * density / erosionFactor;
 
                 ampSum += amp;
                 amp *= persistence;
