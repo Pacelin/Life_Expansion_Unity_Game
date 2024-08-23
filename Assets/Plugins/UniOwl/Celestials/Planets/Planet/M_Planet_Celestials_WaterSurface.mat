@@ -70,7 +70,7 @@ Material:
     - _Temperature_Offset: 0.5
     - _Temperature_Power: 15
     - _Water_Normal_Strength: 0.03
-    - _Water_Smoothness: 0.7
+    - _Water_Smoothness: 1
     - _Wave_Speed: 2
     - _t: 32.35
     m_Colors:
