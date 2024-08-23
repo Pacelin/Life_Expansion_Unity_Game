@@ -2286,7 +2286,7 @@
     "m_Group": {
         "m_Id": "fe497cdcba0542fdb56ae42e47013cdf"
     },
-    "m_Name": "Fractal Simplex Noise 2D",
+    "m_Name": "SSG_Generation_snoise2",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -3796,7 +3796,7 @@
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "Detail Scale",
     "m_DefaultReferenceName": "_Detail_Scale",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_DetailScale",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
@@ -4550,7 +4550,7 @@
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "Base Scale",
     "m_DefaultReferenceName": "_Base_Scale",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_BaseScale",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
@@ -5008,7 +5008,7 @@
     "m_Group": {
         "m_Id": "539af441f0094862a678009fabd5e88c"
     },
-    "m_Name": "Fractal Simplex Noise 2D",
+    "m_Name": "SSG_Generation_snoise2",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {

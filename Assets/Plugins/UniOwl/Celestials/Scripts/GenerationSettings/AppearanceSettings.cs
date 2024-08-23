@@ -12,10 +12,12 @@ namespace UniOwl.Celestials
         [Header("Surface")]
         public Color grassColor = HexToRGBA("56BC4F");
         public Color sandColor = HexToRGBA("56BC4F");
+        public Color snowColor = HexToRGBA("FFFFFF");
         public Color dryColor = HexToRGBA("CDB375");
         public Color rockColor = HexToRGBA("8E8E8E");
 
-        public Vector2 heightRange = new Vector2(0.2f, 1f);
+        public Vector2 heightRangeSand = new Vector2(0f, 0.2f);
+        public Vector2 heightRangeSnow = new Vector2(0.8f, 1f);
         [InspectorName("Slope Range (Degrees)")]
         public Vector2 slopeRange = new Vector2(0f, 90f);
 
@@ -47,6 +49,8 @@ namespace UniOwl.Celestials
         public float ringOuterRadius = 30f;
         [Range(0f, 1f)]
         public float ringInnerRadius = 0.8f;
+        [Range(0f, 100f)]
+        public float ringScale = 10f, detailsScale = 15f;
 
         public static Color HexToRGBA(string hex)
         {

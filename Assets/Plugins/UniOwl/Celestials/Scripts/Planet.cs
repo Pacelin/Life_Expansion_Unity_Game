@@ -8,6 +8,7 @@ namespace UniOwl.Celestials
         private static readonly int s_rimColor = Shader.PropertyToID("_RimColor");
         private static readonly int s_grassColor = Shader.PropertyToID("_GrassColor");
         private static readonly int s_sandColor = Shader.PropertyToID("_SandColor");
+        private static readonly int s_snowColor = Shader.PropertyToID("_SnowColor");
         private static readonly int s_dryColor = Shader.PropertyToID("_DryColor");
         private static readonly int s_rockColor = Shader.PropertyToID("_RockColor");
         private static readonly int s_tempTint = Shader.PropertyToID("_TempTint");
@@ -21,8 +22,12 @@ namespace UniOwl.Celestials
         private static readonly int s_baseColor = Shader.PropertyToID("_BaseColor");
         private static readonly int s_overcastColor = Shader.PropertyToID("_OvercastColor");
         private static readonly int s_innerRadius = Shader.PropertyToID("_InnerRadius");
-        private static readonly int s_heightRange = Shader.PropertyToID("_HeightRange");
+        private static readonly int s_heightRangeSand = Shader.PropertyToID("_HeightRangeSand");
+        private static readonly int s_heightRangeSnow = Shader.PropertyToID("_HeightRangeSnow");
         private static readonly int s_slopeRange = Shader.PropertyToID("_SlopeRange");
+        private static readonly int s_baseScale = Shader.PropertyToID("_BaseScale");
+        private static readonly int s_detailScale = Shader.PropertyToID("_DetailScale");
+        private static readonly int s_tempLevel = Shader.PropertyToID("_TempLevel");
 
         [SerializeField]
         private PlanetFace[] surfaceFaces;
@@ -100,6 +105,7 @@ namespace UniOwl.Celestials
                 var mat = face.Renderer.sharedMaterial;
                 mat.SetColor(s_rimColor, settings.Appearance.rimColor);
                 mat.SetColor(s_grassColor, settings.Appearance.grassColor);
+                mat.SetColor(s_snowColor, settings.Appearance.snowColor);
                 mat.SetColor(s_sandColor, settings.Appearance.sandColor);
                 mat.SetColor(s_dryColor, settings.Appearance.dryColor);
                 mat.SetColor(s_rockColor, settings.Appearance.rockColor);
@@ -108,7 +114,9 @@ namespace UniOwl.Celestials
                 mat.SetColor(s_tempTint, tint);
                 
                 mat.SetFloat(s_overallLevel, currentOverall);
-                mat.SetVector(s_heightRange, settings.Appearance.heightRange);
+                mat.SetFloat(s_tempLevel, currentTemperature);
+                mat.SetVector(s_heightRangeSand, settings.Appearance.heightRangeSand);
+                mat.SetVector(s_heightRangeSnow, settings.Appearance.heightRangeSnow);
                 mat.SetVector(s_slopeRange, settings.Appearance.slopeRange);
             }
         }
@@ -170,6 +178,8 @@ namespace UniOwl.Celestials
 
             var mat = _rings.sharedMaterial;
             mat.SetFloat(s_innerRadius, settings.Appearance.ringInnerRadius);
+            mat.SetFloat(s_baseScale, settings.Appearance.ringScale);
+            mat.SetFloat(s_detailScale, settings.Appearance.detailsScale);
         }
     }
 }

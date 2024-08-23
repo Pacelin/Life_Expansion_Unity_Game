@@ -1387,7 +1387,7 @@
     "m_Group": {
         "m_Id": "369bce51440c46a09cebba028906aad1"
     },
-    "m_Name": "Fractal Voronoi 3D",
+    "m_Name": "SSG_Generation_voronoi3",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -1567,7 +1567,7 @@
     "m_Group": {
         "m_Id": "f8860c47a743454f9b11fa68b470fa56"
     },
-    "m_Name": "SSG_Planet_LightingModel",
+    "m_Name": "SSG_Celestials_LightingModel",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
