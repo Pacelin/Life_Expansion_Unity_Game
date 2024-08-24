@@ -40,25 +40,26 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Color_Threshold: 0.3
+    - Color_Threshold: 0.764
     - DETAIL: 1
-    - Detail_Redistribution: 1.02
-    - Detail_Scale_Factor: 1
-    - Detail_Threshold: 3.02
-    - Flattening: 2.17
+    - Detail_Redistribution: 1.18
+    - Detail_Scale_Factor: 0.744
+    - Detail_Threshold: 1.53
+    - Flattening: 3
     - OUTLINE: 1
-    - Octaves: 2.32
+    - Octaves: 2
     - Offset_Speed: 0.01
-    - Outline_Power: 3.47
+    - Outline_Power: 4.17
     - Persistence: 0.475
     - Scale: 1.7
-    - Temperature: 5714
-    - Warp_Scale: 0.9
+    - Temperature: 22005
+    - Warp_Scale: 1.63
     - Warp_Speed: -0.07
-    - _Emission: 20
+    - _Emission: 8
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors: []
+    m_Colors:
+    - _Color_Edge: {r: 0, g: 0.4, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7699999805947906074
