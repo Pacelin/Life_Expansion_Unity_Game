@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576299371b232924784fe7bb234bbe5b, type: 3}
+  m_Name: SO_Planet_Decor_2_2
+  m_EditorClassIdentifier: 
+  _planet: {fileID: 247150999550099013, guid: c5e922bf3f2eb2a4f9347a682166209a, type: 3}
+  _model:
+    resolution: 16
+    updateFlags: 11
+    optimizeMesh: 1
+    recalculateNormals: 0
+    recalculateTangents: 0
+  _textures:
+    resolution: 128
+    generateColors: 0
+    generateNormals: 1
+    generateHeights: 1
+    compression: 0
+  _physical:
+    radius: 8
+    amplitude: 2
+    seaLevel: 0
+  _generation:
+    seed: 274461459
+    frequency: 4
+    persistence: 0.538
+    lacunarity: 1.39
+    octaves: 16
+    redistributionPower: 0.49
+    erosionPower: 4.77
+    warpingOffset:
+      x: -0.21
+      y: 0.51
+      z: 0.35
+    warpingStrength: 1
+  _appearance:
+    rimColor: {r: 0.21960784, g: 0.2627451, b: 0.29803923, a: 1}
+    grassColor: {r: 1, g: 0.94532543, b: 0.9386792, a: 1}
+    sandColor: {r: 0, g: 0, b: 0, a: 1}
+    snowColor: {r: 1, g: 1, b: 1, a: 1}
+    dryColor: {r: 0.2953708, g: 0.167191, b: 0.496, a: 1}
+    rockColor: {r: 0, g: 0, b: 0, a: 1}
+    heightRangeSand: {x: 0, y: 0.007}
+    heightRangeSnow: {x: 0.1, y: 1}
+    slopeRange: {x: 6.69, y: 90}
+    waterShoreColor: {r: 0.376602, g: 0.8584906, b: 0.5917927, a: 1}
+    waterDeepColor: {r: 0.49019608, g: 0.26666668, b: 0.39278942, a: 1}
+    deepDistance: 0.5
+    hasAtmosphere: 0
+    atmosphereColor: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
+    maxAtmosphereThickness: 0.5
+    atmosphereHeight: 8.23
+    coldTint: {r: 1, g: 1, b: 1, a: 1}
+    warmTint: {r: 1, g: 1, b: 1, a: 1}
+    hasClouds: 0
+    baseCloudsColor: {r: 0.29411766, g: 0.16862746, b: 0.49411768, a: 1}
+    overcastCloudsColor: {r: 0.21568629, g: 0, b: 1, a: 1}
+    maxCloudThickness: 0.21
+    cloudsHeight: 6.5
+    hasRings: 0
+    ringOuterRadius: 50
+    ringInnerRadius: 0.714
+    ringScale: 53.2
+    detailsScale: 22.2
+  GrassColor: {r: 0, g: 0, b: 0, a: 0}
+  RockColor: {r: 0, g: 0, b: 0, a: 0}
+  tempLevel: 0.462
+  atmosphereLevel: 0
+  overallLevel: 1
