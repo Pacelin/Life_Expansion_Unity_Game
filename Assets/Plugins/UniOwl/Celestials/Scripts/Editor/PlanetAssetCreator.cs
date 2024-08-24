@@ -130,6 +130,8 @@ namespace UniOwl.Celestials.Editor
             var prefabSource = (Planet)PrefabUtility.InstantiatePrefab(prefabOriginal);
             GameObject obj = PrefabUtility.SaveAsPrefabAsset(prefabSource.gameObject, path);
 
+            Object.DestroyImmediate(prefabSource.gameObject);
+            
             var planet = obj.GetComponent<Planet>();
             settings.Planet = planet;
             planet.settings = settings;
