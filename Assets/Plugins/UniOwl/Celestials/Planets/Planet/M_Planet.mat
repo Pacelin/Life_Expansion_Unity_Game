@@ -11,7 +11,10 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 825c043d8d4936143a78bcbb78a7ae28, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _MAIN_LIGHT_SHADOWS
+  - _MAIN_LIGHT_SHADOWS_CASCADE
+  - _SHADOWS_SOFT
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
@@ -50,12 +53,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Grass_Smoothness: 0.5
     - _Height_Falloff: 0.03
     - _LightSharpness: 0.5
+    - _MAIN_LIGHT_SHADOWS: 1
+    - _MAIN_LIGHT_SHADOWS_CASCADE: 1
     - _OverallLevel: 0
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Rock_Smoothness: 0.25
+    - _SHADOWS_SOFT: 1
+    - _Sand_Smoothness: 0.1
     - _Slope_Falloff: 0.1
+    - _Snow_Smoothness: 0.9
     - _TempLevel: 0.5
     m_Colors:
     - _DayColor: {r: 1, g: 0.8980392, b: 0.5607843, a: 0}
@@ -65,7 +75,7 @@ Material:
     - _HeightRangeSand: {r: 0, g: 1, b: 0, a: 0}
     - _HeightRangeSnow: {r: 0, g: 1, b: 0, a: 0}
     - _NightColor: {r: 0.30588236, g: 0.41568628, b: 0.5490196, a: 0}
-    - _RimColor: {r: 0.21853328, g: 0.26177248, b: 0.29799998, a: 1}
+    - _RimColor: {r: 0, g: 0, b: 0, a: 1}
     - _RockColor: {r: 0.5566037, g: 0.5566037, b: 0.5566037, a: 0}
     - _SandColor: {r: 0.990566, g: 0.93564767, b: 0.6681648, a: 0}
     - _SlopeRange: {r: 20, g: 90, b: 0, a: 0}

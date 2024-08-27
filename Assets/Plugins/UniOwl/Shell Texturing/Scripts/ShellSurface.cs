@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +8,7 @@ namespace UniOwl.Rendering
     {
         private static int AlphaThreshold = Shader.PropertyToID("Shell_Alpha_Threshold");
         
-        private List<MeshRenderer> shells;
+        private List<MeshRenderer> shells = new();
 
         private IShellTransform shellTransformType = new ShellTransformTranslateToAxis(Vector3.up);
         
@@ -22,11 +21,6 @@ namespace UniOwl.Rendering
 
         public int ShellCount => shellCount;
         public float ShellDistance => shellDistance;
-
-        private void Awake()
-        {
-            shells = new List<MeshRenderer>();
-        }
 
         private void OnValidate()
         {

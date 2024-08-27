@@ -27,7 +27,7 @@
 void MainLight_float(float3 posWS, out float3 direction, out float3 color, out float distanceAtten, out float shadowAtten)
 {
     #if SHADERGRAPH_PREVIEW
-    direction = float3(0.5, 0.5, 0);
+    direction = normalize(float3(0.5, 0.5, 0));
     color = 1;
     distanceAtten = 1;
     shadowAtten = 1;
