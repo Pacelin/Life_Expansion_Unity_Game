@@ -50,18 +50,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Grass_Smoothness: 0.26
+    - _Height_Falloff: 0.02
     - _OverallLevel: 1
-    - _TempLevel: 0.504
+    - _Rock_Smoothness: 0.6
+    - _Slope_Falloff: 0.05
+    - _TempLevel: 0.5
     - _amp: 1
     m_Colors:
     - _DryColor: {r: 0.754717, g: 0.4521182, b: 0.4521182, a: 1}
-    - _GrassColor: {r: 0.40067863, g: 0.745283, b: 0.38318795, a: 1}
-    - _HeightRangeSand: {r: 0, g: 0.03, b: 0, a: 0}
-    - _HeightRangeSnow: {r: 0.17, g: 1, b: 0, a: 0}
+    - _GrassColor: {r: 0.30240026, g: 0.49019608, b: 0.29215685, a: 1}
+    - _HeightRangeSand: {r: 0, g: 0.11, b: 0, a: 0}
+    - _HeightRangeSnow: {r: 0.2, g: 1, b: 0, a: 0}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
     - _RockColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
-    - _SandColor: {r: 1, g: 0.90638465, b: 0.6745283, a: 1}
-    - _SlopeRange: {r: 15, g: 90, b: 0, a: 0}
+    - _SandColor: {r: 1, g: 0.95281976, b: 0.7877358, a: 1}
+    - _SlopeRange: {r: 20, g: 90, b: 0, a: 0}
     - _SnowColor: {r: 1, g: 1, b: 1, a: 1}
     - _TempTint: {r: 0.9997804, g: 0.9988268, b: 0.9986211, a: 1}
   m_BuildTextureStacks: []

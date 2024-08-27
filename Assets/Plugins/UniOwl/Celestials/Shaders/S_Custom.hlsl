@@ -1,3 +1,10 @@
+#ifndef CELESTIALS_CUSTOM
+#define CELESTIALS_CUSTOM
+
+#ifndef SHADERGRAPH_PREVIEW
+	#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
+#endif
+
 void raySphereIntersect_float(float3 r0, float3 rd, float3 s0, float sr, out float d)
 {
     float a = dot(rd, rd);
@@ -9,3 +16,9 @@ void raySphereIntersect_float(float3 r0, float3 rd, float3 s0, float sr, out flo
 	else
 		d = (-b - sqrt((b*b) - 4.0*a*c)) / (2.0*a);
 }
+
+void DepthToWorldPosition_float(float2 uv, float depth, out float3 positionWS)
+{
+	positionWS = ComputeWorldSpacePosition(uv, depth, UNITY_MATRIX_I_VP);
+}
+#endif

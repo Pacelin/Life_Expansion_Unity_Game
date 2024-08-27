@@ -70,7 +70,7 @@ Material:
     m_Colors:
     - _DayColor: {r: 1, g: 0.8980392, b: 0.5607843, a: 0}
     - _DryColor: {r: 0.9528302, g: 0.44555217, b: 0.4000089, a: 0}
-    - _GrassColor: {r: 0.33712527, g: 0.735849, b: 0.30891764, a: 0}
+    - _GrassColor: {r: 0.06422019, g: 1, b: 0, a: 0}
     - _HeightRange: {r: 0, g: 1, b: 0, a: 0}
     - _HeightRangeSand: {r: 0, g: 1, b: 0, a: 0}
     - _HeightRangeSnow: {r: 0, g: 1, b: 0, a: 0}
