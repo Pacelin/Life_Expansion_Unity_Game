@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-892372191617070635
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -47,7 +60,7 @@ Material:
     - Base_Scale: 1
     - Octaves: 12
     - Persistence: 0.5
-    - _DeepDistance: 2.01
+    - _DeepDistance: 0.23
     - _Deep_Distance: 1.06
     - _Deep_Factor: 0.9
     - _ENABLE_NORMALS: 1
@@ -63,7 +76,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RANDOMIZE_TEMPERATURE: 1
-    - _Radius: 18.5
+    - _Radius: 35.92216
     - _Randomize_Strength: 0.2
     - _Snow_Smoothness: 0.6
     - _Surface_Normal_Strength: 0.2
@@ -71,7 +84,7 @@ Material:
     - _Temperature_Offset: 0.5
     - _Temperature_Power: 15
     - _Water_Normal_Strength: 0.03
-    - _Water_Smoothness: 0.77
+    - _Water_Smoothness: 0.7
     - _Wave_Speed: 2
     - _t: 32.35
     m_Colors:
@@ -79,7 +92,7 @@ Material:
     - _Base_Color: {r: 0.21133986, g: 0.34905657, b: 0.090557106, a: 0}
     - _DayColor: {r: 1, g: 0.8980392, b: 0.5607843, a: 0}
     - _Day_Color: {r: 1, g: 0.8980392, b: 0.5607843, a: 0}
-    - _DeepColor: {r: 0.1986917, g: 0.26161575, b: 0.4433962, a: 1}
+    - _DeepColor: {r: 0.10622107, g: 0.5075232, b: 0.7264151, a: 1}
     - _Deep_Color: {r: 0.10464061, g: 0.113125, b: 0.36200002, a: 0}
     - _Detail_Color: {r: 0.34901956, g: 0.19009596, b: 0.090196066, a: 0}
     - _Foam_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -88,23 +101,10 @@ Material:
     - _Night_Color: {r: 0.30588236, g: 0.41568628, b: 0.5490196, a: 0}
     - _RimColor: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
     - _Rim_Color: {r: 0.4680935, g: 0.55602586, b: 0.6320754, a: 1}
-    - _ShoreColor: {r: 0.45113918, g: 0.6981132, b: 0.6826773, a: 1}
+    - _ShoreColor: {r: 0.6933962, g: 1, b: 0.93628865, a: 1}
     - _Shore_Color: {r: 0.44313726, g: 0.7294118, b: 0.7184282, a: 0}
     - _Snow_Color: {r: 1, g: 1, b: 1, a: 0}
     - _TempTint: {r: 0.9997804, g: 0.9988268, b: 0.9986211, a: 1}
-    - _edge: {r: -23.12, g: 2, b: 0, a: 0}
+    - _edge: {r: 11.8, g: 12.8, b: 1, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &2855089446036413016
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 9

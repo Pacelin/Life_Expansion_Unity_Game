@@ -10,7 +10,5 @@ namespace UniOwl.Celestials
         public float radius;
         [Range(0f, 50f)]
         public float amplitude;
-        [Range(0f, 2f)]
-        public float seaLevel;
     }
 }

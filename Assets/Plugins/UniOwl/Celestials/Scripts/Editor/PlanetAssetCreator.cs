@@ -21,8 +21,8 @@ namespace UniOwl.Celestials.Editor
                 return;
 
             Texture2D[] diffuse = null, normals = null, heights = null;
-            if (settings.Textures.generateColors)
-                diffuse = CreateTextures(settings, planetFolder, "D", TextureFormat.RGB24);
+            //if (settings.Textures.generateColors)
+            //    diffuse = CreateTextures(settings, planetFolder, "D", TextureFormat.RGB24);
             if (settings.Textures.generateNormals)
                 normals = CreateTextures(settings, planetFolder, "N", TextureFormat.RGB24);
             if (settings.Textures.generateHeights)
@@ -32,6 +32,8 @@ namespace UniOwl.Celestials.Editor
             var meshes = CreateMeshes(planetFolder);
 
             var prefab = CreatePrefabVariant(settings, planetFolder, meshes, materials);
+            
+            AssetDatabase.Refresh();
         }
 
         private static string CreatePlanetFolder(string path)
@@ -40,7 +42,6 @@ namespace UniOwl.Celestials.Editor
             var folderPath = Path.GetDirectoryName(path);
             
             AssetDatabase.CreateFolder(folderPath, folderName);
-            AssetDatabase.Refresh();
 
             return path;
         }
@@ -51,12 +52,11 @@ namespace UniOwl.Celestials.Editor
 
             Mesh[] meshes = new Mesh[6];
 
-            var blankMesh = new Mesh();
-            
             for (int i = 0; i < 6; i++)
             {
-                var mesh = SaveUtility.SaveMesh(blankMesh, $"SM_{folderName}_{i}.asset", true, folderPath);
-                meshes[i] = mesh;
+                var blankMesh = new Mesh();
+                SaveUtility.CreateAsset(blankMesh, $"SM_{folderName}_{i}.asset", folderPath);
+                meshes[i] = blankMesh;
             }
 
             return meshes;
@@ -78,7 +78,7 @@ namespace UniOwl.Celestials.Editor
                 
                 textures[i] = texture;
                 
-                SaveUtility.SaveTexture(texture, $"T_{folderName}_{i}_{suffix}.asset", folderPath);
+                SaveUtility.CreateAsset(texture, $"T_{folderName}_{i}_{suffix}.asset", folderPath);
             }
 
             return textures;
@@ -91,7 +91,7 @@ namespace UniOwl.Celestials.Editor
             
             var folderName = Path.GetFileName(folderPath);
 
-            SaveUtility.SaveMaterial(original, $"M_{folderName}.mat", folderPath);
+            SaveUtility.CreateAsset(original, $"M_{folderName}.mat", folderPath);
 
             var materials = new Material[6];
             
@@ -113,26 +113,26 @@ namespace UniOwl.Celestials.Editor
                 if (heights != null)
                     material.SetTexture(s_heightMap, heights[i]);
                 
-                SaveUtility.SaveMaterial(material, $"MV_{folderName}_{i}.mat", folderPath);
+                SaveUtility.CreateAsset(material, $"MV_{folderName}_{i}.mat", folderPath);
             }
 
             return materials;
         }
 
-        private static Planet CreatePrefabVariant(PlanetSettings settings, string folderPath, Mesh[] meshes, Material[] materials)
+        private static Planet_Old CreatePrefabVariant(PlanetSettings settings, string folderPath, Mesh[] meshes, Material[] materials)
         {
             var folderName = Path.GetFileName(folderPath);
 
             var name = $"{folderName}.prefab";
             var path = Path.Combine(folderPath, name);
             
-            var prefabOriginal = AssetDatabase.LoadAssetAtPath<Planet>(PrefabPath);
-            var prefabSource = (Planet)PrefabUtility.InstantiatePrefab(prefabOriginal);
+            var prefabOriginal = AssetDatabase.LoadAssetAtPath<Planet_Old>(PrefabPath);
+            var prefabSource = (Planet_Old)PrefabUtility.InstantiatePrefab(prefabOriginal);
             GameObject obj = PrefabUtility.SaveAsPrefabAsset(prefabSource.gameObject, path);
 
             Object.DestroyImmediate(prefabSource.gameObject);
             
-            var planet = obj.GetComponent<Planet>();
+            var planet = obj.GetComponent<Planet_Old>();
             settings.Planet = planet;
             planet.settings = settings;
 
@@ -158,7 +158,7 @@ namespace UniOwl.Celestials.Editor
             mat = new Material(mat);
             renderer.sharedMaterial = mat;
             
-            SaveUtility.SaveMaterial(mat, $"M_{planetName}_{mat.name.Substring(2, mat.name.Length - 2)}.mat", folderPath);
+            SaveUtility.CreateAsset(mat, $"M_{planetName}_{mat.name.Substring(2, mat.name.Length - 2)}.mat", folderPath);
         }
     }
 }

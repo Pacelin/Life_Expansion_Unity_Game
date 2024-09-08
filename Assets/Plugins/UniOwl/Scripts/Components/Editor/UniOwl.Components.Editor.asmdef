@@ -1,0 +1,19 @@
+{
+    "name": "UniOwl.Components.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:69735584b5c6442489afe96c088c1358",
+        "GUID:3616829f6634af6419a165b97a26969a"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

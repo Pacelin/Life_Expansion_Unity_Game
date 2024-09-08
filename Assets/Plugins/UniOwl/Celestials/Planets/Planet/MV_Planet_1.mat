@@ -28,36 +28,30 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _HeightMap:
-        m_Texture: {fileID: 2800000, guid: 917a62dd9b5bf4f46a4077ef35c7f8e4, type: 2}
+        m_Texture: {fileID: 2800000, guid: 43d4230dc6cdf2546b2b264488449c79, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 0bfa4e01271831f4280c4f7fc9ba85b4, type: 2}
+        m_Texture: {fileID: 2800000, guid: 7ee1eb10ba400c64b9c3086c43057308, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Grass_Smoothness: 0.26
-    - _Height_Falloff: 0.02
     - _OverallLevel: 1
-    - _Rock_Smoothness: 0.6
-    - _Slope_Falloff: 0.05
-    - _TempLevel: 0.5
-    - _amp: 1
+    - _TempLevel: 0.504
     m_Colors:
     - _DryColor: {r: 0.754717, g: 0.4521182, b: 0.4521182, a: 1}
-    - _GrassColor: {r: 0.30240026, g: 0.49019608, b: 0.29215685, a: 1}
-    - _HeightRangeSand: {r: 0, g: 0.11, b: 0, a: 0}
-    - _HeightRangeSnow: {r: 0.2, g: 1, b: 0, a: 0}
-    - _RimColor: {r: 0, g: 0, b: 0, a: 1}
+    - _GrassColor: {r: 0.40067863, g: 0.745283, b: 0.38318795, a: 1}
+    - _HeightRangeSand: {r: 0, g: 0.15, b: 0, a: 0}
+    - _HeightRangeSnow: {r: 0.35, g: 1, b: 0, a: 0}
+    - _RimColor: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
     - _RockColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
-    - _SandColor: {r: 1, g: 0.95281976, b: 0.7877358, a: 1}
-    - _SlopeRange: {r: 20, g: 90, b: 0, a: 0}
+    - _SandColor: {r: 1, g: 0.96317345, b: 0.8726415, a: 1}
     - _SnowColor: {r: 1, g: 1, b: 1, a: 1}
     - _TempTint: {r: 0.9997804, g: 0.9988268, b: 0.9986211, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &6088018797853193734
+--- !u!114 &3492580199038375944
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

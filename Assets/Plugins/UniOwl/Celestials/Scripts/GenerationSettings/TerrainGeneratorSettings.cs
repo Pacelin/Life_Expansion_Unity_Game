@@ -63,7 +63,7 @@ namespace UniOwl.Celestials
                 noise3 density = new noise3(height, grad * freq);
                 density = (density + 1f) * 0.5f;
 
-                float erosionFactor = 1f + erosionPower * math.dot(density.gradient, density.gradient);
+                float erosionFactor = 1f + erosionPower * math.saturate(math.dot(density.gradient, density.gradient));
                 
                 totalDensity += amp * density / erosionFactor;
 

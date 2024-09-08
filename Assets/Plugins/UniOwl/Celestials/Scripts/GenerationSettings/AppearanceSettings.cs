@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+using static UniOwl.ColorUtils;
+
 namespace UniOwl.Celestials
 {
     [Serializable]
@@ -51,14 +53,5 @@ namespace UniOwl.Celestials
         public float ringInnerRadius = 0.8f;
         [Range(0f, 100f)]
         public float ringScale = 10f, detailsScale = 15f;
-
-        public static Color HexToRGBA(string hex)
-        {
-            if (!hex.StartsWith('#'))
-                hex = "#" + hex;
-            if (ColorUtility.TryParseHtmlString(hex, out var color))
-                return color;
-            return Color.black;
-        }
     }
 }

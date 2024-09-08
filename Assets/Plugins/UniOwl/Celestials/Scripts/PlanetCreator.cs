@@ -40,8 +40,8 @@ namespace UniOwl.Celestials
             ReportStage("Generate Terrain (Texture)");
             var textureHeightData = GenerateTerrain(settings.Textures.resolution - 1, settings);
             
-            PlanetMeshBuilder.BuildMeshes(settings, meshHeightData);
-            PlanetTextureBuilder.BuildTextures(settings, textureHeightData);
+            PlanetSurfaceMeshBuilder.BuildMeshes(settings, meshHeightData);
+            PlanetSurfaceTextureBuilder.BuildTextures(settings, textureHeightData);
             
             ReportStage("Complete");
             meshHeightData.Dispose();
@@ -51,7 +51,7 @@ namespace UniOwl.Celestials
         private static void UpdateSea(PlanetSettings settings)
         {
             ReportStage("Update Sea");
-            settings.Planet.SeaTransform.localScale = 2f * (settings.Physical.radius + settings.Physical.seaLevel * settings.Physical.amplitude) * Vector3.one;
+            settings.Planet.SeaTransform.localScale = 2f * (settings.Physical.radius + /*settings.Physical.seaLevel*/ 1f * settings.Physical.amplitude) * Vector3.one;
         }
         
         private static PlanetHeightData GenerateTerrain(int resolution, PlanetSettings settings)

@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 59297ed871374d91bb9dbb21d2b2fe51
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _celestialStyleSheet: {fileID: 7433441132597879392, guid: ef92364fb5382bb41af093881c03102a, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

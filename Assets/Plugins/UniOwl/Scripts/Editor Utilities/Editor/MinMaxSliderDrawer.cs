@@ -1,5 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEditor;
+using UnityEditor.UIElements;
+using UnityEngine.UIElements;
 
 namespace UniOwl.Editor
 {
@@ -89,6 +92,32 @@ namespace UniOwl.Editor
             rects[2].x += padding + space;
 
             return rects;
+        }
+
+        private static VisualTreeAsset sliderTemplate = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Plugins/UniOwl/Editor Default Resources/MinMaxSliderWithFields.uxml");
+        
+        public override VisualElement CreatePropertyGUI(SerializedProperty property)
+        {
+            var value = property.vector2Value;
+            var sliderAttribute = property.GetAttribute<MinMaxSliderAttribute>();
+
+            var fullSlider = sliderTemplate.CloneTree();
+            
+            var slider = fullSlider.Q<MinMaxSlider>("Slider");
+            slider.lowLimit = sliderAttribute.Min;
+            slider.highLimit = sliderAttribute.Max;
+            slider.minValue = value.x;
+            slider.maxValue = value.y;
+            slider.BindProperty(property);
+            
+            var min = fullSlider.Q<FloatField>("Min");
+            min.formatString = "0.##";
+            min.BindProperty(property.FindPropertyRelative("x"));
+            var max = fullSlider.Q<FloatField>("Max");
+            max.formatString = "0.##";
+            max.BindProperty(property.FindPropertyRelative("y"));
+            
+            return fullSlider;
         }
     }
 }

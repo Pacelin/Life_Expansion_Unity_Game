@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 7863271773913575878}
   - component: {fileID: 8764198084311374922}
   - component: {fileID: 2532548537631706699}
-  m_Layer: 0
+  - component: {fileID: -481854174944249187}
+  m_Layer: 3
   m_Name: Planet_Face_Blank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,10 +60,13 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ce897f4cce519504081f70a0add522e5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,3 +102,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _filter: {fileID: 7863271773913575878}
   _renderer: {fileID: 8764198084311374922}
+--- !u!64 &-481854174944249187
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3982625640327023546}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
