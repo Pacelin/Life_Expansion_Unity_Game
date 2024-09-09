@@ -10,7 +10,7 @@ namespace UniOwl.Components.Editor
     [CustomEditor(typeof(ScriptableComponent), editorForChildClasses: true)]
     public class ScriptableComponentEditor : UnityEditor.Editor
     {
-        private static readonly string[] ExcludeFields = { "m_ObjectHideFlags", "m_Script", "_active", "_prefab", "_instance", };
+        private static readonly string[] ExcludeFields = { "m_ObjectHideFlags", "m_Script", "_active", "_prefab", "_variant", };
 
         private string _editorPrefExpanded; 
         public bool Expanded
@@ -25,7 +25,7 @@ namespace UniOwl.Components.Editor
         public event Action<ScriptableComponent, bool> componentActiveStateChanged;
         public event Action<SerializedObject> componentStateChanged;
 
-        public virtual void Init()
+        public void Init()
         {
             _component = (ScriptableComponent)serializedObject.targetObject;
 
@@ -35,14 +35,15 @@ namespace UniOwl.Components.Editor
         
         public override VisualElement CreateInspectorGUI()
         {
-            return CreateFoldout(serializedObject);
+            var foldout = CreateFoldout(serializedObject);
+            foldout.TrackSerializedObjectValue(serializedObject, componentStateChanged);
+            return foldout;
         }
         
         private VisualElement CreateFoldout(SerializedObject component)
         {
             var foldout = CreateFoldoutHeader(!Expanded);
             foldout.Bind(component);
-            foldout.TrackSerializedObjectValue(component, componentStateChanged);
             foldout.RegisterValueChangedCallback(evt => Expanded = evt.newValue);
 
             var content = GetFoldoutContent();

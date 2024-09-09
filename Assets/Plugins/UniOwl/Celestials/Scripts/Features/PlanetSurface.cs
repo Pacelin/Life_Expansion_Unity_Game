@@ -33,7 +33,7 @@ namespace UniOwl.Celestials
         public TextureSettings Textures => _textures;
         public TerrainGeneratorSettings Generation => _generation;
 
-        //[Header("Appearance")]
+        [Header("Appearance")]
         [SerializeField]
         private Color rimColor = HexToRGBA("38434C");
         [SerializeField]
@@ -48,13 +48,13 @@ namespace UniOwl.Celestials
         private Color rockColor = HexToRGBA("8E8E8E");
 
         [SerializeField, MinMaxSlider(0f, 1f)]
-        //[InspectorName("Sand Range (In Radii)")]
+        [InspectorName("Sand Range (In Radii)")]
         private Vector2 heightRangeSand = new Vector2(0f, 0.2f);
         [SerializeField, MinMaxSlider(0f, 1f)]
-        //[InspectorName("Snow Range (In Radii)")]
+        [InspectorName("Snow Range (In Radii)")]
         private Vector2 heightRangeSnow = new Vector2(0.8f, 1f);
         [SerializeField, MinMaxSlider(0f, 90f)]
-        //[InspectorName("Slope Range (Degrees)")]
+        [InspectorName("Slope Range (Degrees)")]
         private Vector2 slopeRange = new Vector2(0f, 90f);
 
         public override void UpdateVisual(GameObject editableGO)

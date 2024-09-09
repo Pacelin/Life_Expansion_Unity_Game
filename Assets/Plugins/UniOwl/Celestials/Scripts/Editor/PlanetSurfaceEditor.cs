@@ -14,6 +14,7 @@ namespace UniOwl.Celestials.Editor
         private static readonly int s_normalMap = Shader.PropertyToID("_NormalMap");
         private static readonly int s_heightMap = Shader.PropertyToID("_HeightMap");
 
+        // TODO: убрать отсюда
         private static readonly Dictionary<TextureFormat, TextureFormat> compressFormatMap = new()
         {
             { TextureFormat.R8, TextureFormat.BC4 },
@@ -28,7 +29,7 @@ namespace UniOwl.Celestials.Editor
         
         private void OnEnable()
         {
-            quadMaterials = _surface.Instance.GetComponentsInChildren<MeshRenderer>().Select(renderer => renderer.sharedMaterial).ToArray();
+            quadMaterials = _surface.Variant.GetComponentsInChildren<MeshRenderer>().Select(renderer => renderer.sharedMaterial).ToArray();
         }
 
         public override VisualElement CreateInspectorGUI()
@@ -37,26 +38,50 @@ namespace UniOwl.Celestials.Editor
 
             var generateButton = new Button { text = "Generate Terrain", };
             root.contentContainer.Add(generateButton);
-            generateButton.clicked += GenerateTerrain;
+            generateButton.clicked += GenerateTerrainEditor;
             return root;
         }
 
+        // TODO: криво
+        private void GenerateTerrainEditor()
+        {
+            try
+            {
+                PlanetProgressReporter.progressUpdated += UpdateProgress;
+                GenerateTerrain();
+            }
+            finally
+            {
+                PlanetProgressReporter.progressUpdated -= UpdateProgress;
+                EditorUtility.ClearProgressBar();
+            }
+        }
+
+        // TODO: не сюда
+        private static void UpdateProgress(string stage, string description)
+        {
+            EditorUtility.DisplayProgressBar(stage, description, -1f);
+        }
+        
         private void GenerateTerrain()
         {
             var planet = (PlanetObject)_component.List;
             var surface = planet.GetComponent<PlanetSurface>();
             int index = Array.IndexOf(planet.Components, surface);
             
-            var go = surface.Instance;
+            var go = surface.Variant;
             var path = AssetDatabase.GetAssetPath(go);
             
+            // TODO: работа с ассетами ниже не сюда.
             CreateTextures();
             
+            // TODO: сделать свой метод для создания мешей.
             using var scope = new PrefabUtility.EditPrefabContentsScope(path);
             var surfaceGO = scope.prefabContentsRoot.transform.GetChild(index).gameObject;
 
             var filters = surfaceGO.GetComponentsInChildren<MeshFilter>();
 
+            // TODO: очень похоже на содержимое TryCreateTexture(). попробовать обобщить. не сюда
             for (int face = 0; face < 6; face++)
             {
                 var mesh = filters[face].sharedMesh;
@@ -64,6 +89,7 @@ namespace UniOwl.Celestials.Editor
                 if (mesh)
                     AssetDatabase.RemoveObjectFromAsset(mesh);
 
+                // TODO: названия
                 mesh = new Mesh();
                 mesh.name = "a";
                 filters[face].sharedMesh = mesh;
@@ -75,6 +101,7 @@ namespace UniOwl.Celestials.Editor
             CompressTextures();
         }
 
+        // TODO: не сюда
         private void CreateTextures()
         {
             for (int face = 0; face < 6; face++)
@@ -89,6 +116,7 @@ namespace UniOwl.Celestials.Editor
             AssetDatabase.SaveAssets();
         }
 
+        // TODO: не сюда.
         private void TryCreateTexture(Material mat, int id, TextureFormat format)
         {
             var texture = mat.GetTexture(id);
@@ -107,6 +135,7 @@ namespace UniOwl.Celestials.Editor
                 hideFlags = HideFlags.HideInHierarchy | HideFlags.HideInInspector,
                 filterMode = FilterMode.Point,
                 wrapMode = TextureWrapMode.Clamp,
+                // TODO: название
                 name = "a"
             };
             mat.SetTexture(id, texture);
@@ -114,6 +143,7 @@ namespace UniOwl.Celestials.Editor
             AssetDatabase.AddObjectToAsset(texture, mat);
         }
 
+        // TODO: не сюда. попробовать AssetPostProcessor?
         private void CompressTextures()
         {
             if (!_surface.Textures.compression) return;
@@ -130,6 +160,7 @@ namespace UniOwl.Celestials.Editor
             AssetDatabase.SaveAssets();
         }
 
+        // TODO: не сюда.
         private void CompressTexture(Material mat, int id, TextureFormat format)
         {
             var texture = (Texture2D)mat.GetTexture(id);

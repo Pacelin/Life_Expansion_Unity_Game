@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
@@ -102,6 +101,10 @@ namespace UniOwl.Editor
             var sliderAttribute = property.GetAttribute<MinMaxSliderAttribute>();
 
             var fullSlider = sliderTemplate.CloneTree();
+
+            var inspectorName = property.GetAttribute<InspectorNameAttribute>();
+            string name = inspectorName?.displayName ?? property.displayName;
+            fullSlider.Q<Label>("Name").text = name;
             
             var slider = fullSlider.Q<MinMaxSlider>("Slider");
             slider.lowLimit = sliderAttribute.Min;

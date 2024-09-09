@@ -1,47 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5932474368604527296
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681ed173d4fc4633a01c3e8645d9091d, type: 3}
-  m_Name: Rings Layer
-  m_EditorClassIdentifier: 
-  _active: 1
-  _prefab: {fileID: 5520269596193722071, guid: 3b255b5c54e0a3e47b1c7e5b97dd4cef, type: 3}
-  _instance: {fileID: 2132955640675503420, guid: 628951c6c6bfad04587be5ff87f98ee2, type: 3}
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  detailsColor: {r: 1, g: 1, b: 1, a: 0}
-  outerRadius: 30
-  innerRadius: 0.8
-  baseScale: 10
-  detailsScale: 15
---- !u!114 &-2120406321347672185
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681ed173d4fc4633a01c3e8645d9091d, type: 3}
-  m_Name: Rings Layer
-  m_EditorClassIdentifier: 
-  _active: 1
-  _prefab: {fileID: 5520269596193722071, guid: 3b255b5c54e0a3e47b1c7e5b97dd4cef, type: 3}
-  _instance: {fileID: 7401730838755088537, guid: 628951c6c6bfad04587be5ff87f98ee2, type: 3}
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  detailsColor: {r: 1, g: 1, b: 1, a: 0}
-  outerRadius: 30
-  innerRadius: 0.8
-  baseScale: 10
-  detailsScale: 15
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13413c10453c47fe939900ff358e23d0, type: 3}
   m_Name: SO_Planet_New
   m_EditorClassIdentifier: 
-  _components:
-  - {fileID: 2574539544225874779}
-  - {fileID: -2120406321347672185}
-  - {fileID: -5932474368604527296}
+  _components: []
   _root: {fileID: 7168818734836986860, guid: 628951c6c6bfad04587be5ff87f98ee2, type: 3}
   _physicalSettings:
     radius: 15.7
@@ -69,52 +24,3 @@ MonoBehaviour:
     overallLevel: 0.569
     coldTint: {r: 1, g: 1, b: 1, a: 1}
     warmTint: {r: 1, g: 1, b: 1, a: 1}
---- !u!114 &2574539544225874779
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 989ff04c297f4672b6de054350cae124, type: 3}
-  m_Name: Surface
-  m_EditorClassIdentifier: 
-  _active: 1
-  _prefab: {fileID: 7028284412544925644, guid: c0314231b48c61d41b5db2feeb9395a1, type: 3}
-  _instance: {fileID: 3910378324186703220, guid: 628951c6c6bfad04587be5ff87f98ee2, type: 3}
-  _model:
-    resolution: 128
-    updateFlags: 11
-    optimizeMesh: 1
-    recalculateNormals: 0
-    recalculateTangents: 0
-  _textures:
-    resolution: 1024
-    generateNormals: 1
-    generateHeights: 1
-    compression: 1
-    _compressionQuality: 100
-  _generation:
-    seed: 161
-    frequency: 1.12
-    persistence: 0.48
-    lacunarity: 2.39
-    octaves: 8
-    redistributionPower: 1.84
-    erosionPower: 0.06
-    warpingOffset:
-      x: 0
-      y: 0
-      z: 0
-    warpingStrength: 0
-  rimColor: {r: 0.21960784, g: 0.2627451, b: 0.29803923, a: 1}
-  grassColor: {r: 0.3372549, g: 0.7372549, b: 0.30980393, a: 1}
-  sandColor: {r: 0.3372549, g: 0.7372549, b: 0.30980393, a: 1}
-  snowColor: {r: 1, g: 1, b: 1, a: 1}
-  dryColor: {r: 0.8039216, g: 0.7019608, b: 0.45882353, a: 1}
-  rockColor: {r: 0.5568628, g: 0.5568628, b: 0.5568628, a: 1}
-  heightRangeSand: {x: 0, y: 0.2}
-  heightRangeSnow: {x: 0.8, y: 1}
-  slopeRange: {x: 67.50001, y: 90}

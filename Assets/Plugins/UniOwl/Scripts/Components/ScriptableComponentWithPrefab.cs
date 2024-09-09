@@ -7,14 +7,14 @@ namespace UniOwl.Components
     public abstract class ScriptableComponentWithPrefab : ScriptableComponent
     {
         [SerializeField] private GameObject _prefab;
-        [SerializeField] private GameObject _instance;
+        [SerializeField] private GameObject _variant;
         
         public GameObject Prefab => _prefab;
 
-        public GameObject Instance
+        public GameObject Variant
         {
-            get => _instance;
-            set => _instance = value;
+            get => _variant;
+            set => _variant = value;
         }
     }
 }

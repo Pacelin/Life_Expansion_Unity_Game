@@ -3,7 +3,6 @@ using UniOwl.Components;
 using UniOwl.Components.Editor;
 using UnityEditor;
 using UnityEditor.UIElements;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace UniOwl.Celestials.Editor
