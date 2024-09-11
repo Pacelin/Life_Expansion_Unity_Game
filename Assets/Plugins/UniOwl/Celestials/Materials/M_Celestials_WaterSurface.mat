@@ -20,7 +20,7 @@ Material:
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
@@ -60,9 +60,10 @@ Material:
     - _LightSharpness: 0.5
     - _Light_Sharpness: 0.5
     - _Ocean_Height: 1
-    - _QueueControl: 0
+    - _QueueControl: 1
     - _QueueOffset: 0
     - _RANDOMIZE_TEMPERATURE: 1
+    - _Radius: 35.92216
     - _Randomize_Strength: 0.2
     - _Snow_Smoothness: 0.6
     - _Surface_Normal_Strength: 0.2

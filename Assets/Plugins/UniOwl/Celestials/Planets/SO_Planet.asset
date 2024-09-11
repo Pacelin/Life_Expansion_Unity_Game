@@ -18,7 +18,7 @@ MonoBehaviour:
   rimColor: {r: 0.21960784, g: 0.2627451, b: 0.29803923, a: 1}
   shoreColor: {r: 0.29411766, g: 0.5921569, b: 0.67058825, a: 1}
   deepColor: {r: 0.10980392, g: 0.15686275, b: 0.42352942, a: 1}
-  deepDistance: 0.24
+  deepDistance: 0.43
 --- !u!114 &-3481611807440693854
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -35,8 +35,8 @@ MonoBehaviour:
   _list: {fileID: 11400000}
   _prefab: {fileID: 1298771836680875593, guid: 703279ccab690d847967003df7fb4966, type: 3}
   tint: {r: 0.7490196, g: 0.9490196, b: 1, a: 1}
-  maxThickness: 0.1
-  height: 1.89
+  maxThickness: 0.58
+  height: 5.2
 --- !u!114 &-2149888751353194730
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -77,7 +77,7 @@ MonoBehaviour:
       y: 0
       z: 0
     warpingStrength: 0.81
-  _updateTerrain: 1
+  _updateTerrain: 0
   rimColor: {r: 0.21960784, g: 0.2627451, b: 0.29803923, a: 1}
   grassColor: {r: 0.3372549, g: 0.7372549, b: 0.30980393, a: 1}
   sandColor: {r: 1, g: 0.9779011, b: 0.9103774, a: 1}
@@ -108,11 +108,11 @@ MonoBehaviour:
   _root: {fileID: 545096503239095567, guid: ed7f6c00c4ce97547b0c3b8eddb09aee, type: 3}
   _physicalSettings:
     radius: 7.2
-    amplitude: 8
+    amplitude: 7.8
   _terraformingSettings:
     seaLevel: 1.092
     temperatureLevel: 0.38
-    atmosphereLevel: 1
+    atmosphereLevel: 0.299
     overallLevel: 1
     coldTint: {r: 1, g: 1, b: 1, a: 1}
     warmTint: {r: 1, g: 1, b: 1, a: 1}
@@ -134,6 +134,6 @@ MonoBehaviour:
   baseColor: {r: 0.8254717, g: 0.91369575, b: 1, a: 1}
   detailsColor: {r: 0.990566, g: 0.96039057, b: 0.864409, a: 0}
   outerRadius: 24.2
-  innerRadius: 0.682
-  baseScale: 16
-  detailsScale: 4.3
+  innerRadius: 0.634
+  baseScale: 25.4
+  detailsScale: 9.1
