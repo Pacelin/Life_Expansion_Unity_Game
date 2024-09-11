@@ -5,7 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - _celestialStyleSheet: {fileID: 7433441132597879392, guid: ef92364fb5382bb41af093881c03102a, type: 3}
-  - prefab: {instanceID: 0}
+  - skybox: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

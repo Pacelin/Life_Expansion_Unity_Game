@@ -47,8 +47,8 @@ namespace UniOwl.Components.Editor
 
             camera.cameraType = CameraType.Preview;
             camera.aspect = 1f;
-            camera.backgroundColor = Color.clear;
-            camera.clearFlags = CameraClearFlags.Color;
+            camera.backgroundColor = Color.black;
+            camera.clearFlags = CameraClearFlags.SolidColor;
             camera.scene = previewScene;
             camera.targetTexture = new RenderTexture(
                 width: 256,
@@ -77,6 +77,20 @@ namespace UniOwl.Components.Editor
             SceneManager.MoveGameObjectToScene(go, previewScene);
 
             return light;
+        }
+
+        public static void AddAdditionalPrefabsToScene(Scene previewScene, params GameObject[] prefabs)
+        {
+            if (prefabs == null)
+                return;
+            
+            foreach (GameObject go in prefabs)
+            {
+                if (!go)
+                    continue;
+                var instance = Object.Instantiate(go);
+                SceneManager.MoveGameObjectToScene(instance, previewScene);
+            }
         }
 
         public static Texture2D CreatePreviewTexture()

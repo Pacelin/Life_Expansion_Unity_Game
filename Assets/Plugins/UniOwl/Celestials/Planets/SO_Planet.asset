@@ -18,7 +18,7 @@ MonoBehaviour:
   rimColor: {r: 0.21960784, g: 0.2627451, b: 0.29803923, a: 1}
   shoreColor: {r: 0.29411766, g: 0.5921569, b: 0.67058825, a: 1}
   deepColor: {r: 0.10980392, g: 0.15686275, b: 0.42352942, a: 1}
-  deepDistance: 0.5
+  deepDistance: 0.24
 --- !u!114 &-3481611807440693854
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -31,12 +31,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c48b4f93b34fe0af0cad897c2d6023, type: 3}
   m_Name: Atmosphere
   m_EditorClassIdentifier: 
-  _active: 0
+  _active: 1
   _list: {fileID: 11400000}
   _prefab: {fileID: 1298771836680875593, guid: 703279ccab690d847967003df7fb4966, type: 3}
   tint: {r: 0.7490196, g: 0.9490196, b: 1, a: 1}
   maxThickness: 0.1
-  height: 10
+  height: 1.89
 --- !u!114 &-2149888751353194730
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -53,13 +53,13 @@ MonoBehaviour:
   _list: {fileID: 11400000}
   _prefab: {fileID: 7028284412544925644, guid: c0314231b48c61d41b5db2feeb9395a1, type: 3}
   _model:
-    resolution: 128
+    resolution: 64
     updateFlags: 11
     optimizeMesh: 1
     recalculateNormals: 0
     recalculateTangents: 0
   _textures:
-    resolution: 1024
+    resolution: 64
     generateNormals: 1
     generateHeights: 1
     compression: 1
@@ -77,7 +77,7 @@ MonoBehaviour:
       y: 0
       z: 0
     warpingStrength: 0.81
-  _updateTerrain: 0
+  _updateTerrain: 1
   rimColor: {r: 0.21960784, g: 0.2627451, b: 0.29803923, a: 1}
   grassColor: {r: 0.3372549, g: 0.7372549, b: 0.30980393, a: 1}
   sandColor: {r: 1, g: 0.9779011, b: 0.9103774, a: 1}
@@ -103,11 +103,12 @@ MonoBehaviour:
   - {fileID: -3481611807440693854}
   - {fileID: -2149888751353194730}
   - {fileID: -4593279334318123470}
+  - {fileID: 6497774193438392352}
   _prefab: {fileID: 1824138769263650600, guid: 74b513497cbc3c44ab8ca27da2cb8677, type: 3}
   _root: {fileID: 545096503239095567, guid: ed7f6c00c4ce97547b0c3b8eddb09aee, type: 3}
   _physicalSettings:
-    radius: 3.9
-    amplitude: 3.3
+    radius: 7.2
+    amplitude: 8
   _terraformingSettings:
     seaLevel: 1.092
     temperatureLevel: 0.38
@@ -115,3 +116,24 @@ MonoBehaviour:
     overallLevel: 1
     coldTint: {r: 1, g: 1, b: 1, a: 1}
     warmTint: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &6497774193438392352
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681ed173d4fc4633a01c3e8645d9091d, type: 3}
+  m_Name: Rings Layer
+  m_EditorClassIdentifier: 
+  _active: 1
+  _list: {fileID: 11400000}
+  _prefab: {fileID: 5520269596193722071, guid: 3b255b5c54e0a3e47b1c7e5b97dd4cef, type: 3}
+  baseColor: {r: 0.8254717, g: 0.91369575, b: 1, a: 1}
+  detailsColor: {r: 0.990566, g: 0.96039057, b: 0.864409, a: 0}
+  outerRadius: 24.2
+  innerRadius: 0.682
+  baseScale: 16
+  detailsScale: 4.3

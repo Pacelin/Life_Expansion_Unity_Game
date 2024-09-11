@@ -16,10 +16,11 @@ namespace UniOwl.Components.Editor
         private ScriptableComponentSearchWindow _searchWindow;
         
         [SerializeField]
-        private StyleSheet _celestialStyleSheet;
+        protected StyleSheet _celestialStyleSheet;
 
         private VisualElement _propertiesContainer;
         private VisualElement _componentsContainer;
+        private VisualElement _contentViewport;
 
         private SerializedProperty m_components;
         protected List<ScriptableComponentEditor> componentEditors = new();
@@ -126,7 +127,7 @@ namespace UniOwl.Components.Editor
             
             return root;
         }
-
+        
         /// <summary>
         /// Add component to last element of the list.
         /// </summary>
