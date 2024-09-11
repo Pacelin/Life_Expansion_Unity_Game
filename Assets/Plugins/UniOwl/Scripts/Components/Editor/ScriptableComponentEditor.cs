@@ -10,7 +10,7 @@ namespace UniOwl.Components.Editor
     [CustomEditor(typeof(ScriptableComponent), editorForChildClasses: true)]
     public class ScriptableComponentEditor : UnityEditor.Editor
     {
-        private static readonly string[] ExcludeFields = { "m_ObjectHideFlags", "m_Script", "_active", "_prefab", "_variant", };
+        private static readonly string[] ExcludeFields = { "m_ObjectHideFlags", "m_Script", "_active", "_prefab", "_list", };
 
         protected ScriptableComponentListEditor _baseEditor;
         
