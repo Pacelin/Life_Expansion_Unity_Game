@@ -10,17 +10,22 @@ namespace UniOwl.Celestials
     {
         public static void GeneratePlanetTerrain(PlanetSurface surface, GameObject surfaceGO)
         {
+            GeneratePlanetTerrain(surface, surfaceGO, surface.Model.resolution, surface.Textures.resolution - 1);
+        }
+
+        public static void GeneratePlanetTerrain(PlanetSurface surface, GameObject surfaceGO, int meshResolution, int textureResolution)
+        {
             var planet = (PlanetObject)surface.List;
             
-            //ReportStage("Generate Terrain (Mesh)");
-            var meshHeightData = GenerateTerrain(surface.Model.resolution, planet.Physical, surface);
-            //ReportStage("Generate Terrain (Texture)");
-            var textureHeightData = GenerateTerrain(surface.Textures.resolution - 1, planet.Physical, surface);
+            PlanetProgressReporter.ReportStage("Generate Terrain (Mesh)");
+            var meshHeightData = GenerateTerrain(meshResolution, planet.Physical, surface);
+            PlanetProgressReporter.ReportStage("Generate Terrain (Texture)");
+            var textureHeightData = GenerateTerrain(textureResolution, planet.Physical, surface);
             
-            PlanetSurfaceMeshBuilder.BuildMeshes(surface, surfaceGO, meshHeightData);
+            PlanetSurfaceMeshBuilder.BuildMeshes(surface, surfaceGO, meshHeightData, meshResolution);
             PlanetSurfaceTextureBuilder.BuildTextures(surface, surfaceGO, textureHeightData);
             
-            //ReportStage("Complete");
+            PlanetProgressReporter.ReportStage("Complete");
             meshHeightData.Dispose();
             textureHeightData.Dispose();
         }
@@ -37,7 +42,7 @@ namespace UniOwl.Celestials
             
             for (int face = 0; face < 6; face++)
             {
-                //ReportDescription($"Face {face + 1} of 6");
+                PlanetProgressReporter.ReportDescription($"Face {face + 1} of 6");
                 
                 NativeArray<float> heights = new NativeArray<float>(size, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
                 NativeArray<float3> normals = new NativeArray<float3>(size, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);

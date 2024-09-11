@@ -116,3 +116,16 @@
 {
     margin: 2px 6px 1px 15px;
 }
+
+.prefab-preview
+{
+    margin-left: 15px;
+}
+
+.prefab-preview > #unity-content
+{
+    width: 50%;
+    padding-top: 50%;
+    margin-left: -15px;
+    align-self: center;
+}

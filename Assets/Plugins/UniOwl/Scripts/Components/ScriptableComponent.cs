@@ -11,6 +11,7 @@ namespace UniOwl.Components
         
         public bool Active => _active;
 
+        [SerializeField]
         private ScriptableComponentList _list;
 
         public ScriptableComponentList List => _list;

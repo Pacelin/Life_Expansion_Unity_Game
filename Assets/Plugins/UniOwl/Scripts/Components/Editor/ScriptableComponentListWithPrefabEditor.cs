@@ -1,7 +1,9 @@
 ﻿using System;
-using System.IO;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 namespace UniOwl.Components.Editor
 {
@@ -10,32 +12,62 @@ namespace UniOwl.Components.Editor
     {
         private SerializedProperty _rootProp;
 
-        [SerializeField]
-        private GameObject prefab;
-        
-        protected GameObject rootGO => (GameObject)_rootProp.objectReferenceValue;
+        public GameObject rootGO => (GameObject)_rootProp.objectReferenceValue;
+        public GameObject editableRoot => _editableRoot;
 
+        private Scene _previewScene;
+        private GameObject _editableRoot;
+        private Camera _previewCamera;
+        private Light _previewLight;
+        private Texture2D _previewTexture;
+        
         protected override void OnEnable()
         {
             base.OnEnable();
             
             _rootProp = serializedObject.FindProperty("_root");
-            TryCreatePrefabVariant();
+
+            // OnEnable() is called twice: on SO creation and SO confirmation. AssetPostprocessor is being called after creation, so on first call rootGO is null. 
+            if (!rootGO) return;
+            
+            _previewScene = PreviewSceneUtils.CreatePreviewScene();
+            _editableRoot = PreviewSceneUtils.LoadPrefabIntoPreviewScene(_previewScene, rootGO);
+            _previewCamera = PreviewSceneUtils.CreatePreviewCameraAndAddToScene(_previewScene);
+            _previewLight = PreviewSceneUtils.CreatePreviewLightAndAddToScene(_previewScene);
+            _previewTexture = PreviewSceneUtils.CreatePreviewTexture();
+            UpdatePreviewImage();
         }
 
-        private void TryCreatePrefabVariant()
+        protected virtual void OnDisable()
         {
-            serializedObject.Update();
+            if (!rootGO) return;
             
-            if (rootGO != null) return;
+            foreach (ScriptableComponentEditor componentEditor in componentEditors)
+                ((ScriptableComponentWithPrefabEditor)componentEditor).OnComponentSave();
             
-            var folderPath = Path.GetDirectoryName(AssetDatabase.GetAssetPath(serializedObject.targetObject));
-            string namePrefix = serializedObject.targetObject.name;
+            PreviewSceneUtils.UnloadPrefabAndClosePreviewScene(_previewScene, rootGO);
+        }
+
+        public override VisualElement CreateInspectorGUI()
+        {
+            VisualElement root = base.CreateInspectorGUI();
+            root.TrackSerializedObjectValue(serializedObject, ListChanged);
+
+            var previewFoldout = CreatePreviewFoldout();
+            root.Insert(0, previewFoldout);
             
-            var variant = PrefabManager.CreatePrefabVariant(folderPath, namePrefix, prefab);
-            
-            _rootProp.objectReferenceValue = variant;
-            serializedObject.ApplyModifiedProperties();
+            return root;
+        }
+
+        private VisualElement CreatePreviewFoldout()
+        {
+            var previewFoldout = new Foldout
+            {
+                text = "Prefab preview",
+            };
+            previewFoldout.AddToClassList("prefab-preview");
+            previewFoldout.contentContainer.style.backgroundImage = _previewTexture;
+            return previewFoldout;
         }
 
         protected override void AddComponent(Type type)
@@ -46,28 +78,51 @@ namespace UniOwl.Components.Editor
         protected override ScriptableComponent CreateComponent(Type type, ScriptableComponentList list)
         {
             var component = (ScriptableComponentWithPrefab)base.CreateComponent(type, list);
-
-            var variant = PrefabManager.AddPrefabToRootPrefabAsVariant(rootGO,component.Prefab);
-            component.Variant = variant;
-            PrefabManager.CreateMaterialVariantsFromOriginals(rootGO, rootGO.transform.childCount - 1);
-            
             return component;
         }
 
         protected override int RemoveComponent(ScriptableComponent component)
         {
-            var index = base.RemoveComponent(component);
-
-            PrefabManager.DestroyChildrenSharedMaterials(((ScriptableComponentWithPrefab)component).Variant);
-            PrefabManager.RemoveChildObjectFromPrefab(rootGO, index);
-
+            int index = base.RemoveComponent(component);
+            DestroyImmediate(_editableRoot.transform.GetChild(index).gameObject);
             return index;
         }
 
         protected override void EnableStateChanged(ScriptableComponent component, bool value)
         {
             var index = Array.IndexOf(targetComponentList.Components, component);
-            PrefabManager.SetChildObjectActive(rootGO, index, value);
+            var variant = _editableRoot.transform.GetChild(index).gameObject;
+            variant.SetActive(value);
+        }
+
+        protected override void ComponentChanged(ScriptableComponent component)
+        {
+            base.ComponentChanged(component);
+            UpdateComponent(component);
+            UpdatePreviewImage();
+        }
+
+        private void UpdateComponent(ScriptableComponent component)
+        {
+            var prefabComponent = (ScriptableComponentWithPrefab)component;
+            
+            var index = Array.IndexOf(targetComponentList.Components, component);
+            var editableChild = _editableRoot.transform.GetChild(index).gameObject;
+            
+            prefabComponent.UpdateVisual(editableChild);
+        }
+        
+        protected override void ListChanged(SerializedObject so)
+        {
+            base.ListChanged(so);
+            foreach (ScriptableComponent component in targetComponentList.Components)
+                UpdateComponent(component);
+            UpdatePreviewImage();
+        }
+
+        public void UpdatePreviewImage()
+        {
+            PreviewSceneUtils.RenderPreviewScene(_previewCamera, _previewTexture);
         }
     }
 }

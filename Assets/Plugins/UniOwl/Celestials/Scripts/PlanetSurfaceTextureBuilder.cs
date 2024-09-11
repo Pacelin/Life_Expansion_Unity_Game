@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
@@ -92,7 +90,7 @@ namespace UniOwl.Celestials
             var texture = (Texture2D)material.GetTexture(textureID);
 
             texture.SetPixelData(colors, 0, 0);
-            texture.Apply(false, true);
+            texture.Apply(false, false);
         }
 
         [BurstCompile]

@@ -11,7 +11,7 @@ namespace UniOwl.Components.Editor
     [CustomEditor(typeof(ScriptableComponentList<>), editorForChildClasses:true)]
     public class ScriptableComponentListEditor : UnityEditor.Editor
     {
-        private static readonly string[] ExcludeFields = { "m_Script", "_components", };
+        private static readonly string[] ExcludeFields = { "m_Script", "_components", "_root", "_prefab", };
         
         private ScriptableComponentSearchWindow _searchWindow;
         
@@ -22,9 +22,11 @@ namespace UniOwl.Components.Editor
         private VisualElement _componentsContainer;
 
         private SerializedProperty m_components;
-        private List<ScriptableComponentEditor> componentEditors = new();
+        protected List<ScriptableComponentEditor> componentEditors = new();
         
         public ScriptableComponentList targetComponentList => (ScriptableComponentList)target;
+
+        public event Action listOrChildUpdated;
         
         public override bool UseDefaultMargins()
         {
@@ -46,7 +48,7 @@ namespace UniOwl.Components.Editor
         private void RefreshEditors()
         {
             foreach (ScriptableComponentEditor editor in componentEditors)
-                DestroyImmediate(editor);
+                DestroyImmediate(editor, true);
             componentEditors.Clear();
 
             int arraySize = m_components.arraySize;
@@ -61,7 +63,7 @@ namespace UniOwl.Components.Editor
         private ScriptableComponentEditor CreateComponentEditor(ScriptableComponent component, int index = -1)
         {
             var editor = (ScriptableComponentEditor)CreateEditor(component);
-            editor.Init();
+            editor.Init(this);
             
             if (index == -1)
                 componentEditors.Add(editor);
@@ -138,6 +140,7 @@ namespace UniOwl.Components.Editor
 
             var component = CreateComponent(type, targetComponentList);
             component.Initialize(targetComponentList);
+            new SerializedObject(component).ApplyModifiedProperties();
 
             if (EditorUtility.IsPersistent(serializedObject.targetObject))
                 AssetDatabase.AddObjectToAsset(component, serializedObject.targetObject);
@@ -145,12 +148,13 @@ namespace UniOwl.Components.Editor
             var componentProp = m_components.GetArrayElementAtIndex(lastElementIndex);
             componentProp.objectReferenceValue = component;
             
+            serializedObject.ApplyModifiedProperties();
+
             var editor = CreateComponentEditor(component);
+            editor.OnComponentCreate();
             var foldout = editor.CreateInspectorGUI();
             _componentsContainer.Add(foldout);
             
-            serializedObject.ApplyModifiedProperties();
-
             if (EditorUtility.IsPersistent(serializedObject.targetObject))
             {
                 EditorUtility.SetDirty(serializedObject.targetObject);
@@ -177,9 +181,10 @@ namespace UniOwl.Components.Editor
             DestroyImmediate(component);
             m_components.DeleteArrayElementAtIndex(index);
             
+            componentEditors[index].OnComponentDestroy();
             DestroyImmediate(componentEditors[index]);
             componentEditors.RemoveAt(index);
-
+            
             if (EditorUtility.IsPersistent(targetComponentList))
                 AssetDatabase.SaveAssets();
 
@@ -193,9 +198,14 @@ namespace UniOwl.Components.Editor
             
         }
 
+        protected virtual void ListChanged(SerializedObject _)
+        {
+            listOrChildUpdated?.Invoke();
+        }
+        
         protected virtual void ComponentChanged(ScriptableComponent component)
         {
-            
+            listOrChildUpdated?.Invoke();
         }
     }
 }

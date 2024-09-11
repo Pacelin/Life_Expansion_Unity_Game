@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: a157208d82d3420ab743df8cfe211980
+guid: e1457e8711fb40dbad2d413fd8dbf08c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
   - _celestialStyleSheet: {fileID: 7433441132597879392, guid: ef92364fb5382bb41af093881c03102a, type: 3}
-  - prefab: {fileID: 1824138769263650600, guid: 74b513497cbc3c44ab8ca27da2cb8677, type: 3}
+  - prefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

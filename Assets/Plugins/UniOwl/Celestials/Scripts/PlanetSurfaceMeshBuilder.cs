@@ -16,10 +16,9 @@ namespace UniOwl.Celestials
             new(VertexAttribute.TexCoord0, VertexAttributeFormat.Float32, 2),
         };
 
-        public static void BuildMeshes(PlanetSurface surface, GameObject surfaceGO, PlanetHeightData heightData)
+        public static void BuildMeshes(PlanetSurface surface, GameObject surfaceGO, PlanetHeightData heightData, int resolution)
         {
             var planet = (PlanetObject)surface.List;
-            int resolution = surface.Model.resolution;
             
             int vertexCount = (resolution + 1) * (resolution + 1);
             int indexCount = 6 * resolution * resolution;
@@ -46,7 +45,7 @@ namespace UniOwl.Celestials
                     indices = mesh.GetIndexData<ushort>(),
                 };
                 
-                BuildFace(surface, face, quad, heightData.heights[face], heightData.normals[face]);
+                BuildFace(surface, face, quad, heightData.heights[face], heightData.normals[face], resolution);
 
                 var descriptor = new SubMeshDescriptor()
                 {
@@ -82,11 +81,11 @@ namespace UniOwl.Celestials
                 mesh.bounds = bounds;
                 mesh.name = $"SM_{planet.name}_{face}";
                 mesh.hideFlags = HideFlags.HideInHierarchy | HideFlags.HideInInspector;
-                mesh.UploadMeshData(true);
+                mesh.UploadMeshData(false);
             }
         }
 
-        private static void BuildFace(PlanetSurface surface, int face, in QuadBuildData quad, in NativeArray<float> heights, in NativeArray<float3> normals)
+        private static void BuildFace(PlanetSurface surface, int face, in QuadBuildData quad, in NativeArray<float> heights, in NativeArray<float3> normals, int resolution)
         {
             var planet = (PlanetObject)surface.List;
             
@@ -95,8 +94,6 @@ namespace UniOwl.Celestials
             int ax2 = (face + 2) % 3;
             bool backFace = face > 2;
             
-            int resolution = surface.Model.resolution;
-
             float3 baseVertex = float3.zero;
             baseVertex[dir] = math.select(0, resolution, backFace);
             

@@ -21,15 +21,18 @@ namespace UniOwl.Components.Editor
             
             using (var scope = new PrefabUtility.EditPrefabContentsScope(path))
             {
-                GameObject root = scope.prefabContentsRoot;
-
-                var prefabVariant = (GameObject)PrefabUtility.InstantiatePrefab(prefabToAdd);
-                prefabVariant.transform.SetParent(root.transform);
-                prefabVariant.name = prefabToAdd.name;
-                prefabVariant.hideFlags = HideFlags.HideInHierarchy | HideFlags.HideInInspector;
+                CreatePrefabVariant(scope.prefabContentsRoot, prefabToAdd);
             }
 
             return rootPrefab.transform.GetChild(rootPrefab.transform.childCount - 1).gameObject;
+        }
+
+        public static GameObject CreatePrefabVariant(GameObject root, GameObject prefabToAdd)
+        {
+            var variant = (GameObject)PrefabUtility.InstantiatePrefab(prefabToAdd);
+            variant.transform.SetParent(root.transform);
+            variant.name = prefabToAdd.name;
+            return variant;
         }
 
         /// <summary>
@@ -77,9 +80,13 @@ namespace UniOwl.Components.Editor
         {
             var path = AssetDatabase.GetAssetPath(rootPrefab);
             using var scope = new PrefabUtility.EditPrefabContentsScope(path);
-            
-            var componentGO = scope.prefabContentsRoot.transform.GetChild(childIndex);
-            foreach (var renderer in componentGO.GetComponentsInChildren<Renderer>())
+            CreateMaterialVariantsFromOriginals(rootPrefab, scope.prefabContentsRoot, childIndex);
+        }
+        
+        public static void CreateMaterialVariantsFromOriginals(GameObject rootPrefab, GameObject editableRoot, int childIndex)
+        {
+            var componentGO = editableRoot.transform.GetChild(childIndex);
+            foreach (Renderer renderer in componentGO.GetComponentsInChildren<Renderer>())
             {
                 var materials = renderer.sharedMaterials;
 
@@ -113,7 +120,6 @@ namespace UniOwl.Components.Editor
         public static GameObject CreatePrefabVariant(string folderPath, string namePrefix, GameObject prefab)
         {
             string name = $"{namePrefix}_{prefab.name}_Variant.prefab";
-            name = name[3..];
             string path = Path.Combine(folderPath, name);
             path = AssetDatabase.GenerateUniqueAssetPath(path);
             

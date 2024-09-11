@@ -26,7 +26,7 @@ namespace UniOwl.Celestials
         [Header("Domain Warping")]
         public float3 warpingOffset;
         public float warpingStrength;
-
+        
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public noise3 Evaluate(in float3 sphereNormal, in float3 offset = new())
         {

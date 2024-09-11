@@ -12,6 +12,8 @@ namespace UniOwl.Components.Editor
     {
         private static readonly string[] ExcludeFields = { "m_ObjectHideFlags", "m_Script", "_active", "_prefab", "_variant", };
 
+        protected ScriptableComponentListEditor _baseEditor;
+        
         private string _editorPrefExpanded; 
         public bool Expanded
         {
@@ -25,10 +27,11 @@ namespace UniOwl.Components.Editor
         public event Action<ScriptableComponent, bool> componentActiveStateChanged;
         public event Action<SerializedObject> componentStateChanged;
 
-        public void Init()
+        public virtual void Init(ScriptableComponentListEditor baseEditor)
         {
+            _baseEditor = baseEditor;
             _component = (ScriptableComponent)serializedObject.targetObject;
-
+            
             AssetDatabase.TryGetGUIDAndLocalFileIdentifier(_component, out string guid, out long localId);
             _editorPrefExpanded = $"{typeof(ScriptableComponentEditor).FullName}/{guid}/{localId}";
         }
@@ -124,6 +127,21 @@ namespace UniOwl.Components.Editor
             }
 
             return container;
+        }
+        
+        public virtual void OnComponentCreate()
+        {
+            
+        }
+        
+        public virtual void OnComponentSave()
+        {
+            
+        }
+
+        public virtual void OnComponentDestroy()
+        {
+            
         }
     }
 }

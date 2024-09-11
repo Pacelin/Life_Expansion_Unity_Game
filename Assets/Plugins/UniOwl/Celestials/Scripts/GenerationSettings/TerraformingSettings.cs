@@ -8,10 +8,10 @@ namespace UniOwl.Celestials
     [Serializable]
     public class TerraformingSettings
     {
-        [Range(0f, 100f)]
-        public float seaLevel;
+        [Range(0f, 2f)]
+        public float seaLevel = 1.5f;
         [Range(0f, 1f)]
-        public float temperatureLevel, atmosphereLevel, overallLevel;
+        public float temperatureLevel = .5f, atmosphereLevel = .5f, overallLevel = .5f;
         
         [SerializeField]
         private Color coldTint = HexToRGBA("FFFFFF"), warmTint = HexToRGBA("FFFFFF");

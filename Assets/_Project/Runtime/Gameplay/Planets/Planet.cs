@@ -16,7 +16,7 @@ namespace Runtime.Gameplay.Planets
         public PlanetIndicator Temperature => _temperature;
         public PlanetIndicator Oxygen => _oxygen;
         public PlanetIndicator Water => _water;
-        public UniOwl.Celestials.Planet_Old UniPlanet => _component.UniPlanet;
+        public UniOwl.Celestials.Planet UniPlanet => _component.UniPlanet;
 
         private IDisposable _orbitalDisposable;
         private IDisposable _waterDisposable;

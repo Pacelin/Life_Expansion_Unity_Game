@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4022494422351724799}
   - component: {fileID: 7863271773913575878}
   - component: {fileID: 8764198084311374922}
-  - component: {fileID: 2532548537631706699}
   - component: {fileID: -481854174944249187}
   m_Layer: 3
   m_Name: Planet_Face_Blank
@@ -88,20 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2532548537631706699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3982625640327023546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cd135f014ff4399b7c8240ab8ec5a94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _filter: {fileID: 7863271773913575878}
-  _renderer: {fileID: 8764198084311374922}
 --- !u!64 &-481854174944249187
 MeshCollider:
   m_ObjectHideFlags: 0

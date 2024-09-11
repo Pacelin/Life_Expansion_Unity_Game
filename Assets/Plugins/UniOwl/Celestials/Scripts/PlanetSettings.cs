@@ -8,7 +8,7 @@ namespace UniOwl.Celestials
     public class PlanetSettings : ScriptableObject
     {
         [SerializeField]
-        private Planet_Old _planet;
+        private Planet _planet;
 
         [SerializeField]
         private ModelSettings _model;
@@ -33,7 +33,7 @@ namespace UniOwl.Celestials
         [Range(0f, 1f)]
         public float tempLevel, atmosphereLevel, overallLevel;
         
-        public Planet_Old Planet
+        public Planet Planet
         {
             get => _planet;
             set => _planet = value;

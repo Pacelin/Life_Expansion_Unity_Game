@@ -7,8 +7,8 @@ namespace UniOwl.Celestials
     public class PhysicalSettings
     {
         [Range(0f, 50f)]
-        public float radius;
+        public float radius = 10f;
         [Range(0f, 50f)]
-        public float amplitude;
+        public float amplitude = 5f;
     }
 }
