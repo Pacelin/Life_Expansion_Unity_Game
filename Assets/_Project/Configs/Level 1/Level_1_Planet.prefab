@@ -87,6 +87,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level_1_Planet_Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 140012494242333701, guid: 7151c94f30b37754882b73331da7b866, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5687043057194715133, guid: 7151c94f30b37754882b73331da7b866, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

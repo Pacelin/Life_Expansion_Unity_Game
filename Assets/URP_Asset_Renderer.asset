@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7040085251757080652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e17f22ba9769d4ca9ba50dca2f8510, type: 3}
+  m_Name: BlurRendererFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  _settings:
+    horizontalBlur: 0
+    verticalBlur: 0
+  _shader: {fileID: 4800000, guid: e00cf2af75126654ab20d18001b9b1e1, type: 3}
 --- !u!114 &-6653300783264772127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36,7 +53,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     passTag: Skybox
-    Event: 150
+    Event: 450
     filterSettings:
       RenderQueueType: 1
       LayerMask:
@@ -47,9 +64,9 @@ MonoBehaviour:
     overrideMaterialPassIndex: 0
     overrideShader: {fileID: -6465566751694194690, guid: 1e7db4bd01428114db20efaaac67d723, type: 3}
     overrideShaderPassIndex: 0
-    overrideMode: 1
+    overrideMode: 0
     overrideDepthState: 1
-    depthCompareFunction: 2
+    depthCompareFunction: 1
     enableWrite: 0
     stencilSettings:
       overrideStencilState: 0
@@ -98,10 +115,10 @@ MonoBehaviour:
   m_AssetVersion: 2
   m_OpaqueLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1023
   m_TransparentLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1023
   m_DefaultStencilState:
     overrideStencilState: 0
     stencilReference: 0

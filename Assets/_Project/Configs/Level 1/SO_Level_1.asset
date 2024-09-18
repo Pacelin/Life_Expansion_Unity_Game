@@ -16,25 +16,25 @@ MonoBehaviour:
   _list: {fileID: 11400000}
   _prefab: {fileID: 7028284412544925644, guid: c0314231b48c61d41b5db2feeb9395a1, type: 3}
   _model:
-    resolution: 32
+    resolution: 128
     updateFlags: 11
     optimizeMesh: 1
     recalculateNormals: 0
     recalculateTangents: 0
   _textures:
-    resolution: 256
+    resolution: 1024
     generateNormals: 1
     generateHeights: 1
     compression: 1
     _compressionQuality: 100
   _generation:
     seed: 1348764628
-    frequency: 0.79
+    frequency: 0.76
     persistence: 0.5
     lacunarity: 2
-    octaves: 14
-    redistributionPower: 2.66
-    erosionPower: 2.7
+    octaves: 10
+    redistributionPower: 3.2
+    erosionPower: 1.78
     warpingOffset:
       x: 1.44
       y: -0.79
@@ -42,14 +42,14 @@ MonoBehaviour:
     warpingStrength: 0.1
   _updateTerrain: 0
   rimColor: {r: 0.21960784, g: 0.2627451, b: 0.29803923, a: 1}
-  grassColor: {r: 0.49803922, g: 0.6313726, b: 0.49803922, a: 1}
+  grassColor: {r: 0.5250534, g: 0.6509434, b: 0.5250534, a: 1}
   sandColor: {r: 0.3372549, g: 0.7372549, b: 0.30980393, a: 1}
   snowColor: {r: 1, g: 1, b: 1, a: 1}
   dryColor: {r: 0.8039216, g: 0.7019608, b: 0.45882353, a: 1}
   rockColor: {r: 0.5568628, g: 0.5568628, b: 0.5568628, a: 1}
   heightRangeSand: {x: 0, y: 0.2}
-  heightRangeSnow: {x: 0.8, y: 1}
-  slopeRange: {x: 0, y: 90}
+  heightRangeSnow: {x: 0.71666664, y: 1}
+  slopeRange: {x: 7.5786095, y: 90}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,15 +70,15 @@ MonoBehaviour:
   _prefab: {fileID: 1824138769263650600, guid: 74b513497cbc3c44ab8ca27da2cb8677, type: 3}
   _root: {fileID: 110792844464054476, guid: 7151c94f30b37754882b73331da7b866, type: 3}
   _physicalSettings:
-    radius: 21.2
-    amplitude: 11.5
+    radius: 14.9
+    amplitude: 12.8
   _terraformingSettings:
-    seaLevel: 1.5
-    temperatureLevel: 0.76
-    atmosphereLevel: 0.306
-    overallLevel: 0.546
-    coldTint: {r: 1, g: 1, b: 1, a: 1}
-    warmTint: {r: 1, g: 1, b: 1, a: 1}
+    seaLevel: 1.009
+    temperatureLevel: 0.486
+    atmosphereLevel: 0.517
+    overallLevel: 1
+    coldTint: {r: 0.5990566, g: 0.8721817, b: 1, a: 1}
+    warmTint: {r: 1, g: 0.7316889, b: 0.4292453, a: 1}
 --- !u!114 &2890617131727505497
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -97,7 +97,7 @@ MonoBehaviour:
   rimColor: {r: 0.21960784, g: 0.2627451, b: 0.29803923, a: 1}
   shoreColor: {r: 0.29411766, g: 0.5921569, b: 0.67058825, a: 1}
   deepColor: {r: 0.10980392, g: 0.15686275, b: 0.42352942, a: 1}
-  deepDistance: 0.5
+  deepDistance: 0.13
 --- !u!114 &3031805522488956103
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -115,8 +115,8 @@ MonoBehaviour:
   _prefab: {fileID: 7555184071596248321, guid: b9ffe243d4c9c6d48a12e9b52be5f43f, type: 3}
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   overcastColor: {r: 0.4509804, g: 0.4509804, b: 0.4509804, a: 1}
-  maxThickness: 0.45
-  height: 8
+  maxThickness: 0.33
+  height: 6.52
 --- !u!114 &9110790559564418391
 MonoBehaviour:
   m_ObjectHideFlags: 3

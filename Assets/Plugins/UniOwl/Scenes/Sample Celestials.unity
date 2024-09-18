@@ -1808,10 +1808,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf42a80d679d744db4668618d096e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
+  _target: {fileID: 1199265674}
   _sun: {fileID: 2086096070}
   _planets:
-  - {fileID: 0}
   - {fileID: 1199265674}
 --- !u!4 &1584921958
 Transform:
@@ -2442,7 +2441,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2770929943779202398, guid: cfac2c4e0e6e80c489dee58a83d74f46, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 35.88
       objectReference: {fileID: 0}
     - target: {fileID: 2770929943779202398, guid: cfac2c4e0e6e80c489dee58a83d74f46, type: 3}
       propertyPath: m_LocalPosition.y
