@@ -30,7 +30,7 @@ namespace UniOwl.Celestials
             UpdatePlanetAppearance();
         }
 
-        /// <param name="waterLevel">Range [0, 2], 0 = no water, 1 = flooded world.</param>
+        /// <param name="waterLevel">Range [0, 2], 0 = no water, 2 = flooded world.</param>
         public void SetWaterLevel(float waterLevel)
         {
             this.waterLevel = waterLevel;

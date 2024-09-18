@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Planet Config
   m_EditorClassIdentifier: 
   _prefab: {fileID: 6994620855911247444, guid: 343b9742a88e8684182a1a842dc89aed, type: 3}
-  _minRadius: 18
-  _maxRadius: 23
+  _minRadius: 14.9
+  _maxRadius: 27.7
   _orbitalSpeed: 0.3
   _temperature:
     _min: -25
@@ -31,6 +31,6 @@ MonoBehaviour:
   _water:
     _min: 0
     _max: 50
-    _initial: 25
+    _initial: 50.45
     _sensitivity: 1
     _interpolation: 0.5

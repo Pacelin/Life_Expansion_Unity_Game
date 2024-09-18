@@ -11,10 +11,7 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 825c043d8d4936143a78bcbb78a7ae28, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _MAIN_LIGHT_SHADOWS
-  - _MAIN_LIGHT_SHADOWS_CASCADE
-  - _SHADOWS_SOFT
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
@@ -56,13 +53,13 @@ Material:
     - _Grass_Smoothness: 0.5
     - _Height_Falloff: 0.03
     - _LightSharpness: 0.5
-    - _MAIN_LIGHT_SHADOWS: 1
-    - _MAIN_LIGHT_SHADOWS_CASCADE: 1
+    - _MAIN_LIGHT_SHADOWS: 0
+    - _MAIN_LIGHT_SHADOWS_CASCADE: 0
     - _OverallLevel: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Rock_Smoothness: 0.25
-    - _SHADOWS_SOFT: 1
+    - _SHADOWS_SOFT: 0
     - _Sand_Smoothness: 0.1
     - _Slope_Falloff: 0.1
     - _Snow_Smoothness: 0.9
