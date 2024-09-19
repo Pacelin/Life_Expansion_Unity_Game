@@ -22,6 +22,10 @@ namespace UniOwl.Celestials
         public float redistributionPower;
         [Range(0f, 10f)]
         public float erosionPower;
+        [Range(0f, 10f)]
+        public float heightMultiplier;
+        [Range(0f, 1f)]
+        public float minHeight;
 
         [Header("Domain Warping")]
         public float3 warpingOffset;
@@ -78,7 +82,7 @@ namespace UniOwl.Celestials
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public noise3 Redistribute(in float3 position, in noise3 value)
         {
-            return noise3.pow(value, redistributionPower);
+            return noise3.pow(value, redistributionPower) * heightMultiplier + minHeight;
         }
     }
 }

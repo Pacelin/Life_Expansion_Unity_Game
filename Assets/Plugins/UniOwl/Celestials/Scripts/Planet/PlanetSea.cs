@@ -27,7 +27,7 @@ namespace UniOwl.Celestials
 
         public override void UpdateVisual(GameObject editableGO)
         {
-            float seaRadius = Planet.Physical.radius * Planet.Terraforming.seaLevel;
+            float seaRadius = Mathf.Lerp(Planet.Physical.radius, Planet.Physical.radius + Planet.Physical.amplitude, Planet.Terraforming.seaLevel);
             editableGO.transform.localScale = 2f * seaRadius * Vector3.one;
             
             var mat = editableGO.GetComponentInChildren<MeshRenderer>().sharedMaterial;
