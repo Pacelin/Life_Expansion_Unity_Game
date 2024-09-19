@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -60,17 +61,20 @@ namespace UniOwl.Components.Editor
             root.TrackSerializedObjectValue(serializedObject, ListChanged);
             root.styleSheets.Remove(_celestialStyleSheet);
 
-            var test = new ScrollView(ScrollViewMode.Vertical);
-            test.verticalScrollerVisibility = ScrollerVisibility.AlwaysVisible;
-            test.AddToClassList("inner-scroll");
-            test.Add(root);
+            var scrollView = new ScrollView(ScrollViewMode.Vertical)
+            {
+                verticalScrollerVisibility = ScrollerVisibility.AlwaysVisible,
+            };
+
+            scrollView.AddToClassList("inner-scroll");
+            scrollView.Add(root);
             
             VisualElement previewFoldout = CreatePreviewFoldout();
             
             var outerRoot = new VisualElement();
             outerRoot.styleSheets.Add(_celestialStyleSheet);
             outerRoot.AddToClassList("outer-root");
-            outerRoot.Add(test);
+            outerRoot.Add(scrollView);
             outerRoot.Add(previewFoldout);
             
             outerRoot.RegisterCallback<GeometryChangedEvent, VisualElement>((evt, rootArgs) =>
@@ -122,8 +126,73 @@ namespace UniOwl.Components.Editor
                 text = "Prefab preview",
             };
             previewFoldout.AddToClassList("prefab-preview");
-            previewFoldout.contentContainer.style.backgroundImage = _previewTexture;
+
+            var previewImage = new VisualElement();
+            previewImage.AddToClassList("prefab-preview-image");
+            previewImage.contentContainer.style.backgroundImage = _previewTexture;
+            
+            var saveButton = new Button()
+            {
+                text = "Save Preview...",
+            };
+            saveButton.clicked += SavePreviewTexture;
+            previewFoldout.Add(previewImage);
+            previewFoldout.Add(saveButton);
+            
             return previewFoldout;
+        }
+
+        private const string PreviewTexturePath = "Assets/Plugins/UniOwl/Editor Default Resources/T_Preview.png";
+
+        private Texture2D GetPreviewTexture()
+        {
+            // TODO: move inside PreviewSceneUtils
+            int size = 512;
+            Texture2D texture = new Texture2D(size, size);
+
+            RenderTexture oldRT = _previewCamera.targetTexture;
+            RenderTexture targetRT = RenderTexture.GetTemporary(size, size, 24, RenderTextureFormat.ARGB32);
+
+            var rect = new Rect(Vector2.zero, new Vector2(size, size));
+
+            _previewCamera.rect = rect;
+            _previewCamera.targetTexture = targetRT;
+            _previewCamera.forceIntoRenderTexture = true;
+
+            var flags = _previewCamera.clearFlags;
+            var bg = _previewCamera.backgroundColor;
+            
+            _previewCamera.clearFlags = CameraClearFlags.Nothing;
+            _previewCamera.backgroundColor = Color.clear;
+            
+            _previewCamera.Render();
+
+            _previewCamera.clearFlags = flags;
+            _previewCamera.backgroundColor = bg;
+            
+            RenderTexture tempActive = RenderTexture.active;
+            RenderTexture.active = targetRT;
+            
+            texture.ReadPixels(rect, 0, 0);
+            texture.Apply();
+
+            RenderTexture.active = tempActive;
+
+            _previewCamera.targetTexture = oldRT;
+            RenderTexture.ReleaseTemporary(targetRT);
+
+            return texture;
+        }
+        
+        private void SavePreviewTexture()
+        {
+            var copy = GetPreviewTexture();
+            
+            string assetName = AssetDatabase.GenerateUniqueAssetPath(PreviewTexturePath);
+
+            File.WriteAllBytes(assetName, copy.EncodeToPNG()); 
+            AssetDatabase.ImportAsset(assetName, ImportAssetOptions.ForceUpdate);
+            AssetDatabase.Refresh();
         }
 
         protected override void AddComponent(Type type)

@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     passTag: Skybox
-    Event: 450
+    Event: 210
     filterSettings:
       RenderQueueType: 1
       LayerMask:
@@ -65,7 +65,7 @@ MonoBehaviour:
     overrideShader: {fileID: -6465566751694194690, guid: 1e7db4bd01428114db20efaaac67d723, type: 3}
     overrideShaderPassIndex: 0
     overrideMode: 0
-    overrideDepthState: 1
+    overrideDepthState: 0
     depthCompareFunction: 1
     enableWrite: 0
     stencilSettings:

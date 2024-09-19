@@ -9,9 +9,11 @@ namespace UniOwl.Components.Editor
     public static class PreviewSceneUtils
     {
         private static readonly GraphicsFormat s_graphicsFormat = GraphicsFormatUtility.GetGraphicsFormat(
-            RenderTextureFormat.ARGBFloat,
-            RenderTextureReadWrite.Default);
+            RenderTextureFormat.ARGB32,
+            RenderTextureReadWrite.sRGB);
 
+        private const int TextureSize = 512;
+        
         public static Scene CreatePreviewScene()
         {
             Scene previewScene = EditorSceneManager.NewPreviewScene();
@@ -51,11 +53,11 @@ namespace UniOwl.Components.Editor
             camera.clearFlags = CameraClearFlags.SolidColor;
             camera.scene = previewScene;
             camera.targetTexture = new RenderTexture(
-                width: 256,
-                height: 256,
+                width: TextureSize,
+                height: TextureSize,
                 colorFormat: s_graphicsFormat,
                 depthStencilFormat: GraphicsFormat.D24_UNorm,
-                mipCount: 1);
+                mipCount: 0);
 
             go.transform.position = Vector3.back * 10f + Vector3.up;
             go.transform.LookAt(Vector3.zero);
@@ -96,11 +98,11 @@ namespace UniOwl.Components.Editor
         public static Texture2D CreatePreviewTexture()
         {
             var tex = new Texture2D(
-                width: 256,
-                height: 256,
+                width: TextureSize,
+                height: TextureSize,
                 s_graphicsFormat,
-                mipCount: 1,
-                TextureCreationFlags.DontInitializePixels);
+                mipCount: 0,
+                TextureCreationFlags.None);
 
             return tex;
         }
@@ -109,6 +111,20 @@ namespace UniOwl.Components.Editor
         {
             camera.Render();
             Graphics.CopyTexture(camera.targetTexture, target);
+        }
+
+        public static void RenderPreviewSceneWithNoBG(Camera camera, Texture2D target)
+        {
+            CameraClearFlags flags = camera.clearFlags;
+            Color bg = camera.backgroundColor;
+            
+            camera.clearFlags = CameraClearFlags.Nothing;
+            camera.backgroundColor = Color.clear;
+
+            RenderPreviewScene(camera, target);
+            
+            camera.clearFlags = flags;
+            camera.backgroundColor = bg;
         }
     }
 }

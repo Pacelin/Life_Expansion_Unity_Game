@@ -20,7 +20,7 @@ MonoBehaviour:
   - Colonizers: {fileID: 11400000, guid: 2f2f3398fe665bf43a6ab67999c176ca, type: 2}
     Planet: {fileID: 11400000, guid: a855ad896ab13a346bae4cc30211fe5b, type: 2}
     Toolbar: {fileID: 11400000, guid: e2c56f05c3b077648beab895cadf61ac, type: 2}
-    PlanetIcon: {fileID: 21300000, guid: 82aa22d74e845bb47b92a6271ed25e2c, type: 3}
+    PlanetIcon: {fileID: 21300000, guid: d43af34782f2ab14483f55bef8d06784, type: 3}
     _planetName:
       m_TableReference:
         m_TableCollectionName: GUID:f6153ee75ecfac645be2f1985c9d4b3e
@@ -33,7 +33,7 @@ MonoBehaviour:
   - Colonizers: {fileID: 11400000, guid: b3e0d4351bab6e84f94f0eb0a262f01c, type: 2}
     Planet: {fileID: 11400000, guid: 0e00c4f4ffa5d81409a8161e47cc031a, type: 2}
     Toolbar: {fileID: 11400000, guid: 8be680893f99af946a6f02bbe6512733, type: 2}
-    PlanetIcon: {fileID: 21300000, guid: de3ee39800dea724cb6014d0620d23c4, type: 3}
+    PlanetIcon: {fileID: 21300000, guid: 20cb185bca390fd469a642668540f88e, type: 3}
     _planetName:
       m_TableReference:
         m_TableCollectionName: GUID:f6153ee75ecfac645be2f1985c9d4b3e
@@ -46,7 +46,7 @@ MonoBehaviour:
   - Colonizers: {fileID: 11400000, guid: e93f0235dd404f644bf6ae16c5e2371c, type: 2}
     Planet: {fileID: 11400000, guid: 6e07994c9a91fb54d9a1cf956cf915ae, type: 2}
     Toolbar: {fileID: 11400000, guid: f9dfa372b50f8d64c9fe44f72d9539fa, type: 2}
-    PlanetIcon: {fileID: 21300000, guid: 1bc2953e75aa8aa4483f168629292ebe, type: 3}
+    PlanetIcon: {fileID: 21300000, guid: 09706746fd36ab144b17c7712f44283e, type: 3}
     _planetName:
       m_TableReference:
         m_TableCollectionName: GUID:f6153ee75ecfac645be2f1985c9d4b3e

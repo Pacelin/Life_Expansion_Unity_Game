@@ -150,6 +150,16 @@
     align-self: flex-end;
 }
 
+.prefab-preview-image
+{
+    flex-shrink: 0;
+    width: 50%;
+    padding-top: 50%;
+    margin-left: -15px;
+    align-self: center;
+    margin-bottom: 6px;
+}
+
 .prefab-preview > .unity-foldout__toggle
 {
     border-top-color: #1F1F1F;
@@ -159,12 +169,4 @@
     padding-bottom: 2px;
     background-color: #323232;
     align-self: stretch;
-}
-
-.prefab-preview > #unity-content
-{
-    width: 50%;
-    padding-top: 50%;
-    margin-left: -15px;
-    align-self: center;
 }
