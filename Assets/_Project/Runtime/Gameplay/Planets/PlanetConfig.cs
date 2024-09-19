@@ -5,6 +5,7 @@ namespace Runtime.Gameplay.Planets
     [CreateAssetMenu(menuName = "Gameplay/Planet Config")]
     public class PlanetConfig : ScriptableObject
     {
+        public GameObject SolarSystem => _solarSystem;
         public PlanetComponent Prefab => _prefab;
         public float MaxRadius => _maxRadius;
         public float MinRadius => _minRadius;
@@ -14,6 +15,7 @@ namespace Runtime.Gameplay.Planets
         public PlanetIndicatorConfig Oxygen => _oxygen;
         public PlanetIndicatorConfig Water => _water;
 
+        [SerializeField] private GameObject _solarSystem;
         [SerializeField] private PlanetComponent _prefab;
         [SerializeField] private float _minRadius;
         [SerializeField] private float _maxRadius;

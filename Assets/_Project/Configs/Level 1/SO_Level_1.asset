@@ -116,7 +116,7 @@ MonoBehaviour:
   _list: {fileID: 11400000}
   _prefab: {fileID: 7555184071596248321, guid: b9ffe243d4c9c6d48a12e9b52be5f43f, type: 3}
   baseColor: {r: 1, g: 1, b: 1, a: 1}
-  overcastColor: {r: 0.4509804, g: 0.4509804, b: 0.4509804, a: 1}
+  overcastColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
   maxThickness: 0.21
   height: 5
 --- !u!114 &9110790559564418391

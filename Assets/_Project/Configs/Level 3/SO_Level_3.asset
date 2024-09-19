@@ -1,5 +1,26 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2645060932750678255
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681ed173d4fc4633a01c3e8645d9091d, type: 3}
+  m_Name: Rings Layer
+  m_EditorClassIdentifier: 
+  _active: 1
+  _list: {fileID: 11400000}
+  _prefab: {fileID: 5520269596193722071, guid: 3b255b5c54e0a3e47b1c7e5b97dd4cef, type: 3}
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  detailsColor: {r: 1, g: 1, b: 1, a: 0}
+  outerRadius: 65
+  innerRadius: 0.8
+  baseScale: 35
+  detailsScale: 14.1
 --- !u!114 &-734762864850766151
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -36,6 +57,7 @@ MonoBehaviour:
   - {fileID: -734762864850766151}
   - {fileID: 5268728058956888171}
   - {fileID: 4985658223192368624}
+  - {fileID: -2645060932750678255}
   _prefab: {fileID: 1824138769263650600, guid: 74b513497cbc3c44ab8ca27da2cb8677, type: 3}
   _root: {fileID: 691213498735095115, guid: 78aaa611a15263b43a1714b94c3ad11b, type: 3}
   _physicalSettings:
@@ -97,7 +119,7 @@ MonoBehaviour:
     seed: 1348764628
     frequency: 0.91
     persistence: 0.647
-    lacunarity: 1.45
+    lacunarity: 1.54
     octaves: 12
     redistributionPower: 1.67
     erosionPower: 0.63
@@ -114,10 +136,10 @@ MonoBehaviour:
   sandColor: {r: 1, g: 0.7531973, b: 0.72156864, a: 1}
   snowColor: {r: 1, g: 1, b: 1, a: 1}
   dryColor: {r: 0.8113208, g: 0.48602706, b: 0.5785418, a: 1}
-  rockColor: {r: 0.15242109, g: 0.21910533, b: 0.36200002, a: 1}
+  rockColor: {r: 0.2896938, g: 0.38438448, b: 0.5849056, a: 1}
   heightRangeSand: {x: 0, y: 0.7503357}
   heightRangeSnow: {x: 1, y: 1}
-  slopeRange: {x: 16.7043, y: 90}
+  slopeRange: {x: 20.575268, y: 90}
 --- !u!114 &5268728058956888171
 MonoBehaviour:
   m_ObjectHideFlags: 3

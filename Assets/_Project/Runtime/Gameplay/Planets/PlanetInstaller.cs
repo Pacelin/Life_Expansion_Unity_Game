@@ -11,10 +11,15 @@ namespace Runtime.Gameplay.Planets
             Container.Bind<PlanetComponent>()
                 .FromResolveGetter<PlanetConfig>(config =>
                 {
-                    var prefab = config.Prefab;
-                    var obj = GameObject.Instantiate(prefab, Vector3.zero, Quaternion.identity);
-                    obj.gameObject.name = "Planet";
-                    return obj;
+                    var solarPrefab = config.SolarSystem;
+                    var solarInstance = Instantiate(solarPrefab, Vector3.zero, Quaternion.identity);
+                    solarInstance.name = "Solar System";
+                    return solarInstance.GetComponentInChildren<PlanetComponent>();
+
+                    //var prefab = config.Prefab;
+                    //var obj = GameObject.Instantiate(prefab, Vector3.zero, Quaternion.identity);
+                    //obj.gameObject.name = "Planet";
+                    //return obj;
                 })
                 .AsSingle()
                 .WhenInjectedInto<Planet>();

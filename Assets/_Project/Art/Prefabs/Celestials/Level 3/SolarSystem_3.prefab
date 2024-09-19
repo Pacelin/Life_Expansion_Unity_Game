@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf42a80d679d744db4668618d096e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
+  _target: {fileID: 7768423381317237182}
   _sun: {fileID: 6780516064091152164}
   _planets:
   - {fileID: 7768423381317237182}
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed50c012c97e0a4289321655216f279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 25
+  _rotationSpeed: 6
 --- !u!1001 &3928309868448983213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -424,7 +424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9055674946474098310, guid: c5e922bf3f2eb2a4f9347a682166209a, type: 3}
       propertyPath: _radius
-      value: 100
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 9055674946474098310, guid: c5e922bf3f2eb2a4f9347a682166209a, type: 3}
       propertyPath: _rotationOffset
@@ -463,7 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed50c012c97e0a4289321655216f279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 50
+  _rotationSpeed: 20
 --- !u!114 &5415597662997976619 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9055674946474098310, guid: c5e922bf3f2eb2a4f9347a682166209a, type: 3}
@@ -488,6 +488,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 812460488352931741}
     m_Modifications:
+    - target: {fileID: 6199408531658466057, guid: 7e8901154ef6f014c9c27ae442c1b7f5, type: 3}
+      propertyPath: _radius
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 7520132956653477818, guid: 7e8901154ef6f014c9c27ae442c1b7f5, type: 3}
       propertyPath: m_Name
       value: Level_3_Planet
@@ -605,6 +609,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sun_2
       objectReference: {fileID: 0}
+    - target: {fileID: 3560186285120563026, guid: 484cec5b1d95728458fbf8e06c709a4d, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560186285120563026, guid: 484cec5b1d95728458fbf8e06c709a4d, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 1023
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -646,7 +658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed50c012c97e0a4289321655216f279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 30
+  _rotationSpeed: 5
 --- !u!1001 &7687137244495083903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -737,7 +749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8437736314201903899, guid: 7bd99006c860e4242b8679a545227b19, type: 3}
       propertyPath: _radius
-      value: 300
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8437736314201903899, guid: 7bd99006c860e4242b8679a545227b19, type: 3}
       propertyPath: _rotationOffset
@@ -784,4 +796,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed50c012c97e0a4289321655216f279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 60
+  _rotationSpeed: 24

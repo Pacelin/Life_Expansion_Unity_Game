@@ -68,7 +68,7 @@ Material:
     - _Detail_Persistence: 1
     - _Detail_Scale: 10
     - _EMISSION: 1
-    - _Emission_Power: 1
+    - _Emission_Power: 0.06
     - _InnerRadius: 0.714
     - _QueueControl: 0
     - _QueueOffset: 0

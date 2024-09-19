@@ -108,6 +108,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8437736314201903899, guid: 7bd99006c860e4242b8679a545227b19, type: 3}
+      propertyPath: _radius
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437736314201903899, guid: 7bd99006c860e4242b8679a545227b19, type: 3}
+      propertyPath: _rotationOffset
+      value: 6.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437736314201903899, guid: 7bd99006c860e4242b8679a545227b19, type: 3}
+      propertyPath: _rotationPeriod
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437736314201903899, guid: 7bd99006c860e4242b8679a545227b19, type: 3}
+      propertyPath: _rotationEuler.y
+      value: 0.09
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -137,6 +153,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2462721809649987461}
     m_Modifications:
+    - target: {fileID: 5866434528143821293, guid: 343b9742a88e8684182a1a842dc89aed, type: 3}
+      propertyPath: _rotationPeriod
+      value: 360
+      objectReference: {fileID: 0}
     - target: {fileID: 7520132956653477818, guid: 343b9742a88e8684182a1a842dc89aed, type: 3}
       propertyPath: m_Name
       value: Level_1_Planet
@@ -210,6 +230,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2462721809649987461}
     m_Modifications:
+    - target: {fileID: 1225022111714926865, guid: 101f54c315d034b428fd72b333b53c3a, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225022111714926865, guid: 101f54c315d034b428fd72b333b53c3a, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 1023
+      objectReference: {fileID: 0}
     - target: {fileID: 3761452420706472577, guid: 101f54c315d034b428fd72b333b53c3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 118.2
@@ -287,6 +315,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2462721809649987461}
     m_Modifications:
+    - target: {fileID: 877556591963225166, guid: 46ec3c81d7e2f554eb0609c5627f4564, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 67692a8de8805534496af1d8e4089ba7, type: 2}
     - target: {fileID: 5619501692969822701, guid: 46ec3c81d7e2f554eb0609c5627f4564, type: 3}
       propertyPath: m_Name
       value: AsteroidBelt
@@ -294,6 +326,18 @@ PrefabInstance:
     - target: {fileID: 5619501692969822701, guid: 46ec3c81d7e2f554eb0609c5627f4564, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149466226275651418, guid: 46ec3c81d7e2f554eb0609c5627f4564, type: 3}
+      propertyPath: _rotationPeriod
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149466226275651418, guid: 46ec3c81d7e2f554eb0609c5627f4564, type: 3}
+      propertyPath: _rotationEuler.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149466226275651418, guid: 46ec3c81d7e2f554eb0609c5627f4564, type: 3}
+      propertyPath: _rotationEuler.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8581472087893496339, guid: 46ec3c81d7e2f554eb0609c5627f4564, type: 3}
       propertyPath: m_LocalPosition.x
@@ -365,6 +409,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 2462721809649987461}
     m_Modifications:
     - target: {fileID: 379430513247707743, guid: cc1b03b16c35c314d85259772331f497, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 379430513247707743, guid: cc1b03b16c35c314d85259772331f497, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 379430513247707743, guid: cc1b03b16c35c314d85259772331f497, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 379430513247707743, guid: cc1b03b16c35c314d85259772331f497, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -403,6 +459,26 @@ PrefabInstance:
     - target: {fileID: 379430513247707743, guid: cc1b03b16c35c314d85259772331f497, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 379430513247707743, guid: cc1b03b16c35c314d85259772331f497, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567511811999906156, guid: cc1b03b16c35c314d85259772331f497, type: 3}
+      propertyPath: _radius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567511811999906156, guid: cc1b03b16c35c314d85259772331f497, type: 3}
+      propertyPath: _rotationOffset
+      value: -49.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567511811999906156, guid: cc1b03b16c35c314d85259772331f497, type: 3}
+      propertyPath: _rotationPeriod
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567511811999906156, guid: cc1b03b16c35c314d85259772331f497, type: 3}
+      propertyPath: _rotationEuler.y
+      value: -1.54
       objectReference: {fileID: 0}
     - target: {fileID: 8996520162860637767, guid: cc1b03b16c35c314d85259772331f497, type: 3}
       propertyPath: m_Name

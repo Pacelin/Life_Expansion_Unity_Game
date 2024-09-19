@@ -53,8 +53,8 @@ Material:
     m_Floats:
     - Flattening: 1
     - Speed: 0.02
-    - _Cloud_Normal_Strength: 0.001
-    - _Octaves: 12
+    - _Cloud_Normal_Strength: 0.1
+    - _Octaves: 6
     - _Persistence: 0.5
     - _Power: 1
     - _QueueControl: 0
@@ -66,8 +66,8 @@ Material:
     - _Warp_Scale: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color_Edge: {r: 0, g: 0, b: 0, a: 0}
-    - _OvercastColor: {r: 0.4509804, g: 0.4509804, b: 0.4509804, a: 1}
+    - _Color_Edge: {r: 0.6, g: 1, b: 0, a: 0}
+    - _OvercastColor: {r: 1, g: 0, b: 0, a: 1}
     - _TempTint: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

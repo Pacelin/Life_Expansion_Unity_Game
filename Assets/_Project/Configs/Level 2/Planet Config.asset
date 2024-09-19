@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b62d9b9f9c450db8b679467531dd5b, type: 3}
   m_Name: Planet Config
   m_EditorClassIdentifier: 
+  _solarSystem: {fileID: 4846067495834680259, guid: c3f1987d795c2e749ab553ff8a9a367b, type: 3}
   _prefab: {fileID: 6994620855911247444, guid: 0e61c43fd67fe194d81b6b4d0503e952, type: 3}
   _minRadius: 36.3
   _maxRadius: 45.9
