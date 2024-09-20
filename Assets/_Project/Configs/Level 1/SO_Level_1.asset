@@ -22,7 +22,7 @@ MonoBehaviour:
     recalculateNormals: 0
     recalculateTangents: 0
   _textures:
-    resolution: 2048
+    resolution: 1024
     generateNormals: 1
     generateHeights: 1
     compression: 1
