@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wind Generator
   m_EditorClassIdentifier: 
   _generalConfig: {fileID: 11400000, guid: 32b5d9268ea00bd4bacd804f80d0f102, type: 2}
-  _unlockCondition: {fileID: 11400000, guid: 96892008a02cb854a99cb79650fc56c9, type: 2}
+  _unlockCondition: {fileID: 11400000, guid: fe40f717a82c0654abaabc0197005fcb, type: 2}
   _oxygenDelta:
     Value: 1
     Config: {fileID: 11400000, guid: e2dbb7580095c104c883f88dd0f4e6f8, type: 2}

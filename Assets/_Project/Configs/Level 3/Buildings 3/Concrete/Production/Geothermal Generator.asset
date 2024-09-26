@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Geothermal Generator
   m_EditorClassIdentifier: 
   _generalConfig: {fileID: 11400000, guid: dc441793d9dc21042967e0bac3b66fd8, type: 2}
-  _unlockCondition: {fileID: 11400000, guid: 96892008a02cb854a99cb79650fc56c9, type: 2}
+  _unlockCondition: {fileID: 11400000, guid: fe40f717a82c0654abaabc0197005fcb, type: 2}
   _temperatureDelta:
     Value: 1
     Config: {fileID: 11400000, guid: b1f7548811fd68b4bb263882264421be, type: 2}
