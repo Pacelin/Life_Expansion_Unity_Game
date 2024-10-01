@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace UniOwl.Celestials
@@ -61,6 +62,38 @@ namespace UniOwl.Celestials
 
                 filters[face].sharedMesh = mesh;
             }
+        }
+
+        public static Material GetMaterialInChildren(GameObject editableGO)
+        {
+            var renderer = editableGO.GetComponentInChildren<MeshRenderer>();
+            return Application.isPlaying ? renderer.material : renderer.sharedMaterial;
+        }
+        
+        public static IEnumerable<Material> GetMaterialsInChildren(GameObject editableGO)
+        {
+            var renderers = editableGO.GetComponentsInChildren<MeshRenderer>();
+            return Application.isPlaying ? renderers.Select(renderer => renderer.material) : renderers.Select(renderer => renderer.sharedMaterial);
+        }
+
+        public static Color GetTemperatureTint(PlanetObject planetObject, Planet planet)
+        {
+            return Application.isPlaying ? planetObject.Terraforming.GetTemperatureTint(planet.TemperatureLevel) : planetObject.Terraforming.GetTemperatureTint();
+        }
+
+        public static float GetOverallLevel(PlanetObject planetObject, Planet planet)
+        {
+            return Application.isPlaying ? planet.OverallLevel : planetObject.Terraforming.overallLevel;
+        }
+        
+        public static float GetTemperatureLevel(PlanetObject planetObject, Planet planet)
+        {
+            return Application.isPlaying ? planet.TemperatureLevel : planetObject.Terraforming.temperatureLevel;
+        }
+        
+        public static float GetAtmosphereLevel(PlanetObject planetObject, Planet planet)
+        {
+            return Application.isPlaying ? planet.AtmosphereLevel : planetObject.Terraforming.atmosphereLevel;
         }
     }
 }

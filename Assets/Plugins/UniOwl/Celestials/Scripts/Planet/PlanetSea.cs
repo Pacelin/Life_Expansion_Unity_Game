@@ -1,4 +1,5 @@
-﻿using UniOwl.Components;
+﻿using System.Net.Mime;
+using UniOwl.Components;
 using UnityEngine;
 
 namespace UniOwl.Celestials
@@ -27,18 +28,23 @@ namespace UniOwl.Celestials
 
         public override void UpdateVisual(GameObject editableGO)
         {
-            float seaRadius = Mathf.Lerp(Planet.Physical.radius, Planet.Physical.radius + Planet.Physical.amplitude, Planet.Terraforming.seaLevel);
-            editableGO.transform.localScale = 2f * seaRadius * Vector3.one;
-            
-            var mat = editableGO.GetComponentInChildren<MeshRenderer>().sharedMaterial;
+            if (!Application.isPlaying)
+            {
+                float seaRadius = Mathf.Lerp(Planet.Physical.radius, Planet.Physical.radius + Planet.Physical.amplitude, Planet.Terraforming.seaLevel);
+                editableGO.transform.localScale = 2f * seaRadius * Vector3.one;
+            }
+
+            var mat = PlanetAssetUtils.GetMaterialInChildren(editableGO);
+
+            var planet = editableGO.GetComponentInParent<Planet>();
             
             mat.SetColor(s_rimColor, rimColor);
             mat.SetColor(s_shoreColor, shoreColor);
             mat.SetColor(s_deepColor, deepColor);
             mat.SetFloat(s_deepDistance, deepDistance);
-            mat.SetFloat(s_temperature, Planet.Terraforming.temperatureLevel);
+            mat.SetFloat(s_temperature, PlanetAssetUtils.GetTemperatureLevel(Planet, planet));
 
-            Color tint = Planet.Terraforming.GetTemperatureTint();
+            Color tint = PlanetAssetUtils.GetTemperatureTint(Planet, planet);
             mat.SetColor(s_tempTint, tint);
         }
     }

@@ -7,8 +7,12 @@ namespace UniOwl.Celestials
         [SerializeField]
         private PlanetObject _planetObject;
         
-        private float temperatureLevel, atmosphereLevel, overallLevel, waterLevel;
-        
+        private float temperatureLevel, atmosphereLevel, overallLevel;
+
+        public float TemperatureLevel => temperatureLevel;
+        public float AtmosphereLevel => atmosphereLevel;
+        public float OverallLevel => overallLevel;
+
         /// <param name="temperatureLevel">Range [0, 1], 0 = very cold, 1 = very hot, 0.5 = normal temperature.</param>
         public void SetTemperatureLevel(float temperatureLevel)
         {
@@ -27,13 +31,6 @@ namespace UniOwl.Celestials
         public void SetOverallLevel(float overallLevel)
         {
             this.overallLevel = overallLevel;
-            UpdatePlanetAppearance();
-        }
-
-        /// <param name="waterLevel">Range [0, 2], 0 = no water, 2 = flooded world.</param>
-        public void SetWaterLevel(float waterLevel)
-        {
-            this.waterLevel = waterLevel;
             UpdatePlanetAppearance();
         }
         

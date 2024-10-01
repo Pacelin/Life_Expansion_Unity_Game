@@ -30,9 +30,10 @@ namespace UniOwl.Celestials
 
         public override void UpdateVisual(GameObject editableGO)
         {
-            editableGO.transform.localScale = Vector3.one * 2f * outerRadius;
-            
-            var mat = editableGO.GetComponentInChildren<MeshRenderer>().sharedMaterial;
+            if (!Application.isPlaying)
+                editableGO.transform.localScale = Vector3.one * 2f * outerRadius;
+
+            var mat = PlanetAssetUtils.GetMaterialInChildren(editableGO);
             
             mat.SetColor(s_baseColor, baseColor);
             mat.SetColor(s_detailColor, detailsColor);

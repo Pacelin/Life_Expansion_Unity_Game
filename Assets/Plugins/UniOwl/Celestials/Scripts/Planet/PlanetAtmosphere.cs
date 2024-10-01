@@ -22,14 +22,17 @@ namespace UniOwl.Celestials
         
         public override void UpdateVisual(GameObject editableGO)
         {
-            editableGO.transform.localScale = Vector3.one * (2f * (Planet.Physical.radius + height));
+            if (Application.isPlaying)
+                editableGO.transform.localScale = Vector3.one * (2f * (Planet.Physical.radius + height));
 
-            var mat = editableGO.GetComponentInChildren<MeshRenderer>().sharedMaterial;
+            var mat = PlanetAssetUtils.GetMaterialInChildren(editableGO);
+
+            var planet = editableGO.GetComponentInParent<Planet>();
             
             mat.SetColor(s_color, tint);
-            mat.SetFloat(s_thickness, maxThickness * Planet.Terraforming.atmosphereLevel);
-            
-            Color tempTint = Planet.Terraforming.GetTemperatureTint();
+            mat.SetFloat(s_thickness, maxThickness * PlanetAssetUtils.GetAtmosphereLevel(Planet, planet));
+
+            Color tempTint = PlanetAssetUtils.GetTemperatureTint(Planet, planet);
             mat.SetColor(s_tempTint, tempTint);
         }
     }

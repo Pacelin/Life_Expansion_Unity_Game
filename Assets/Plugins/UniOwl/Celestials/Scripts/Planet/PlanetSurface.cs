@@ -85,11 +85,12 @@ namespace UniOwl.Celestials
 
         public override void UpdateVisual(GameObject editableGO)
         {
-            var renderers = editableGO.GetComponentsInChildren<MeshRenderer>();
-            
-            foreach (MeshRenderer renderer in renderers)
+            var mats = PlanetAssetUtils.GetMaterialsInChildren(editableGO);
+
+            var planet = editableGO.GetComponentInParent<Planet>();
+
+            foreach (var mat in mats)
             {
-                var mat = renderer.sharedMaterial;
                 mat.SetColor(s_rimColor, rimColor);
                 mat.SetColor(s_grassColor, grassColor);
                 mat.SetColor(s_snowColor, snowColor);
@@ -97,11 +98,11 @@ namespace UniOwl.Celestials
                 mat.SetColor(s_dryColor, dryColor);
                 mat.SetColor(s_rockColor, rockColor);
 
-                Color tint = Planet.Terraforming.GetTemperatureTint();
+                Color tint = PlanetAssetUtils.GetTemperatureTint(Planet, planet);
                 mat.SetColor(s_tempTint, tint);
-                
-                mat.SetFloat(s_overallLevel, Planet.Terraforming.overallLevel);
-                mat.SetFloat(s_tempLevel, Planet.Terraforming.temperatureLevel);
+
+                mat.SetFloat(s_overallLevel, PlanetAssetUtils.GetOverallLevel(Planet, planet));
+                mat.SetFloat(s_tempLevel, PlanetAssetUtils.GetTemperatureLevel(Planet, planet));
                 mat.SetVector(s_heightRangeSand, heightRangeSand);
                 mat.SetVector(s_heightRangeSnow, heightRangeSnow);
                 mat.SetVector(s_slopeRange, slopeRange);

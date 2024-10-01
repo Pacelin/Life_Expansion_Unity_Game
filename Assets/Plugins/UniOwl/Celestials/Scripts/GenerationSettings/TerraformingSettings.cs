@@ -13,8 +13,10 @@ namespace UniOwl.Celestials
         
         [SerializeField]
         private Color coldTint = HexToRGBA("FFFFFF"), warmTint = HexToRGBA("FFFFFF");
+
+        public Color GetTemperatureTint() => GetTemperatureTint(temperatureLevel);
         
-        public Color GetTemperatureTint()
+        public Color GetTemperatureTint(float temperatureLevel)
         {
             Color fromTint = temperatureLevel < 0.5f ? coldTint : Color.white;
             Color toTint = temperatureLevel < 0.5f ? Color.white : warmTint;
