@@ -51,7 +51,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 5
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4378401639193429687
 GameObject:
@@ -80,8 +80,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8124864623387255289}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_EndAngleFade: 180
   m_UVScale: {x: 1, y: 1}
   m_UVBias: {x: 0, y: 0}
-  m_DecalLayerMask: 1
+  m_DecalLayerMask: 2
   m_ScaleMode: 1
   m_Offset: {x: 0, y: 0, z: 0}
   m_Size: {x: 1, y: 1, z: 1}
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710fc0b6a8c448839d6ac64912577301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buildingRadius: 5
+  _buildingRadius: 2
   _bubble: {fileID: 8028259871469707798}
   _buildingMesh: {fileID: 8808605306755053429}
   _buildingCollider: {fileID: 8710755265479393573}
@@ -183,7 +183,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.26277, y: 3.2996185, z: 6.2762394}
+  m_Size: {x: 4, y: 3.2996185, z: 4}
   m_Center: {x: 0.00000023841858, y: 1.6448544, z: 0.0067338943}
 --- !u!1001 &3876523432097961826
 PrefabInstance:
@@ -195,15 +195,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a80a982ad3e61594ca8813dc8f458b68, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.35
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a80a982ad3e61594ca8813dc8f458b68, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.35
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a80a982ad3e61594ca8813dc8f458b68, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.35
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a80a982ad3e61594ca8813dc8f458b68, type: 3}
       propertyPath: m_LocalPosition.x
@@ -382,6 +382,10 @@ PrefabInstance:
     - target: {fileID: 958516053111325198, guid: 45d406f94e9ba0243bd9c7894f6a8102, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4722118825724770804, guid: 45d406f94e9ba0243bd9c7894f6a8102, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6669484248802567553, guid: 45d406f94e9ba0243bd9c7894f6a8102, type: 3}
       propertyPath: m_Name
