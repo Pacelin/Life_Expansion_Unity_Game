@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 4064135220031198543, guid: 7bc9ec10e106c1e4bbae3a9208b0f50d, type: 3}
   _mineralsCost: 500
-  _colonizersCost: 8
+  _colonizersCost: 10
   _energyCost: 4
   _buildTerritory: 0
   _name:
