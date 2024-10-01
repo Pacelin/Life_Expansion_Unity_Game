@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e817574edb9147568f294782aba1745e, type: 3}
-  m_Name: Cosmoport_Level_1
+  m_Name: Cosmoport_Level_3
   m_EditorClassIdentifier: 
   _generalConfig: {fileID: 11400000, guid: e55bbba89f209144d84d93b4638d7ea8, type: 2}
-  _unlockCondition: {fileID: 11400000, guid: b2e15923f736c34439419d3a8650ada2, type: 2}
+  _unlockCondition: {fileID: 11400000, guid: 6fa8cd798a41a214784451bb59c7bf51, type: 2}
