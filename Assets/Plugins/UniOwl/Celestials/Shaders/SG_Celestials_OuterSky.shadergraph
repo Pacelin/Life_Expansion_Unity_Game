@@ -2876,7 +2876,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "Fractal Simplex Noise 3D",
+    "m_Name": "SSG_Generation_snoise3",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -3814,7 +3814,7 @@
     "m_Group": {
         "m_Id": "26aa9c1933424ca1880a1d78f799b827"
     },
-    "m_Name": "Fractal Simplex Noise 3D",
+    "m_Name": "SSG_Generation_snoise3",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -5057,7 +5057,7 @@
     "m_Group": {
         "m_Id": "26aa9c1933424ca1880a1d78f799b827"
     },
-    "m_Name": "Warped Fractal Simplex Noise 3D",
+    "m_Name": "SSG_Generation_wsnoise3",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -5875,7 +5875,7 @@
     "m_Group": {
         "m_Id": "ba38f018772246e792ef23325aa2d490"
     },
-    "m_Name": "Fractal Voronoi 3D",
+    "m_Name": "SSG_Generation_voronoi3",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {

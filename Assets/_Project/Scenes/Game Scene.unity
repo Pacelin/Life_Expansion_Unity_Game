@@ -400,6 +400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 270105428}
   - component: {fileID: 270105427}
+  - component: {fileID: 270105429}
   m_Layer: 0
   m_Name: Reflection Probe
   m_TagString: Untagged
@@ -418,7 +419,7 @@ ReflectionProbe:
   serializedVersion: 2
   m_Type: 0
   m_Mode: 1
-  m_RefreshMode: 1
+  m_RefreshMode: 2
   m_TimeSlicingMode: 1
   m_Resolution: 128
   m_UpdateFrequency: 0
@@ -455,6 +456,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &270105429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270105426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 597fd0c597e9fc649beb001cc82a99f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _probe: {fileID: 270105427}
+  _updateInterval: 1
 --- !u!1 &938597537
 GameObject:
   m_ObjectHideFlags: 0
