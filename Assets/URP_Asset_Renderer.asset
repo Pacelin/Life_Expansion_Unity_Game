@@ -29,7 +29,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1614fc811f8f184697d9bee70ab9fe5, type: 3}
   m_Name: DecalRendererFeature
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   m_Settings:
     technique: 2
     maxDrawDistance: 1000
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: Skybox
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   settings:
     passTag: Skybox
     Event: 210
@@ -127,11 +127,11 @@ MonoBehaviour:
     failOperation: 0
     zFailOperation: 0
   m_ShadowTransparentReceive: 1
-  m_RenderingMode: 1
+  m_RenderingMode: 2
   m_DepthPrimingMode: 2
   m_CopyDepthMode: 2
-  m_DepthAttachmentFormat: 0
-  m_DepthTextureFormat: 0
+  m_DepthAttachmentFormat: 94
+  m_DepthTextureFormat: 94
   m_AccurateGbufferNormals: 1
   m_IntermediateTextureMode: 1
 --- !u!114 &8407064001845798865

@@ -11,7 +11,8 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: fe6e3f364ed998f41b6714d8e30fad6d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _USE_BAKED_TEXTURES
   m_InvalidKeywords:
   - _ENABLE_NORMALS
   - _ENABLE_TEMPERATURE
@@ -28,6 +29,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _NoiseTexture:
+        m_Texture: {fileID: 2800000, guid: ba5ba7c9ad60578409f41870b8c71aee, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -70,6 +75,7 @@ Material:
     - _Temperature: 1
     - _Temperature_Offset: 0.5
     - _Temperature_Power: 15
+    - _USE_BAKED_TEXTURES: 1
     - _Water_Normal_Strength: 0.03
     - _Water_Smoothness: 0.9
     - _Wave_Speed: 2
