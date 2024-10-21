@@ -15,6 +15,7 @@ MonoBehaviour:
   _enabled: 1
   _viewPrefab: {fileID: 1630389272522623207, guid: a09c11adb9d00d242a20f8b6996704dd, type: 3}
   _settingsViewPrefab: {fileID: 2306868219606126729, guid: fa57cc98109c12f43911c9a1d3c68d21, type: 3}
+  _aboutViewPrefab: {fileID: -7281405436828737192, guid: 73596178f65986d4ba4e0736312f213c, type: 3}
   _selectionViewPrefab: {fileID: 823884929558803542, guid: e1d7ea2ac5385fc4abf6dc65bb376154, type: 3}
   _levels:
   - Colonizers: {fileID: 11400000, guid: 2f2f3398fe665bf43a6ab67999c176ca, type: 2}

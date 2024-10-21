@@ -409,6 +409,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3847946966469834195}
   - component: {fileID: 7768501211530725116}
+  - component: {fileID: 5865715286659616926}
   m_Layer: 5
   m_Name: Toolbar Item
   m_TagString: Untagged
@@ -460,6 +461,23 @@ MonoBehaviour:
   _unlockedState: {fileID: 3276085757723443292}
   _itemIcon: {fileID: 6145265892045153626}
   _costText: {fileID: 8685932796889614799}
+--- !u!114 &5865715286659616926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4765206373241948213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0694007ee8d05d145ba30893d1e9ff67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _view: {fileID: 7768501211530725116}
+  _enterSound: {fileID: 8300000, guid: 3f44fcc8961b2104dbbf33e4f5d79b54, type: 3}
+  _enterSoundVolume: 1
+  _clickSound: {fileID: 8300000, guid: 0aff2fd7b6f5b244b9b48b940ae05cb6, type: 3}
+  _clickSoundVolume: 1
 --- !u!1 &5298851582835733953
 GameObject:
   m_ObjectHideFlags: 0

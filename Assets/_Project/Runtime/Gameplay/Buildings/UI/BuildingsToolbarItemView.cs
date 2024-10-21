@@ -33,6 +33,8 @@ namespace Runtime.Gameplay.Buildings.UI
         private bool _showedTooltip;
         private string _tooltipText;
 
+        public bool Locked => _locked;
+
         private void OnDisable()
         {
             if (_isSelected.Value)

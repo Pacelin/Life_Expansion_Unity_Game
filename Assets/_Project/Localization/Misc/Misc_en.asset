@@ -118,6 +118,90 @@ MonoBehaviour:
     m_Localized: Sound Volume
     m_Metadata:
       m_Items: []
+  - m_Id: 22968022422511616
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22968048901152768
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22968091062296576
+    m_Localized: Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22968108971974656
+    m_Localized: Main menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22978905420849152
+    m_Localized: Vladislav Rusakov
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22978948118863872
+    m_Localized: 'Game Design
+
+      Tech. Artist'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22978966305366016
+    m_Localized: Pavel Kibirev
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22978990720409600
+    m_Localized: Lead Unity Dev.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979011503185920
+    m_Localized: Pavel Doyzha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979030297862144
+    m_Localized: 'Level and
+
+      Balance Design'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979041551179776
+    m_Localized: Ilya Legkiy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979084647653376
+    m_Localized: Unity Dev.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979098061037568
+    m_Localized: Gleb Soloviev
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979127312113664
+    m_Localized: Sound Design
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979138947112960
+    m_Localized: Sofia Lopatkina
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979174393176064
+    m_Localized: 3D Artist
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979186716041216
+    m_Localized: Katya Suprunenko
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979210501939200
+    m_Localized: UI/UX Design
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22983254909902848
+    m_Localized: About us
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22987806811873280
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

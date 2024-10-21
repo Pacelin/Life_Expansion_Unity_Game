@@ -28,6 +28,9 @@ namespace Runtime.MainMenu
             _soundVolume.value = sound;
         }
 
-        public void SetLanguage(string language) => _languageText.text = language;
+        public void SetLanguage(string language)
+        {
+            
+        }
     }
 }

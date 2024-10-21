@@ -115,6 +115,86 @@ MonoBehaviour:
     m_Key: Sound_Volume_Caption
     m_Metadata:
       m_Items: []
+  - m_Id: 22968022422511616
+    m_Key: Pause_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22968048901152768
+    m_Key: Pause_Button_Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22968091062296576
+    m_Key: Pause_Button_Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22968108971974656
+    m_Key: Pause_Button_Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22978905420849152
+    m_Key: about_uniowl_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22978948118863872
+    m_Key: about_uniowl_role
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22978966305366016
+    m_Key: about_pacelin_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22978990720409600
+    m_Key: about_pacelin_role
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979011503185920
+    m_Key: about_pado_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979030297862144
+    m_Key: about_pado_role
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979041551179776
+    m_Key: about_fant_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979084647653376
+    m_Key: about_fant_role
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979098061037568
+    m_Key: about_bulba_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979127312113664
+    m_Key: about_bulba_role
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979138947112960
+    m_Key: about_hidey_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979174393176064
+    m_Key: about_hidey_role
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979186716041216
+    m_Key: about_tryam_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22979210501939200
+    m_Key: about_tryam_role
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22983254909902848
+    m_Key: about_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22987806811873280
+    m_Key: settings_lang
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

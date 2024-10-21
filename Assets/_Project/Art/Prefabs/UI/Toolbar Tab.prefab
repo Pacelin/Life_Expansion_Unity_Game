@@ -86,6 +86,8 @@ GameObject:
   - component: {fileID: 7548934349655642228}
   - component: {fileID: 2665067583345371303}
   - component: {fileID: 2668356761774509838}
+  - component: {fileID: 4497378717064001963}
+  - component: {fileID: 2877361872301502887}
   m_Layer: 5
   m_Name: Toolbar Tab
   m_TagString: Untagged
@@ -149,6 +151,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _caption: {fileID: 6372073614858805128}
   _selectedMark: {fileID: 8796311830239843953}
+--- !u!114 &4497378717064001963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700160497342854903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d36269977d5142309960120bb9958772, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enterSound: {fileID: 8300000, guid: 3f44fcc8961b2104dbbf33e4f5d79b54, type: 3}
+  _enterSoundVolume: 1
+  _clickSound: {fileID: 8300000, guid: 0aff2fd7b6f5b244b9b48b940ae05cb6, type: 3}
+  _clickSoundVolume: 1
+--- !u!114 &2877361872301502887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700160497342854903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 2
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 21300000, guid: ea5427f7e2ea89e4d88ca1d92e72c0a6, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: ea5427f7e2ea89e4d88ca1d92e72c0a6, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: ea5427f7e2ea89e4d88ca1d92e72c0a6, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: ea5427f7e2ea89e4d88ca1d92e72c0a6, type: 3}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 3485439811662203090}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7433441124502779746
 GameObject:
   m_ObjectHideFlags: 0

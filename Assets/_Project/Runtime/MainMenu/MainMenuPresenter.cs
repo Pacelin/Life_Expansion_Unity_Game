@@ -9,6 +9,7 @@ namespace Runtime.MainMenu
     {
         [Inject] private SettingsPresenter _settings;
         [Inject] private LevelSelectionPresenter _levels;
+        [Inject] private AboutPresenter _about;
         [Inject] private MainMenuView _view;
 
         private CompositeDisposable _disposables;
@@ -20,11 +21,27 @@ namespace Runtime.MainMenu
                 .Subscribe(_ => Application.Quit())
                 .AddTo(_disposables);
             _view.OnPlayClick
-                .Subscribe(_ => _levels.Show())
+                .Subscribe(_ =>
+                {
+                    _levels.Show();
+                    _about.SetViewActive(false);
+                    _settings.SetViewActive(false);
+                })
                 .AddTo(_disposables);
             _view.OnSettingsClick
-                .Subscribe(_ => _settings.Switch())
+                .Subscribe(_ =>
+                {
+                    _about.SetViewActive(false);
+                    _settings.Switch();
+                })
                 .AddTo(_disposables);
+            _view.OnAboutClick
+                 .Subscribe(_ =>
+                 {
+                     _settings.SetViewActive(false);
+                     _about.Switch();
+                 })
+                 .AddTo(_disposables);
         }
 
         public void Dispose()

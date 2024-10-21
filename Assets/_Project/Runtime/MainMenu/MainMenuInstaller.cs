@@ -1,6 +1,7 @@
 using Jamcelin.Runtime.Core;
 using Runtime.Gameplay.Misc;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Runtime.MainMenu
 {
@@ -9,6 +10,7 @@ namespace Runtime.MainMenu
     {
         [SerializeField] private MainMenuView _viewPrefab;
         [SerializeField] private SettingsView _settingsViewPrefab;
+        [SerializeField] private AboutView _aboutViewPrefab;
         [SerializeField] private LevelSelectionView _selectionViewPrefab;
         [Space] 
         [SerializeField] private LevelStartConfig[] _levels;
@@ -19,6 +21,12 @@ namespace Runtime.MainMenu
                 .FromComponentInNewPrefab(_settingsViewPrefab)
                 .AsCanvasView()
                 .OnInstantiated<SettingsView>((ic, o) => o.gameObject.SetActive(false));
+            
+            Container.Bind<AboutView>()
+                     .FromComponentInNewPrefab(_aboutViewPrefab)
+                     .AsCanvasView()
+                     .OnInstantiated<AboutView>((ic, o) => o.gameObject.SetActive(false));
+            
             Container.BindInterfacesAndSelfTo<SettingsPresenter>()
                 .AsSingle();
 
@@ -37,7 +45,10 @@ namespace Runtime.MainMenu
                 .FromComponentInNewPrefab(_viewPrefab)
                 .AsCanvasView()
                 .OnInstantiated<MainMenuView>((ic, o) => o.gameObject.SetActive(true));
+            
             Container.BindInterfacesAndSelfTo<MainMenuPresenter>()
+                .AsSingle();
+            Container.BindInterfacesAndSelfTo<AboutPresenter>()
                 .AsSingle();
         }
     }
