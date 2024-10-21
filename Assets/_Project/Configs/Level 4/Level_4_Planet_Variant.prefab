@@ -656,6 +656,7 @@ Material:
   - _MAIN_LIGHT_SHADOWS
   - _MAIN_LIGHT_SHADOWS_CASCADE
   - _SHADOWS_SOFT
+  - _USE_BAKED_TEXTURES
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -679,6 +680,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _OverallLevel: 0.5
+    - _USE_BAKED_TEXTURES: 1
     m_Colors:
     - _DryColor: {r: 0.8039216, g: 0.7019608, b: 0.45882353, a: 1}
     - _GrassColor: {r: 0.3372549, g: 0.7372549, b: 0.30980393, a: 1}
@@ -721,6 +723,7 @@ Material:
     m_Floats:
     - _Thickness: 0.225
     m_Colors:
+    - _Distance_Fade: {r: 0, g: 1, b: 0, a: 0}
     - _TempTint: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
@@ -739,6 +742,7 @@ Material:
   - _MAIN_LIGHT_SHADOWS
   - _MAIN_LIGHT_SHADOWS_CASCADE
   - _SHADOWS_SOFT
+  - _USE_BAKED_TEXTURES
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -766,6 +770,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _OverallLevel: 0.5
+    - _USE_BAKED_TEXTURES: 1
     m_Colors:
     - _DryColor: {r: 0.8039216, g: 0.7019608, b: 0.45882353, a: 1}
     - _GrassColor: {r: 0.3372549, g: 0.7372549, b: 0.30980393, a: 1}
@@ -886,6 +891,7 @@ Material:
   - _MAIN_LIGHT_SHADOWS
   - _MAIN_LIGHT_SHADOWS_CASCADE
   - _SHADOWS_SOFT
+  - _USE_BAKED_TEXTURES
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -913,6 +919,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _OverallLevel: 0.5
+    - _USE_BAKED_TEXTURES: 1
     m_Colors:
     - _DryColor: {r: 0.8039216, g: 0.7019608, b: 0.45882353, a: 1}
     - _GrassColor: {r: 0.3372549, g: 0.7372549, b: 0.30980393, a: 1}
@@ -2065,6 +2072,7 @@ Material:
   - _MAIN_LIGHT_SHADOWS
   - _MAIN_LIGHT_SHADOWS_CASCADE
   - _SHADOWS_SOFT
+  - _USE_BAKED_TEXTURES
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -2092,6 +2100,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _OverallLevel: 0.5
+    - _USE_BAKED_TEXTURES: 1
     m_Colors:
     - _DryColor: {r: 0.8039216, g: 0.7019608, b: 0.45882353, a: 1}
     - _GrassColor: {r: 0.3372549, g: 0.7372549, b: 0.30980393, a: 1}
@@ -2166,6 +2175,7 @@ Material:
   - _MAIN_LIGHT_SHADOWS
   - _MAIN_LIGHT_SHADOWS_CASCADE
   - _SHADOWS_SOFT
+  - _USE_BAKED_TEXTURES
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -2193,6 +2203,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _OverallLevel: 0.5
+    - _USE_BAKED_TEXTURES: 1
     m_Colors:
     - _DryColor: {r: 0.8039216, g: 0.7019608, b: 0.45882353, a: 1}
     - _GrassColor: {r: 0.3372549, g: 0.7372549, b: 0.30980393, a: 1}
@@ -2463,6 +2474,7 @@ Material:
   - _MAIN_LIGHT_SHADOWS
   - _MAIN_LIGHT_SHADOWS_CASCADE
   - _SHADOWS_SOFT
+  - _USE_BAKED_TEXTURES
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -2490,6 +2502,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _OverallLevel: 0.5
+    - _USE_BAKED_TEXTURES: 1
     m_Colors:
     - _DryColor: {r: 0.8039216, g: 0.7019608, b: 0.45882353, a: 1}
     - _GrassColor: {r: 0.3372549, g: 0.7372549, b: 0.30980393, a: 1}
