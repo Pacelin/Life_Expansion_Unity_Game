@@ -432,7 +432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9055674946474098310, guid: c5e922bf3f2eb2a4f9347a682166209a, type: 3}
       propertyPath: _rotationPeriod
-      value: 10
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 9055674946474098310, guid: c5e922bf3f2eb2a4f9347a682166209a, type: 3}
       propertyPath: _rotationEuler.x

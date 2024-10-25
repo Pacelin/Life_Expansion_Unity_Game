@@ -154,7 +154,7 @@ PlayerSettings:
     enable360StereoCapture: 0
   isWsaHolographicRemotingEnabled: 0
   enableFrameTimingStats: 0
-  enableOpenGLProfilerGPURecorders: 1
+  enableOpenGLProfilerGPURecorders: 0
   allowHDRDisplaySupport: 0
   useHDRDisplay: 0
   hdrBitDepth: 0
@@ -189,7 +189,7 @@ PlayerSettings:
   androidSplitApplicationBinary: 0
   keepLoadedShadersAlive: 0
   StripUnusedMeshComponents: 1
-  strictShaderVariantMatching: 1
+  strictShaderVariantMatching: 0
   VertexChannelCompressionMask: 4054
   iPhoneSdkVersion: 988
   iOSSimulatorArchitecture: 0
@@ -529,6 +529,9 @@ PlayerSettings:
   m_BuildTargetBatching:
   - m_BuildTarget: WebGL
     m_StaticBatching: 1
+    m_DynamicBatching: 1
+  - m_BuildTarget: Standalone
+    m_StaticBatching: 0
     m_DynamicBatching: 1
   m_BuildTargetShaderSettings: []
   m_BuildTargetGraphicsJobs: []
@@ -870,7 +873,7 @@ PlayerSettings:
     PS5: 1
     QNX: 1
     ReservedCFE: 1
-    Standalone: 1
+    Standalone: 4
     VisionOS: 1
     WebGL: 1
     Windows Store Apps: 1

@@ -24,7 +24,8 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: dd559335660498e459ab1c061704299d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _USE_BAKED_TEXTURES
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
@@ -37,6 +38,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Noise_Texture:
+        m_Texture: {fileID: 2800000, guid: 78c39b8d4a0093446b6818cfd282bb44, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -62,11 +67,13 @@ Material:
     - _Scale: 1
     - _Smoothness: 0.5
     - _Thickness: 0
+    - _USE_BAKED_TEXTURES: 1
     - _Warp_Offset: 1
     - _Warp_Scale: 1
     m_Colors:
     - _BaseColor: {r: 0.29411766, g: 0.16862746, b: 0.49411768, a: 1}
     - _Color_Edge: {r: 0, g: 0, b: 0, a: 0}
+    - _Distance_Fade: {r: 10, g: 15, b: 0, a: 0}
     - _OvercastColor: {r: 0.21568629, g: 0, b: 1, a: 1}
     - _TempTint: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

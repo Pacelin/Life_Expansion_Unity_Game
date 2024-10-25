@@ -42,7 +42,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681ed173d4fc4633a01c3e8645d9091d, type: 3}
   m_Name: Rings Layer
   m_EditorClassIdentifier: 
-  _active: 0
+  _active: 1
   _list: {fileID: 11400000}
   _prefab: {fileID: 5520269596193722071, guid: 3b255b5c54e0a3e47b1c7e5b97dd4cef, type: 3}
   baseColor: {r: 1, g: 1, b: 1, a: 1}
@@ -105,7 +105,7 @@ MonoBehaviour:
   _prefab: {fileID: 7555184071596248321, guid: b9ffe243d4c9c6d48a12e9b52be5f43f, type: 3}
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   overcastColor: {r: 0.4509804, g: 0.4509804, b: 0.4509804, a: 1}
-  maxThickness: 0.45
+  maxThickness: 0.5
   height: 11.05
 --- !u!114 &8352991904784129850
 MonoBehaviour:

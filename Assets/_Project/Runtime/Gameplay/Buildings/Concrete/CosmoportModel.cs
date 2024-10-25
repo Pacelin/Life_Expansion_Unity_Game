@@ -10,11 +10,16 @@ namespace Runtime.Gameplay.Buildings.Concrete
     public class CosmoportModel : BuildingModel<CosmoportConfig>
     {
         [Inject] private SceneManager _manager;
+
         protected override async void OnEnable()
         {
+            await UniTask.DelayFrame(2);
+
+            if (!Enabled) return;
+
             CongratulationView.Instance.gameObject.SetActive(true);
             await UniTask.Delay(TimeSpan.FromSeconds(2));
-            _manager.SwitchScene(EScene.MainMenu, _ => {}).Forget();
+            _manager.SwitchScene(EScene.MainMenu, _ => { }).Forget();
         }
 
         protected override void OnDisable()

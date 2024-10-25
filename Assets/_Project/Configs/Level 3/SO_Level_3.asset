@@ -157,5 +157,5 @@ MonoBehaviour:
   _prefab: {fileID: 7555184071596248321, guid: b9ffe243d4c9c6d48a12e9b52be5f43f, type: 3}
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   overcastColor: {r: 0.32941177, g: 0.16926707, b: 0.04313725, a: 1}
-  maxThickness: 0.29
+  maxThickness: 0.36
   height: 9.07
